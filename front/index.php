@@ -9,7 +9,7 @@ require_once('menu.php');
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Home</h1>
+    <h1>Nome da Pagina</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
@@ -19,7 +19,7 @@ require_once('menu.php');
   </div><!-- End Page Title -->
   <!--SEU CODIGO COMEÇA AQUI-->
 
-  <h1>Seu codigo!</h1>
+  <h6>Seu codigo!</h6>
 
   <!--SEU CODIGO TERMINA AQUI-->
 </main><!-- End #main -->
