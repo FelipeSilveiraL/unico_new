@@ -4,13 +4,14 @@ require_once('databases.php');
 
 $queryUsuarios = "SELECT 
 U.nome AS nome_usuario,
-U.id_usuario,
 U.cpf,
 CE.id_empresa,
 CE.empresa,
 CD.id_depto,
 CD.nome AS departamento,
 U.senha,
+U.usuario,
+U.id_usuario,
 U.email,
 U.admin,
 U.alterar_senha_login,

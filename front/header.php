@@ -23,13 +23,13 @@
                 <li class="nav-item dropdown pe-3">
 
                     <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                        <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                        <span class="d-none d-md-block dropdown-toggle ps-2"><?= $_SESSION['nome_usuario'] ?></span>
                     </a><!-- End Profile Iamge Icon -->
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Kevin Anderson</h6>
-                            <span>Administrador</span>
+                            <h6><?= $_SESSION['nome_usuario'] ?></h6>
+                            <span><?= $_SESSION['admin'] == 1 ? "Administrador" : "Usuários Padrão" ?></span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">
