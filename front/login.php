@@ -37,7 +37,7 @@ require_once('head.php');
                     <div class="col-12">
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend"><i class="bi bi-lock"></i></span>
-                        <input type="text" name="password" placeholder="Senha" class="form-control" id="password" required>
+                        <input type="password" name="password" placeholder="Senha" class="form-control" id="password" required>
                       </div>
                     </div>
                     <?php require_once('../inc/mensagens.php'); ?>
@@ -46,7 +46,7 @@ require_once('head.php');
                     </div>
                     <div class="col-12 text-center">
                       <p class="small mb-0">Nova uma conta ou esqueceu a senha</p>
-                      <p class="small mb-0">Ligue para o <a href="http://<?= $_SESSION['ip_servidor'] ?>/lista/filiais/index.php?dep=1,89" target="_blank">Departamento TI</a></p>
+                      <p class="small mb-0">Ligue para o <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/lista/filiais/index.php?dep=1,89" target="_blank">Departamento TI</a></p>
                     </div>
                   </form>
                 </div>

@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="nav-link " href="../index.php">
                 <i class="bi bi-grid"></i>
-                <span>HOME</span>
+                <span>Home</span>
             </a>
         </li><!-- End Dashboard Nav -->
 

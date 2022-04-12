@@ -19,7 +19,7 @@ require_once('menu.php');
   </div><!-- End Page Title -->
   <!--SEU CODIGO COMEÇA AQUI-->
 
-  <h1>Seu codigo!</h1>
+  <h6>Seu codigo!</h6>
 
   <!--SEU CODIGO TERMINA AQUI-->
 </main><!-- End #main -->

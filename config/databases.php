@@ -11,6 +11,6 @@
 	
 	if(!$conn){
 		die("Erro no servidor '".$dbnameUnico."' : " . mysqli_connect_error());
-	}	
+	}
 	
 ?>

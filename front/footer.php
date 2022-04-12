@@ -4,7 +4,7 @@
     &copy; TI Grupo Servopa
   </div>
   <div class="credits">
-    Dúvidas ou sujestões entrar em contato via <a href="http://<?= $_SESSION['ip_servidor'] ?>/glpi">GLPI</a>
+    Dúvidas ou sujestões entrar em contato via <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/glpi" target="_blank">GLPI</a>
   </div>
 </footer><!-- End Footer -->
 

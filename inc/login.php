@@ -9,11 +9,11 @@ $usuario = mysqli_real_escape_string($conn, $_POST['username']);
 $senha = mysqli_real_escape_string($conn, $_POST['password']);
 
 //BUSCANDO USUÁRIO
-$queryUsuarios .= "WHERE U.usuario = " . $usuario . "";
+$queryUsuarios .= "WHERE U.usuario = '" . $usuario . "'";
 $resultadoUsuario = $conn->query($queryUsuarios);
 $usuario = $resultadoUsuario->fetch_assoc();
 
-if ($usuario['deletar'] == 0) {
+if ($usuario['deletar'] == 1) {
 
     header('Location: ../front/login.php?msn=1');//usuario desativado
 
@@ -36,9 +36,6 @@ if ($usuario['deletar'] == 0) {
             $_SESSION['empresa'] = $usuario['empresa'];
             $_SESSION['id_depto'] = $usuario['id_depto'];
             $_SESSION['departamento'] = $usuario['departamento'];
-
-            //SESSÕES DO SISTEMA
-            $_SESSION['ip_servidor'] = $_SERVER['REMOTE_ADDR'];
 
             header("Location: ../front/index.php");
 
