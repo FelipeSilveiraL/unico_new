@@ -1,13 +1,15 @@
 <?php
 session_start();
 
+require_once('../config/databases.php');
+require_once('../config/query.php');
 require_once('head.php');
 require_once('header.php');
 require_once('menu.php');
 ?>
 
 <main id="main" class="main">
-
+<?php require_once('../inc/mensagens.php') ?>
   <div class="pagetitle">
     <h1>Nome da Pagina</h1>
     <nav>

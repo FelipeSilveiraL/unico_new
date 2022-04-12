@@ -36,7 +36,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+                            <a class="dropdown-item d-flex align-items-center" href="javascript:" data-bs-toggle="modal" data-bs-target="#ModalPerfil">
                                 <i class="bi bi-person"></i>
                                 <span>Meu perfil</span>
                             </a>
@@ -79,5 +79,100 @@
         </nav><!-- End Icons Navigation -->
 
     </header><!-- End Header -->
+    <div class="modal fade" id="ModalPerfil" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Meu perfil</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Profile Edit Form -->
+                    <form action="../inc/editar_perfil.php?id_usuario=<?= $_SESSION['id_usuario'] ?>" method="post">
+                        <h5 class="card-title">Principal</h5>
+                        <div class="row mb-3">
+                            <label for="nomeUsuario" class="col-md-4 col-lg-3 col-form-label">Nome</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="nomeUsuario" type="text" class="form-control" id="nomeUsuario" value="<?= $_SESSION['nome_usuario'] ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-lg-3 col-form-label">E-mail</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="email" type="email" class="form-control" id="email" value="<?= $_SESSION['email'] ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="cpf" class="col-md-4 col-lg-3 col-form-label">CPF</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="cpf" type="text" class="form-control" id="cpf" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" onblur="ValidarCPF(this)" value="<?= $_SESSION['cpf'] ?>" required="">
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Empresa</label>
+                            <div class="col-sm-9">
+                                <select class="form-select" name="empresa">
+                                    <option value="<?= $_SESSION['id_empresa'] ?>" selected><?= $_SESSION['empresa'] ?></option>
+                                    <option>--------</option>
+                                    <?php
+                                    $resultEmpresa = $conn->query($queryEmpresa);
+
+                                    while ($empresa = $resultEmpresa->fetch_assoc()) {
+                                        echo '<option value="' . $empresa['id_empresa'] . '">' . $empresa['empresa'] . '</option>';
+                                    }
+                                    ?>
+
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="row mb-3">
+                            <label class="col-sm-3 col-form-label">Departamento</label>
+                            <div class="col-sm-9">
+                                <select class="form-select" name="departamento">
+                                    <option value="<?= $_SESSION['id_depto'] ?>" selected><?= $_SESSION['departamento'] ?></option>
+                                    <option>--------</option>
+                                    <?php
+                                    $resultDepartamento = $conn->query($queryDepartamento);
+
+                                    while ($departamento = $resultDepartamento->fetch_assoc()) {
+                                        echo '<option value="' . $departamento['id_depto'] . '">' . $departamento['nome'] . '</option>';
+                                    }
+                                    ?>
+
+                                </select>
+                            </div>
+                        </div>
+                        <h5 class="card-title">Login</h5>
+                        <div class="row mb-3">
+                            <label for="usuario" class="col-md-4 col-lg-3 col-form-label">Usuário</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="usuario" type="text" class="form-control" id="usuario" value="<?= $_SESSION['usuario'] ?>">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="senha" class="col-md-4 col-lg-3 col-form-label">Senha</label>
+                            <div class="col-md-8 col-lg-9">
+                                <input name="senha" type="password" class="form-control" id="senha" value="">
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form><!-- End Profile Edit Form -->
+
+                </div>
+            </div>
+        </div>
+    </div><!-- End Basic Modal-->
 
     <!-- ======= Sidebar ======= -->

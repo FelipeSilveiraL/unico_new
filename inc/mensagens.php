@@ -17,5 +17,11 @@ if (!empty($_GET['msn'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             break;
+        case '3':
+            echo '
+                <script>
+                    alert("Perfil Editado com sucesso, deslogue e logue novamente no sistema!");
+                </script>';
+            break;
     }
 }
