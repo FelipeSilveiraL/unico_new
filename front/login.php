@@ -45,7 +45,7 @@ require_once('head.php');
                       <button class="btn btn-primary w-100" type="submit">Entrar</button>
                     </div>
                     <div class="col-12 text-center">
-                      <p class="small mb-0">Nova uma conta ou esqueceu a senha</p>
+                      <p class="small mb-0">Nova conta ou esqueceu a senha</p>
                       <p class="small mb-0">Ligue para o <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/lista/filiais/index.php?dep=1,89" target="_blank">Departamento TI</a></p>
                     </div>
                   </form>

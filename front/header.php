@@ -45,7 +45,7 @@
                             <hr class="dropdown-divider">
                         </li>
 
-                        <li>
+                        <li style="display: <?= $_SESSION['admin'] == 1 ?: "none" ?>;">
                             <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                                 <i class="bi bi-gear"></i>
                                 <span>Configurações</span>
@@ -66,7 +66,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="../inc/unset.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sair</span>
                             </a>
