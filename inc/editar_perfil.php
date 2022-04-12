@@ -20,8 +20,11 @@ $update = "UPDATE usuarios SET
 
 $update .= " WHERE id_usuario = '".$_GET['id_usuario']."'";
 
+
+echo $update;
+/* 
 if($resultUpdate = $conn->query($update)){
    header('Location: ../front/index.php?msn=3'); 
 }else{
     echo "nao foi possivel editar o seu perfil!";
-}
+} */

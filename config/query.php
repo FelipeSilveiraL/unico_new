@@ -19,7 +19,7 @@ U.deletar
 FROM
 usuarios U
 LEFT JOIN cad_empresa CE ON (U.empresa = CE.id_empresa)
-LEFT JOIN cad_depto CD ON (U.empresa = CD.id_depto) ";
+LEFT JOIN cad_depto CD ON (U.depto = CD.id_depto) ";
 
 //-------------------------//
 $queryEmpresa = "SELECT 
