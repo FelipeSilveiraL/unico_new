@@ -5,7 +5,7 @@
         <li class="nav-heading">Sistemas</li>
 
         <li class="nav-item">
-            <a class="nav-link " href="../index.php">
+            <a class="nav-link <?= $_GET['pg'] == NULL ?: "collapsed" ?>" href="../index.php">
                 <i class="bi bi-grid"></i>
                 <span>Home</span>
             </a>
@@ -13,15 +13,15 @@
         <hr>
         <li class="nav-heading">Paginas</li>
 
-        <li class="nav-item">
+        <li class="nav-item collapsed">
             <a class="nav-link collapsed" href="javascript:" data-bs-toggle="modal" data-bs-target="#ModalPerfil">
                 <i class="bi bi-person"></i>
                 <span>Meu perfil</span>
             </a>
         </li>
 
-        <li class="nav-item" style="display: <?= $_SESSION['admin'] == 1 ?: "none" ?>;">
-            <a class="nav-link collapsed" href="#">
+        <li class="nav-item" style="display: <?= $_SESSION['admin'] == 1 ? "block" : "none" ?>;">
+            <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="configuracao.php?pg=1">
                 <i class="bi bi-gear"></i>
                 <span>Configurações</span>
             </a>
