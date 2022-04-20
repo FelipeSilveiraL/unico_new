@@ -41,7 +41,7 @@ require_once('head.php');
                       </div>
                     </div>
                     <?php require_once('../inc/mensagens.php'); ?>
-                    <div class="col-12">
+                    <div class="col-12 py-3">
                       <button class="btn btn-primary w-100" type="submit">Entrar</button>
                     </div>
                     <div class="col-12 text-center">

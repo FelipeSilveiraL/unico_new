@@ -41,16 +41,7 @@
                                 <span>Meu perfil</span>
                             </a>
                         </li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-
-                        <li style="display: <?= $_SESSION['admin'] == 1 ?: "none" ?>;">
-                            <a class="dropdown-item d-flex align-items-center" href="configuracao.php?pg=1">
-                                <i class="bi bi-gear"></i>
-                                <span>Configurações</span>
-                            </a>
-                        </li>
+                        
                         <li>
                             <hr class="dropdown-divider">
                         </li>
