@@ -26,31 +26,27 @@
             </a>
             <ul id="charts-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="usuarios.php?pg=1&conf=1">
+                    <a href="usuarios.php?pg=1&conf=1" <?= $_GET['conf'] == 1 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Lista Usuários</span>
                     </a>
                 </li>
                 <li>
-                    <a href="dropdowns.php?pg=1&conf=2">
+                    <a href="dropdowns.php?pg=1&conf=2" <?= $_GET['conf'] == 2 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Menus(Dropdowns)</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sistemas.php?pg=1&conf=3">
+                    <a href="sistemas.php?pg=1&conf=3" <?= $_GET['conf'] == 3 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Sistemas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="api.php?pg=1&conf=4">
+                    <a href="api.php?pg=1&conf=4" <?= $_GET['conf'] == 4 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>API</span>
                     </a>
                 </li>
             </ul>
         </li><!-- End Charts Nav -->
-
-
-
-
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#">

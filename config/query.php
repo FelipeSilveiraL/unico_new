@@ -2,7 +2,8 @@
 
 require_once('databases.php');
 
-$queryUsuarios = "SELECT 
+$queryUsuarios = "SELECT
+U.id_usuario, 
 U.nome AS nome_usuario,
 U.cpf,
 CE.id_empresa,
@@ -22,16 +23,10 @@ LEFT JOIN cad_empresa CE ON (U.empresa = CE.id_empresa)
 LEFT JOIN cad_depto CD ON (U.depto = CD.id_depto) ";
 
 //-------------------------//
-$queryEmpresa = "SELECT 
-* 
-FROM 
-cad_empresa ";
+$queryEmpresa = "SELECT * FROM cad_empresa ";
 
 //-------------------------//
-$queryDepartamento = "SELECT 
-* 
-FROM 
-cad_depto ";
+$queryDepartamento = "SELECT * FROM cad_depto ";
 
 //-------------------------//
 $queryUserSistema = "SELECT 
@@ -47,7 +42,10 @@ cad_sis_user CSU
 LEFT JOIN cad_sistemas CS ON (CSU.id_sistema = CS.id) ";
 
 //-------------------------//
-$queryVariaveisSistema = "SELECT 
-*
-FROM
-cad_variaveis_sistemas;";
+$queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas";
+
+
+//-------------------------//
+$querySistema = "SELECT * FROM cad_sistemas";
+
+?>
