@@ -6,14 +6,14 @@ if (!empty($_GET['msn'])) {
         case '1':
             echo '
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-              Usuário removido ou desativado!
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <span style="font-size: 12px">Usuário removido ou desativado!</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             break;
         case '2':
             echo '
             <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                E-mail ou senha incorretas!
+                <span style="font-size: 12px"> E-mail ou senha incorretas!</span>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             break;
@@ -41,6 +41,13 @@ if (!empty($_GET['msn'])) {
             echo '
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     Usuário ativado com sucesso!
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            break;
+        case '7':
+            echo '
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <span style="font-size: 12px">Senha alterada, agora logue para confirmar!</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;

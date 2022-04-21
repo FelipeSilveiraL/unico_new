@@ -23,7 +23,7 @@ if ($usuario['deletar'] == 1) {
 
         if ($usuario['alterar_senha_login'] == 1) {
 
-            header('Location: ../front/alterar.php?id_usuario=' . $usuario['id_usuario'] . '');
+            header('Location: ../front/usuarioAlterar.php?id_usuario=' . $usuario['id_usuario'] . '');
 
         } else {
             //SESSÕES DO USUÁRIO
