@@ -31,6 +31,21 @@ $updateUsuario .=       "admin='".$admin."',
                     WHERE 
                         id_usuario='".$_GET['id_usuario']."'";
 
-                        
+$resultado = $conn->query($updateUsuario);
 
+//SISTEMAS
+
+//LIMPA
+$queryLimpando = "DELETE FROM cad_sis_user WHERE id_usuario = ".$_GET['id_usuario'];
+$resultado = $conn->query($queryLimpando);
+
+//SALVA
+foreach ($_POST['sistemas'] as $key => $value) {
+    $queryInsert = "INSERT INTO cad_sis_user (id_sistema, id_usuario) VALUES ('".$value."', '".$_GET['id_usuario']."')";
+    $resultado = $conn->query($queryInsert);
+}
+
+$conn->close();
+
+header('location: ../front/usuariosEditar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_usuario='.$_GET['id_usuario'].'&msn=4')
 ?>

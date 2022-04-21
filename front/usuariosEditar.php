@@ -28,6 +28,8 @@ $usuario = $resultUsuario->fetch_assoc();
     </nav>
   </div><!-- End Page Title -->
 
+  <?php require_once('../inc/mensagens.php') ?><!-- Alertas -->
+
   <section class="section">
     <div class="row">
       <div class="col-lg-12">

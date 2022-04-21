@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-require_once('../config/databases.php');
-require_once('../config/query.php');
-require_once('administrador.php');
-require_once('head.php');
-require_once('header.php');
-require_once('menu.php');
+require_once('../config/databases.php');//Banco de dados
+require_once('../config/query.php');//Todas as pesquisas de banco
+require_once('administrador.php');//regra de perfis
+require_once('head.php');//CSS e configurações HTML
+require_once('header.php');//logo e login
+require_once('menu.php');//menu lateral da pagina
 ?>
 
 <main id="main" class="main">
@@ -19,13 +19,19 @@ require_once('menu.php');
         <li class="breadcrumb-item">Pagina Branco</li>
       </ol>
     </nav>
-  </div><!-- End Page Title -->
-  <!--COLE O SEU MAIN AQUI-->
+  </div><!-- End Navegação -->
+  
+  <?php require_once('../inc/mensagens.php') ?><!-- Alertas -->
 
-  <h6>Seu MAIN!</h6>
+  <!--################# COLE section AQUI #################-->
 
-  <!--SEU MAIN TERMINA AQUI-->
+  <h6>Inicio da section!</h6>
+
+  <!--################# section TERMINA AQUI #################-->
+
 </main><!-- End #main -->
+
+
 <?php
-require_once('footer.php');
+require_once('footer.php');//Javascript e configurações afins
 ?>

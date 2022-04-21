@@ -23,5 +23,12 @@ if (!empty($_GET['msn'])) {
                     alert("Perfil Editado com sucesso, deslogue e logue novamente no sistema!");
                 </script>';
             break;
+        case '4':
+            echo '
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Usuário Editado com sucesso!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+            break;
     }
 }
