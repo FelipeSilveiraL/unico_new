@@ -27,6 +27,11 @@ body {
     max-height: 120px;
 }
 
+.button-rigth-card{
+  margin-left: 76%;
+
+}
+
 a {
   color: #4154f1;
   text-decoration: none;
