@@ -20,7 +20,9 @@
         <li class="breadcrumb-item active">Usuários</li>
       </ol>
     </nav>
-  </div><!-- End Page Title -->
+  </div><!-- End Navegação -->
+  
+  <?php require_once('../inc/mensagens.php') ?><!-- Alertas -->
 
   <section class="section">
     <div class="row">
@@ -59,12 +61,12 @@
                             
                             if($usuario['deletar'] == 1){
                               echo '
-                                    <a href="#" title="Ativar" class="btn btn-success btn-sm">
+                                    <a href="../inc/ativarDesativar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_usuario='.$usuario['id_usuario'].'&deletar=0" title="Ativar" class="btn btn-success btn-sm">
                                       <i class="bi bi-check-square"></i>
                                     </a>';
                             }else{
                               echo '
-                                    <a href="#" title="Desativar" class="btn btn-danger btn-sm">
+                                    <a href="../inc/ativarDesativar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_usuario='.$usuario['id_usuario'].'&deletar=1" title="Desativar" class="btn btn-danger btn-sm">
                                       <i class="bi bi-trash"></i>
                                       </a>';
                             }
