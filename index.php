@@ -7,3 +7,5 @@
     }else{
         header('location: front/index.php');
     }
+
+?>
