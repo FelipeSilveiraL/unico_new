@@ -32,7 +32,7 @@
                 </li>
                 <li>
                     <a href="dropdowns.php?pg=1&conf=2" <?= $_GET['conf'] == 2 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Menus(Dropdowns)</span>
+                        <i class="bi bi-circle"></i><span>Menu suspenso</span>
                     </a>
                 </li>
                 <li>

@@ -1,14 +1,15 @@
 <?php
-
+//-------------------------//
 require_once('databases.php');
 
+//-------------------------//
 $queryUsuarios = "SELECT
 U.id_usuario, 
 U.nome AS nome_usuario,
 U.cpf,
-CE.id_empresa,
-CE.empresa,
-CD.id_depto,
+CE.id AS id_empresa,
+CE.nome AS empresa,
+CD.id AS id_depto,
 CD.nome AS departamento,
 U.senha,
 U.usuario,
@@ -19,14 +20,14 @@ U.alterar_senha_login,
 U.deletar
 FROM
 usuarios U
-LEFT JOIN cad_empresa CE ON (U.empresa = CE.id_empresa)
-LEFT JOIN cad_depto CD ON (U.depto = CD.id_depto) ";
+LEFT JOIN cad_empresa CE ON (U.empresa = CE.id)
+LEFT JOIN cad_depto CD ON (U.depto = CD.id) ";
 
 //-------------------------//
-$queryEmpresa = "SELECT * FROM cad_empresa ";
+$queryEmpresa = "SELECT * FROM cad_empresa WHERE deletar = 0";
 
 //-------------------------//
-$queryDepartamento = "SELECT * FROM cad_depto ";
+$queryDepartamento = "SELECT * FROM cad_depto WHERE deletar = 0";
 
 //-------------------------//
 $queryUserSistema = "SELECT 
@@ -47,5 +48,3 @@ $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas";
 
 //-------------------------//
 $querySistema = "SELECT * FROM cad_sistemas";
-
-?>

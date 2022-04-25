@@ -26,21 +26,21 @@ if (!empty($_GET['msn'])) {
         case '4':
             echo '
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Usuário Editado com sucesso!
+                Editado com sucesso!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             break;
         case '5':
             echo '
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    Usuário desativado com sucesso!
+                    Desativado com sucesso!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;
         case '6':
             echo '
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Usuário ativado com sucesso!
+                    Ativado com sucesso!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;
@@ -54,7 +54,7 @@ if (!empty($_GET['msn'])) {
         case '8':
             echo '
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    Usuário criado com sucesso!
+                    Criado com sucesso!
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;
