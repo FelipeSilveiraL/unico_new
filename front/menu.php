@@ -36,7 +36,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="sistemas.php?pg=1&conf=3" <?= $_GET['conf'] == 3 ? "class='active'" : "" ?>>
+                    <a href="sistema.php?pg=1&conf=3" <?= $_GET['conf'] == 3 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Sistemas</span>
                     </a>
                 </li>
