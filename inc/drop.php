@@ -11,7 +11,7 @@ switch ($_GET['drop']) {
         //LINHAS
         $resultado = $conn->query($queryEmpresa);
         while ($dados = $resultado->fetch_assoc()) {
-            $linha .= '<tr><th scope="row">' . $dados['id'] . '</th><td>' . $dados['nome'] . '</td><td>' . $dados['cnpj'] . '</td><td><a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=1" title="Editar" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a> <a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=2" title="Excluir" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td></tr>';
+            $linha .= '<tr><th scope="row">' . $dados['id'] . '</th><td>' . $dados['nome'] . '</td><td>' . $dados['cnpj'] . '</td><td><a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=1" title="Editar" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a> <a href="../inc/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=2" title="Excluir" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td></tr>';
         }
 
         //EDITANDO OU EXCLUINDO
@@ -46,7 +46,7 @@ switch ($_GET['drop']) {
         //LINHAS
         $resultado = $conn->query($queryDepartamento);
         while ($dados = $resultado->fetch_assoc()) {
-            $linha .= '<tr><th scope="row">' . $dados['id'] . '</th><td>' . $dados['nome'] . '</td><td><a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=1" title="Editar" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a> <a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=2" title="Excluir" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td></tr>';
+            $linha .= '<tr><th scope="row">' . $dados['id'] . '</th><td>' . $dados['nome'] . '</td><td><a href="../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=1" title="Editar" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i></a> <a href="../inc/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $dados['id'] . '&acao=2" title="Excluir" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a></td></tr>';
         }
 
         //EDITANDO OU EXCLUINDO

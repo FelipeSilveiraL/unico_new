@@ -31,6 +31,6 @@ switch ($_GET['acao']) {
 
         $resultado = $conn->query($update);
         $conn->close();
-        header('location: ../front/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&id_menu=' . $_GET['id_menu'] . '&acao=' . $_GET['acao'] . '&msn=5');
+        header('location: ../front/dropdowns.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&msn=5');
         break;
 }
