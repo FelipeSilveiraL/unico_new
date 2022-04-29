@@ -16,7 +16,7 @@ require_once('menu.php');
     <h1>Novo Usuário</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
         <li class="breadcrumb-item">Configurações</li>
         <li class="breadcrumb-item"><a href="usuarios.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>">Usuários</a></li>
         <li class="breadcrumb-item active">Novo usuário</li>

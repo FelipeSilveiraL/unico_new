@@ -15,7 +15,7 @@ require_once('menu.php');
     <h1>Lista Usuários</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
         <li class="breadcrumb-item">Configurações</li>
         <li class="breadcrumb-item active">Usuários</li>
       </ol>
@@ -32,7 +32,7 @@ require_once('menu.php');
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Tabelas usuários              
-              <a href="usuarioNovo.php?pg=1&conf=1" class="btn btn-success button-rigth-card"><i class="bi bi-person-plus-fill"></i></a>
+              <a href="usuarioNovo.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>" class="btn btn-success button-rigth-card"><i class="bi bi-person-plus-fill"></i></a>
             </h5>
             <hr />
             <!-- Table with stripped rows -->

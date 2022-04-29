@@ -26,7 +26,7 @@ if(!empty($_GET['id_sistema'])){
     <h1>Sistemas</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
         <li class="breadcrumb-item"><a href="sistema.php?pg=<?=$_GET['pg']?>&conf=<?=$_GET['conf']?>">Sistema</a></li>
         <li class="breadcrumb-item"><?= $_GET['acao'] == 1 ? "Novo" : "Editando" ?></li>
       </ol>

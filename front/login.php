@@ -19,13 +19,13 @@ require_once('head.php');
                 <div class="card-body">
 
                   <div class="d-flex justify-content-center py-4">
-                    <a href="index.html" class="logo d-flex align-items-center w-auto">
+                    <a href="../index.php?pg=1" class="logo d-flex align-items-center w-auto">
                       <img src="assets/img/logo.png" alt="">
                       <span class="d-none d-lg-block"><img src="../img/logo.png" id="logo"></span>
                     </a>
                   </div><!-- End Logo -->
 
-                  <form class="row g-3 needs-validation" method="POST" action="../inc/login.php">
+                  <form class="row g-3 needs-validation" method="POST" action="../inc/login.php?pg=1">
 
                     <div class="col-12">
                       <div class="input-group has-validation">

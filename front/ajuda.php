@@ -12,22 +12,31 @@ require_once('menu.php');//menu lateral da pagina
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Nome da Pagina</h1>
+    <h1>Central de Ajuda</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
-        <li class="breadcrumb-item">Pagina Branco</li>
+        <li class="breadcrumb-item">Ajuda</li>
       </ol>
     </nav>
   </div><!-- End Navegação -->
   
   <?php require_once('../inc/mensagens.php') ?><!-- Alertas -->
 
-  <!--################# COLE section AQUI #################-->
+  <section class="section">
+      <div class="row align-items-top">
+        <div class="col-lg-12">
 
-  <h6>Inicio da section!</h6>
-
-  <!--################# section TERMINA AQUI #################-->
+          <!-- Default Card -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Central de ajuda</h5>
+              Está em fase de manutenção, porém se precisar de ajuda ligue para o TI(<a href="http://10.100.1.217/lista/filiais/index.php?dep=1,89" target="_blank" rel="noopener noreferrer">Lista Ramais</a> ) ou abra um chamado no GLPI(Link no rodapé!)
+            </div>
+          </div><!-- End Default Card -->
+        </div>
+      </div>
+  </section>
 
 </main><!-- End #main -->
 

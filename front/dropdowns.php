@@ -15,7 +15,7 @@ require_once('../inc/drop.php'); //$_GET['drop'] OU $_GET['menu']
     <h1>Menu suspenso</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
         <li class="breadcrumb-item">Configurações</li>
         <?= $breadcrumbsMenu ?>
         <?= $breadcrumbs ?>

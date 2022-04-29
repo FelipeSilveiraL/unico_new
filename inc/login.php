@@ -15,7 +15,7 @@ $usuario = $resultadoUsuario->fetch_assoc();
 
 if ($usuario['deletar'] == 1) {
 
-    header('Location: ../front/login.php?msn=1');//usuario desativado
+    header('Location: ../front/login.php?pg='.$_GET['pg'].'msn=1');//usuario desativado
 
 } else {
     
@@ -23,7 +23,7 @@ if ($usuario['deletar'] == 1) {
 
         if ($usuario['alterar_senha_login'] == 1) {
 
-            header('Location: ../front/usuarioAlterar.php?id_usuario=' . $usuario['id_usuario'] . '');
+            header('Location: ../front/usuarioAlterar.php?pg='.$_GET['pg'].'&id_usuario=' . $usuario['id_usuario'] . '');
 
         } else {
             //SESSÕES DO USUÁRIO
@@ -38,10 +38,10 @@ if ($usuario['deletar'] == 1) {
             $_SESSION['id_depto'] = $usuario['id_depto'];
             $_SESSION['departamento'] = $usuario['departamento'];
 
-            header("Location: ../front/index.php");
+            header('Location: ../front/index.php?pg='.$_GET['pg'].'');
 
         }
     } else {
-        header('Location: ../front/login.php?msn=2');//usuario senha invalida
+        header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=2');//usuario senha invalida
     }
 }

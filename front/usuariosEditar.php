@@ -20,7 +20,7 @@ $usuario = $resultUsuario->fetch_assoc();
     <h1>Editando Usuários</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
+        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
         <li class="breadcrumb-item">Configurações</li>
         <li class="breadcrumb-item"><a href="usuarios.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>&id_usuario=<?= $usuario['id_usuario'] ?>">Usuários</a></li>
         <li class="breadcrumb-item active">Editando usuário</li>

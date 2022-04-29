@@ -4,7 +4,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="../index.php" class="logo d-flex align-items-center">
+            <a href="../index.php?pg=1" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block"><img src="../img/fd_logo.png" alt="" srcset=""></span>
             </a>
@@ -47,7 +47,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="ajuda.php?pg=3" <?= $_GET['pg'] == 3 ? "class='active'" : "" ?>>
                                 <i class="bi bi-question-circle"></i>
                                 <span>Ajuda ?</span>
                             </a>
