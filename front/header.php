@@ -29,7 +29,7 @@
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
                             <h6><?= $_SESSION['nome_usuario'] ?></h6>
-                            <span><?= $_SESSION['admin'] == 1 ? "Administrador" : "Usuários Padrão" ?></span>
+                            <span><?= $_SESSION['administrador'] == 1 ? "Administrador" : "Usuários Padrão" ?></span>
                         </li>
                         <li>
                             <hr class="dropdown-divider">

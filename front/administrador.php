@@ -3,12 +3,11 @@ session_start();
 
 //regras de administrador
 switch ($_GET['pg']) {
-    case 1:
-        if($_SESSION['admin'] != 1){
+    case 2:
+        if($_SESSION['administrador'] == 0){
             header('location: ../index.php?pg=1');
             exit;
         }        
         break;
     }
-
 ?>

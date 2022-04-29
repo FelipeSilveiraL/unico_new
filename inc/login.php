@@ -37,7 +37,7 @@ if ($usuario['deletar'] == 1) {
             $_SESSION['departamento'] = $usuario['departamento'];
             $_SESSION['email'] = $usuario['email'];
             $_SESSION['senha'] = $usuario['senha'];
-            $_SESSION['admin'] = $usuario['admin'];
+            $_SESSION['administrador'] = $usuario['admin'];
             $_SESSION['alterar_senha_login'] = $usuario['alterar_senha_login'];            
             $_SESSION['deletar'] = $usuario['deletar'];
 

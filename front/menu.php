@@ -22,7 +22,7 @@
             </a>
         </li>
 
-        <li class="nav-item" style="display: <?= $_SESSION['admin'] == 1 ? "block" : "none" ?>;">
+        <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? "block" : "none" ?>;">
 
             <a class="nav-link  <?= $_GET['pg'] == 2 ?: "collapsed" ?>" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-gear"></i><span>Configurações</span><i class="bi bi-chevron-down ms-auto"></i>
