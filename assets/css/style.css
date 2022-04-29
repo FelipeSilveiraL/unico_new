@@ -18,6 +18,9 @@ body {
   color: #444444;
 }
 
+.uppercase{
+  text-transform: uppercase;
+}
 #logo{
     display: block;
     margin-left: auto;

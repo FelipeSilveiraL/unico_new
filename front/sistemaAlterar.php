@@ -56,10 +56,10 @@ require_once('menu.php'); //menu lateral da pagina
                           <a href="#" title="Ver variáveis" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal' . $sistemas['id'] . '">
                               <i class="bi bi-eye"></i>
                             </a> 
-                            <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=2" title="Editar" class="btn btn-primary btn-sm">
+                            <a href="#" title="Editar" class="btn btn-primary btn-sm">
                               <i class="bi bi-pencil"></i>
                             </a> 
-                            <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=3" title="Excluir" class="btn btn-danger btn-sm">
+                            <a href="#" title="Excluir" class="btn btn-danger btn-sm">
                               <i class="bi bi-trash"></i>
                             </a>
                           </td>
