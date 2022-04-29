@@ -1,7 +1,5 @@
 <?php
 session_start();
-
-require_once('../config/databases.php'); //Banco de dados
 require_once('../config/query.php'); //Todas as pesquisas de banco
 require_once('administrador.php'); //regra de perfis
 require_once('head.php'); //CSS e configurações HTML
@@ -51,7 +49,7 @@ $resultado = $conn->query($queryUserSistema);
                       $resultadoUsuario = $conn->query($queryUsuario);
                       $valor = $resultadoUsuario->fetch_assoc();
 
-                      echo $campoVariavel . "=" . str_replace(" ", "", $valor[$campoVariavel]);
+                      echo $campoVariavel . "=" . str_replace(" ", "", $valor[''.$campoVariavel.''])."&";
                     }
 
                     echo '" target="_blank" class="list-group-item list-group-item-action">

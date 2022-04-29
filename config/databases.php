@@ -1,6 +1,6 @@
 <?php
     //DATA BASE UNICO
-	$servUnico = "10.100.1.66";
+	$servUnico = "10.100.1.65";
 	$userUnico = "unico";
 	$passUnico = "#CAvpnGSVP20";
 	$dbnameUnico = "unico";

@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once('../config/databases.php');//Banco de dados
 require_once('../config/query.php');//Todas as pesquisas de banco
 require_once('administrador.php');//regra de perfis
 require_once('head.php');//CSS e configurações HTML
