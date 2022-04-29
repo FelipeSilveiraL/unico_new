@@ -88,7 +88,7 @@ require_once('menu.php'); //menu lateral da pagina
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Editar</button>
+                                <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=2" class="btn btn-primary">Editar</a>
                               </div>
                             </div>
                           </div>
