@@ -85,7 +85,7 @@ if(!empty($_GET['id_sistema'])){
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                <a href="sistema.php?pg=<?=$_GET['pg']?>&conf=<?=$_GET['conf']?>" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-primary">Salvar</button>
               </div>
             </form>

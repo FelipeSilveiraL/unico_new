@@ -1,12 +1,13 @@
 <?php
-
 require_once('../config/databases.php');
 
 switch ($_GET['acao']) {
     case '1': //Novo
         # code...
         $queryNovo = "INSERT INTO cad_sistemas (nome, endereco) VALUES ('".$_POST['nome']."', '".$_POST['endereco']."')";
-        $result = $conn->query($queryNovo);
+        if(!$resultNovo = $conn->query($queryNovo)){
+            printf("Erro[11]: %s\n", $conn->error);
+        }
 
         //PEGAR id_sistema
         $query = "SELECT MAX(id) AS id_sistema FROM cad_sistemas";
