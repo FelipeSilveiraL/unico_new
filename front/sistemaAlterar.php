@@ -8,6 +8,16 @@ require_once('head.php'); //CSS e configurações HTML
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
 
+if(!empty($_GET['id_sistema'])){
+  $querySistema .= " WHERE id = " . $_GET['id_sistema'];
+  $resultSistema = $conn->query($querySistema);
+  
+  $sistema = $resultSistema->fetch_assoc();
+
+  $acao = '2';
+}else{
+  $acao = '1';
+}
 ?>
 
 <main id="main" class="main">
@@ -17,7 +27,8 @@ require_once('menu.php'); //menu lateral da pagina
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="../index.php">Home</a></li>
-        <li class="breadcrumb-item">Sistema</li>
+        <li class="breadcrumb-item"><a href="sistema.php?pg=<?=$_GET['pg']?>&conf=<?=$_GET['conf']?>">Sistema</a></li>
+        <li class="breadcrumb-item"><?= $_GET['acao'] == 1 ? "Novo" : "Editando" ?></li>
       </ol>
     </nav>
   </div><!-- End Navegação -->
@@ -31,77 +42,55 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Lista Sistemas</h5>
-            <!-- Table with stripped rows -->
-            <table class="table datatable">
-              <thead>
-                <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nome</th>
-                  <th scope="col">Endereço</th>
-                  <th scope="col">Ação</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php
-                //chamando sistemas
-                $resultado = $conn->query($querySistema);
 
-                while ($sistemas = $resultado->fetch_assoc()) {
-                  echo '<tr>
-                          <th scope="row">' . $sistemas['id'] . '</th>
-                          <td>' . $sistemas['nome'] . '</td>
-                          <td>' . $sistemas['endereco'] . '</td>
-                          <td>
-                          <a href="#" title="Ver variáveis" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal' . $sistemas['id'] . '">
-                              <i class="bi bi-eye"></i>
-                            </a> 
-                            <a href="#" title="Editar" class="btn btn-primary btn-sm">
-                              <i class="bi bi-pencil"></i>
-                            </a> 
-                            <a href="#" title="Excluir" class="btn btn-danger btn-sm">
-                              <i class="bi bi-trash"></i>
-                            </a>
-                          </td>
-                        </tr>
+            <form action="../inc/sistemaAlterar.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>&id_sistema=<?= $sistema['id'] ?>&acao=<?= $acao ?>" method="post">
+              <h5 class="card-title">Informações</h5>
+              <div class="row mb-3">
+                <label for="nome" class="col-md-4 col-lg-3 col-form-label">Nome:</label>
+                <div class="col-md-8 col-lg-9">
+                  <input name="nome" type="text" class="form-control" id="nome" value="<?= $sistema['nome'] ?>">
+                </div>
+              </div>
 
-                        <div class="modal fade" id="basicModal' . $sistemas['id'] . '" tabindex="-1">
-                          <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h5 class="modal-title">Variáveis via GET</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                <div class="card-body">
-                                  <!-- List group With Icons -->
-                                  <ul class="list-group">';
-                                  $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas WHERE id_sistema = ".$sistemas['id'];
-                                  $resultadoVariaveis = $conn->query($queryVariaveisSistema);
+              <div class="row mb-3">
+                <label for="endereco" class="col-md-4 col-lg-3 col-form-label">Link:</label>
+                <div class="col-md-8 col-lg-9">
+                  <input name="endereco" type="endereco" class="form-control" id="endereco" value="<?= $sistema['endereco'] ?>">
+                </div>
+              </div>
 
-                                  while ($variaveis = $resultadoVariaveis->fetch_assoc()) {
-                                    echo '<li class="list-group-item uppercase"><i class="bi bi-bookmark-check me-1 text-success"></i>'.$variaveis['variavel']."</li>";
-                                  }                                 
+              <div class="row mb-3">
+                <label class="col-md-4 col-lg-3 col-form-label">Variaveis GET:</label>
+                <div class="col-md-8 col-lg-9">
+                  <?php
+                  $queryVariaveis = "SHOW COLUMNS FROM usuarios";
+                  $result = $conn->query($queryVariaveis);
 
-                      echo '      </ul><!-- End List group With Icons -->
-                                </div>
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <button type="button" class="btn btn-primary">Editar</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>';
-                }
-                ?>
-              </tbody>
-            </table>
-            <!-- End Table with stripped rows -->
-
+                  while ($variavel = $result->fetch_assoc()) {
+                    echo '<div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="' . $variavel['Field'] . '" id="gridCheck' . $variavel['Field'] . '" name="variavel[]"';
+                              $queryMVariaveis = "SELECT * FROM cad_variaveis_sistemas where variavel = '".$variavel['Field']."' and id_sistema = '".$_GET['id_sistema']."'";
+                              $resultado = $conn->query($queryMVariaveis);
+                              $mVariaveis = $resultado->fetch_assoc();
+                              if (!empty($mVariaveis['id'])) {
+                                echo 'checked';
+                              }
+                            echo '>
+                            <label class="form-check-label" for="gridCheck' . $variavel['Field'] . '">
+                            ' . $variavel['Field'] . '
+                            </label>
+                          </div>';
+                  }
+                  ?>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+              </div>
+            </form>
           </div>
         </div>
-
       </div>
     </div>
   </section>

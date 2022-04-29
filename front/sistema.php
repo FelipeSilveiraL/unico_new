@@ -31,7 +31,9 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Lista Sistemas</h5>
+            <h5 class="card-title">Tabelas usuários
+              <a href="sistemaAlterar.php?pg=<?=$_GET['pg']?>&conf=<?=$_GET['conf']?>&acao=1" class="btn btn-success button-rigth-card" title="Novo Sistema"><i class="bi bi-plus"></i></a>
+            </h5>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -45,6 +47,8 @@ require_once('menu.php'); //menu lateral da pagina
               <tbody>
                 <?php
                 //chamando sistemas
+                $querySistema .= " WHERE deletar = 0";
+
                 $resultado = $conn->query($querySistema);
 
                 while ($sistemas = $resultado->fetch_assoc()) {
@@ -56,10 +60,10 @@ require_once('menu.php'); //menu lateral da pagina
                           <a href="#" title="Ver variáveis" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal' . $sistemas['id'] . '">
                               <i class="bi bi-eye"></i>
                             </a> 
-                            <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=2" title="Editar" class="btn btn-primary btn-sm">
+                            <a href="sistemaAlterar.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&id_sistema=' . $sistemas['id'] . '&acao=2" title="Editar" class="btn btn-primary btn-sm">
                               <i class="bi bi-pencil"></i>
                             </a> 
-                            <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=3" title="Excluir" class="btn btn-danger btn-sm">
+                            <a href="../inc/sistemaAlterar.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&id_sistema=' . $sistemas['id'] . '&acao=3" title="Excluir" class="btn btn-danger btn-sm">
                               <i class="bi bi-trash"></i>
                             </a>
                           </td>
@@ -76,19 +80,19 @@ require_once('menu.php'); //menu lateral da pagina
                                 <div class="card-body">
                                   <!-- List group With Icons -->
                                   <ul class="list-group">';
-                                  $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas WHERE id_sistema = ".$sistemas['id'];
-                                  $resultadoVariaveis = $conn->query($queryVariaveisSistema);
+                  $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas WHERE id_sistema = " . $sistemas['id'];
+                  $resultadoVariaveis = $conn->query($queryVariaveisSistema);
 
-                                  while ($variaveis = $resultadoVariaveis->fetch_assoc()) {
-                                    echo '<li class="list-group-item uppercase"><i class="bi bi-bookmark-check me-1 text-success"></i>'.$variaveis['variavel']."</li>";
-                                  }                                 
+                  while ($variaveis = $resultadoVariaveis->fetch_assoc()) {
+                    echo '<li class="list-group-item uppercase"><i class="bi bi-bookmark-check me-1 text-success"></i>' . $variaveis['variavel'] . "</li>";
+                  }
 
-                      echo '      </ul><!-- End List group With Icons -->
+                  echo '      </ul><!-- End List group With Icons -->
                                 </div>
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                                <a href="sistemaAlterar.php?pg='.$_GET['pg'].'&conf='.$_GET['conf'].'&id_sistema='.$sistemas['id'].'&acao=2" class="btn btn-primary">Editar</a>
+                                <a href="sistemaAlterar.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&id_sistema=' . $sistemas['id'] . '&acao=2" class="btn btn-primary">Editar</a>
                               </div>
                             </div>
                           </div>
