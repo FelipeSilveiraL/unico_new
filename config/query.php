@@ -7,8 +7,8 @@ $queryUsuarios = "SELECT
 U.id_usuario, 
 U.nome AS nome_usuario,
 U.cpf,
-CE.id AS id_empresa,
-CE.nome AS empresa,
+CE.id_empresa,
+CE.empresa,
 CD.id AS id_depto,
 CD.nome AS departamento,
 U.senha,
@@ -20,7 +20,7 @@ U.alterar_senha_login,
 U.deletar
 FROM
 usuarios U
-LEFT JOIN cad_empresa CE ON (U.empresa = CE.id)
+LEFT JOIN cad_empresa CE ON (U.empresa = CE.id_empresa)
 LEFT JOIN cad_depto CD ON (U.depto = CD.id) ";
 
 //-------------------------//
