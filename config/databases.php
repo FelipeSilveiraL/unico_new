@@ -1,16 +1,34 @@
 <?php
+
+	//CONFIG SERVIDOR
+	$ipservidor = "10.100.1.66";	
+	$porta = "3306";
+
     //DATA BASE UNICO
-	$servUnico = "10.100.1.65";
 	$userUnico = "unico";
 	$passUnico = "#CAvpnGSVP20";
 	$dbnameUnico = "unico";
-	$portUnico = "3306";
 
-	//Criar a conexao
-	$conn = mysqli_connect($servUnico, $userUnico, $passUnico, $dbnameUnico, $portUnico);
-	
-	if(!$conn){
-		die("Erro no servidor '".$dbnameUnico."' : " . mysqli_connect_error());
+	//DATA BASE NOTAS
+	$userNOTAS = "dbnotas";
+	$passNOTAS = "#CAvpnGSVP20";
+	$dbnameNOTAS = "dbnotas";
+
+	// CRIANDO CONEXÃO DO UNICO
+	$conn = new mysqli($ipservidor, $userUnico, $passUnico, $dbnameUnico, $porta);
+
+	// Check connection
+	if ($conn->connect_error) {
+		die("ERRO CONEXÂO SERVIDOR NOTAS: " . $conn->connect_error);
 	}
+
+	//DOS OUTROS SITEMAS ESTA NA PASTA "SISTEMA" E EM "CONFIG" DE CADA UM.
 	
 ?>
+
+
+
+
+
+
+

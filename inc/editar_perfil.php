@@ -2,6 +2,7 @@
 
 require_once('../config/databases.php');
 
+
 //SENHA
 $update = "UPDATE usuarios SET 
             usuario='".$_POST['usuario']."', 
@@ -20,8 +21,20 @@ $update = "UPDATE usuarios SET
 
 $update .= " WHERE id_usuario = '".$_GET['id_usuario']."'";
 
+
+
 if($resultUpdate = $conn->query($update)){
-   header('Location: ../front/index.php?msn=3'); 
+
+    switch ($_GET['id_sistema']) {
+        case '1'://SISTEMA NOTAS
+            header('Location: ../sistemas/notas/front/index.php?pg=1&msn=3'); 
+            break;
+        
+        default:
+            header('Location: ../front/index.php?msn=3'); 
+            break;
+    }
+   
 }else{
     echo "nao foi possivel editar o seu perfil!";
 }
