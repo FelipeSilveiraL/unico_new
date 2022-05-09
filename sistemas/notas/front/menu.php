@@ -7,7 +7,7 @@
         <li class="nav-item">
             <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=1">
                 <i class="bi bi-grid"></i>
-                <span>SISTEMA NOTAS</span>
+                <span>Dashboard</span>
             </a>
         </li><!-- End Dashboard Nav -->
 
@@ -53,7 +53,7 @@
         <!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link" href="">
+            <a class="nav-link  <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="ajuda.php?pg=2">
                 <i class="bi bi-question-circle"></i>
                 <span>Ajuda?</span>
             </a>

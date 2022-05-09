@@ -11,6 +11,9 @@
 :root {
   scroll-behavior: smooth;
 }
+select.dataTable-selector {
+  border-radius: 5px !important;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
