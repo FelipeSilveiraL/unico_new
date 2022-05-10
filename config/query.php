@@ -27,7 +27,7 @@ LEFT JOIN cad_depto CD ON (U.depto = CD.id) ";
 $queryEmpresa = "SELECT * FROM cad_empresa WHERE deletar = 0";
 
 //-------------------------//
-$queryDepartamento = "SELECT * FROM cad_depto WHERE deletar = 0";
+$queryDepartamento = "SELECT *  FROM cad_depto WHERE deletar = 0";
 
 //-------------------------//
 $queryUserSistema = "SELECT 

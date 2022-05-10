@@ -19,7 +19,7 @@
 
 	// Check connection
 	if ($conn->connect_error) {
-		die("ERRO CONEXÂO SERVIDOR NOTAS: " . $conn->connect_error);
+		die("ERRO CONEXÂO SERVIDOR UNICO: " . $conn->connect_error);
 	}
 
 	//DOS OUTROS SITEMAS ESTA NA PASTA "SISTEMA" E EM "CONFIG" DE CADA UM.

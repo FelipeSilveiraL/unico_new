@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once('../config/query.php'); //Todas as pesquisas de banco
 require_once('administrador.php'); //regra de perfis
 require_once('head.php'); //CSS e configurações HTML
@@ -8,6 +9,9 @@ require_once('menu.php'); //menu lateral da pagina
 
 $queryUserSistema .= " WHERE CSU.id_usuario = " . $_SESSION['id_usuario'] . " AND CS.deletar = 0";
 $resultado = $conn->query($queryUserSistema);
+
+echo $queryUserSistema;
+exit;
 
 ?>
 

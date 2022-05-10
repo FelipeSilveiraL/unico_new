@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+
+    if($_SESSION['id_usuario'] == NULL){
+        header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=9');//usuario desativado
+    }
+?>
 <body>
 
     <!-- ======= Header ======= -->
@@ -132,7 +139,7 @@
                                     $resultDepartamento = $conn->query($queryDepartamento);
 
                                     while ($departamento = $resultDepartamento->fetch_assoc()) {
-                                        echo '<option value="' . $departamento['id_depto'] . '">' . $departamento['nome'] . '</option>';
+                                        echo '<option value="' . $departamento['id'] . '">' . $departamento['nome'] . '</option>';
                                     }
                                     ?>
 

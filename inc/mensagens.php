@@ -58,5 +58,12 @@ if (!empty($_GET['msn'])) {
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;
+        case '9':
+            echo '
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                <span style="font-size: 12px"> Não foi possivel logar. Erro session_start!</span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>';
+            break;
     }
 }

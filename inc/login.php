@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-require_once('../config/databases.php');
 require_once('../config/query.php');
 
 //SQL injection
@@ -15,7 +14,7 @@ $usuario = $resultadoUsuario->fetch_assoc();
 
 if ($usuario['deletar'] == 1) {
 
-    header('Location: ../front/login.php?pg='.$_GET['pg'].'msn=1');//usuario desativado
+    header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=1');//usuario desativado
 
 } else {
     
@@ -42,7 +41,6 @@ if ($usuario['deletar'] == 1) {
             $_SESSION['deletar'] = $usuario['deletar'];
 
             header('Location: ../front/index.php?pg='.$_GET['pg'].'');
-
         }
     } else {
         header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=2');//usuario senha invalida
