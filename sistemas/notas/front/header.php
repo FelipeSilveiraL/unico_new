@@ -1,3 +1,10 @@
+<?php 
+    session_start();
+
+    if($_SESSION['id_usuario'] == NULL){
+        header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=9');//sessão nao iniciada!
+    }
+?>
 <body>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">

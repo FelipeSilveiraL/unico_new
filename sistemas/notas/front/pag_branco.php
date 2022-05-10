@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once('../../../config/query.php'); //Todas as pesquisas de banco
 require_once('../config/query.php');//
 /* require_once('administrador.php'); *///regra de perfis

@@ -1,12 +1,12 @@
-<?php 
-    session_start();
+<?php
+session_start();
 
-    if($_SESSION['id_usuario'] == NULL){
-        header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=9');//usuario desativado
-    }
+if ($_SESSION['id_usuario'] == NULL) {
+    header('Location: ../front/login.php?pg=' . $_GET['pg'] . '&msn=9'); //sessão nao iniciada!
+}
 ?>
-<body>
 
+<body>
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -48,7 +48,7 @@
                                 <span>Meu perfil</span>
                             </a>
                         </li>
-                        
+
                         <li>
                             <hr class="dropdown-divider">
                         </li>

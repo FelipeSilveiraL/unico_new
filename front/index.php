@@ -10,9 +10,6 @@ require_once('menu.php'); //menu lateral da pagina
 $queryUserSistema .= " WHERE CSU.id_usuario = " . $_SESSION['id_usuario'] . " AND CS.deletar = 0";
 $resultado = $conn->query($queryUserSistema);
 
-echo $queryUserSistema;
-exit;
-
 ?>
 
 <main id="main" class="main">
