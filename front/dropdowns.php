@@ -55,15 +55,18 @@ require_once('../inc/drop.php'); //$_GET['drop'] OU $_GET['menu']
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title"><?= $nome ?></h5>
-            <!-- Table with stripped rows -->
+            <h5 class="card-title">
+              <?= $nome ?>
+              <a href="dropdownsAcao.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>&menu=<?= $_GET['menu'] ?>&drop=<?= $_GET['drop'] ?>&acao=3" class="btn btn-success" style="margin-left: <?=$marginLeftBotao?>"><i class="bi bi-plus"></i></a>
+            </h5>
+           <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
                 <tr>
                   <?php
-                  foreach ($colunas as $nome => $value) {
-                    echo '<th scope="col">' . $value . '</th>';
-                  }
+                    foreach ($colunas as $nome => $value) {
+                      echo '<th scope="col">' . $value . '</th>';
+                    }
                   ?>
                 </tr>
               </thead>
@@ -79,5 +82,5 @@ require_once('../inc/drop.php'); //$_GET['drop'] OU $_GET['menu']
   </section>
 </main><!-- End #main -->
 <?php
-require_once('footer.php'); //Javascript e configurações afins
+  require_once('footer.php'); //Javascript e configurações afins
 ?>

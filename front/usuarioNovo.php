@@ -130,6 +130,7 @@ require_once('menu.php');
                 <label class="col-md-4 col-lg-3 col-form-label">Sistemas permitidos:</label>
                 <div class="col-md-8 col-lg-9">
                   <?php
+                  $querySistema .= " WHERE deletar = 0";
                   $resultSistemas = $conn->query($querySistema);
 
                   while ($sistema = $resultSistemas->fetch_assoc()) {

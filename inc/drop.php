@@ -4,7 +4,8 @@
 switch ($_GET['drop']) {
     case '1':
         //EMPRESA
-        $breadcrumbs = '<li class="breadcrumb-item active">Empresa</li>';
+        $breadcrumbs = '<li class="breadcrumb-item active">Empresa</li>';        
+        $marginLeftBotao = "83%";//posição do botão adicionar
         $nome = 'Empresas';
         $colunas = array("ID", "Nome", "CNPJ", "Ação");
 
@@ -20,7 +21,7 @@ switch ($_GET['drop']) {
             switch ($_GET['acao']) {
                 case '1': //EDITAR
                     $corButton = "primary";
-                    $nomeButton = "Salvar";
+                    $nomeButton = "Editar";
                     $queryEmpresa .= " AND id=" . $_GET['id_menu'];
                     $resultado = $conn->query($queryEmpresa);
                     $dados = $resultado->fetch_assoc();
@@ -32,7 +33,15 @@ switch ($_GET['drop']) {
 
                     break;
 
-                case '2': //EXCLUIR                   
+                case '3': //ADICIONAR
+                    $corButton = "success";
+                    $nomeButton = "Adicionar";
+                    $form = '../inc/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&acao=3';
+
+                    //CAMPOS FORMULARIO
+                    $displayNome = "flex";
+                    $displayCNPJ = "flex";
+
                     break;
             }
         }
@@ -40,7 +49,8 @@ switch ($_GET['drop']) {
 
     case '2':
         //DEPARTAMENTO
-        $breadcrumbs = '<li class="breadcrumb-item active">Departamento</li>';
+        $breadcrumbs = '<li class="breadcrumb-item active">Departamento</li>';        
+        $marginLeftBotao = "79%";//posição do botão adicionar
         $nome = 'Departamento';
         $colunas = array("ID", "Nome", "Ação");
         //LINHAS
@@ -56,7 +66,7 @@ switch ($_GET['drop']) {
                 case '1': //EDITAR
                     //ESTILO
                     $corButton = "primary";
-                    $nomeButton = "Salvar";
+                    $nomeButton = "Editar";
                     $queryDepartamento .= " AND id=" . $_GET['id_menu'];
                     $resultado = $conn->query($queryDepartamento);
                     $dados = $resultado->fetch_assoc();
@@ -65,11 +75,17 @@ switch ($_GET['drop']) {
                     //CAMPOS FORMULARIO
                     $displayNome = "flex";
                     $displayCNPJ = "none";
-
                     break;
 
-                case '2': //EXCLUIR
+                case '3': //ADICIONAR
+                    //ESTILO
+                    $corButton = "success";
+                    $nomeButton = "Adicionar";
+                    $form = '../inc/dropdownsAcao.php?pg=' . $_GET['pg'] . '&conf=' . $_GET['conf'] . '&menu=' . $_GET['menu'] . '&drop=' . $_GET['drop'] . '&acao=3';
 
+                    //CAMPOS FORMULARIO
+                    $displayNome = "flex";
+                    $displayCNPJ = "none";
                     break;
             }
         }

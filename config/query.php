@@ -24,10 +24,10 @@ LEFT JOIN cad_empresa CE ON (U.empresa = CE.id)
 LEFT JOIN cad_depto CD ON (U.depto = CD.id) ";
 
 //-------------------------//
-$queryEmpresa = "SELECT * FROM cad_empresa WHERE deletar = 0 ORDER BY nome ASC";
+$queryEmpresa = "SELECT * FROM cad_empresa WHERE deletar = 0 ";
 
 //-------------------------//
-$queryDepartamento = "SELECT *  FROM cad_depto WHERE deletar = 0 ORDER BY nome ASC";
+$queryDepartamento = "SELECT *  FROM cad_depto WHERE deletar = 0 ";
 
 //-------------------------//
 $queryUserSistema = "SELECT 
@@ -47,4 +47,4 @@ $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas";
 
 
 //-------------------------//
-$querySistema = "SELECT * FROM cad_sistemas ORDER BY nome ASC";
+$querySistema = "SELECT * FROM cad_sistemas ";
