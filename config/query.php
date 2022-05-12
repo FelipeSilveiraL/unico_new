@@ -47,4 +47,4 @@ $queryVariaveisSistema = "SELECT * FROM cad_variaveis_sistemas";
 
 
 //-------------------------//
-$querySistema = "SELECT * FROM cad_sistemas";
+$querySistema = "SELECT * FROM cad_sistemas ORDER BY nome ASC";
