@@ -10,7 +10,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="../index.php?pg=1" class="logo d-flex align-items-center">
+            <a href="index.php?pg=1" class="logo d-flex align-items-center">
                 <img src="../../../img/fd_logo_NOTAS.png" alt="">
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>

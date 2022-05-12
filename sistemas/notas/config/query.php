@@ -8,7 +8,8 @@ CL.vencimento,
 CL.numero_fluig,
 F.nome_fornecedor fornecedor,
 CF.nome empresa,
-CS.nome status
+CS.nome status,
+CS.id id_status
 FROM
 cad_lancarnotas AS CL
 LEFT JOIN
@@ -16,7 +17,7 @@ cad_fornecedor F ON (CL.cnpj = F.CPF_CNPJ)
 LEFT JOIN 
 cad_filial CF ON (CL.id_filial = CF.ID_FILIAL)
 LEFT JOIN
-cad_status CS ON (CL.status_desc = CS.ID_STATUS) ";
+cad_status CS ON (CL.status_desc = CS.id) ";
 
 
 

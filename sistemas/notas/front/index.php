@@ -7,6 +7,7 @@ require_once('../config/query.php');//
 require_once('head.php'); //CSS e configurações HTML
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
+require_once('../inc/status.php');
 ?>
 
 <main id="main" class="main">
@@ -64,12 +65,12 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Notas Laçadas</h5>
+            <h5 class="card-title"><?= $nomeTabela ?></h5>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th scope="col">Filial&emsp;</th>
+                  <th scope="col">Empresa&emsp;</th>
                   <th scope="col">Fornecedor&emsp;</th>
                   <th scope="col">Valor&emsp;</th>
                   <th scope="col">Emissão&emsp;</th>
@@ -80,16 +81,25 @@ require_once('menu.php'); //menu lateral da pagina
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Brandon Jacob</td>
-                  <td>Designer</td>
-                  <td>28</td>
-                  <td>2016-05-25</td>
-                  <td>Brandon Jacob</td>
-                  <td>Designer</td>
-                  <td>28</td>
-                  <td>2016-05-25</td>
-                </tr>
+                <?php              
+                  $color = array(1=>'bg-primary',2=>'bg-warning', 3=>'success'); 
+
+                  while($notas = $resultadoUP->fetch_assoc()){
+
+                    $key = in_array($notas['status'], $color);
+
+                    echo '<tr>
+                            <td>'.$notas['empresa'].'</td>
+                            <td>'.$notas['fornecedor'].'</td>
+                            <td>'.$notas['valor_nota'].'</td>
+                            <td>'.$notas['emissao'].'</td>
+                            <td>'.$notas['vencimento'].'</td>
+                            <td>'.$notas['numero_fluig'].'</td>
+                            <td class="badge '.$key.'">'.$notas['status'].'</td>
+                            <td></td>
+                          </tr>';
+                  }
+                ?>
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
