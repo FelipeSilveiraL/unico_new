@@ -66,7 +66,7 @@ require_once('menu.php');
                     $resultEmpresa = $conn->query($queryEmpresa);
 
                     while ($empresa = $resultEmpresa->fetch_assoc()) {
-                      echo '<option value="' . $empresa['id_empresa'] . '">' . $empresa['empresa'] . '</option>';
+                      echo '<option value="' . $empresa['id'] . '">' . $empresa['nome'] . '</option>';
                     }
                     ?>
                   </select>
@@ -83,7 +83,7 @@ require_once('menu.php');
                     $resultDepartamento = $conn->query($queryDepartamento);
 
                     while ($departamento = $resultDepartamento->fetch_assoc()) {
-                      echo '<option value="' . $departamento['id_depto'] . '">' . $departamento['nome'] . '</option>';
+                      echo '<option value="' . $departamento['id'] . '">' . $departamento['nome'] . '</option>';
                     }
                     ?>
                   </select>
