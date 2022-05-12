@@ -77,14 +77,14 @@ require_once('../inc/status.php');
             <table class="table table-borderless datatable">
               <thead>
                 <tr>
-                  <th scope="col">Empresa</th>
-                  <th scope="col">Fornecedor</th>
-                  <th scope="col">Valor</th>
+                  <th scope="col">Empresa&emsp;</th>
+                  <th scope="col">Fornecedor&emsp;</th>
+                  <th scope="col">Valor&emsp;</th>
                   <th scope="col">Emissao</th>
-                  <th scope="col">Vencimento</th>
-                  <th scope="col">Fluig</th>
-                  <th scope="col">Status</th>
-                  <th scope="col">Ação</th>
+                  <th scope="col">Vencimento&emsp;</th>
+                  <th scope="col">Fluig&emsp;</th>
+                  <th scope="col">Status&emsp;</th>
+                  <th scope="col">Ação&emsp;</th>
                 </tr>
               </thead>
               <tbody>

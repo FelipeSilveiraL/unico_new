@@ -52,7 +52,7 @@
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="ajuda.php?pg=2">
+                            <a class="dropdown-item d-flex align-items-center" href="ajuda.php?pg=3">
                                 <i class="bi bi-question-circle"></i>
                                 <span>Ajuda ?</span>
                             </a>
