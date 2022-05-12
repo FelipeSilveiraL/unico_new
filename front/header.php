@@ -120,7 +120,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                                     $resultEmpresa = $conn->query($queryEmpresa);
 
                                     while ($empresa = $resultEmpresa->fetch_assoc()) {
-                                        echo '<option value="' . $empresa['id_empresa'] . '">' . $empresa['empresa'] . '</option>';
+                                        echo '<option value="' . $empresa['id'] . '">' . $empresa['nome'] . '</option>';
                                     }
                                     ?>
 
