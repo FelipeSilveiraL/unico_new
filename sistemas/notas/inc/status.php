@@ -4,7 +4,7 @@ require_once('../config/query.php');
 
 switch ($_GET['status']) {
     case '1': //AGUARDANDO LANÇAMENTO        
-        $queryNotas .= "WHERE CL.status_desc = 1 ".$dataMes;
+        $queryNotas .= "WHERE CL.status_desc = 1 AND CL.deletar = 0 ".$dataMes;
         $nomeTabela = 'Notas em lançamento <span>| deste mês</span>';
         break;
 
@@ -14,7 +14,7 @@ switch ($_GET['status']) {
         break;
 
     case '3': //LANÇADO        
-        $queryNotas .= "WHERE CL.status_desc = 3 ".$dataMes;
+        $queryNotas .= "WHERE CL.status_desc = 3 AND CL.deletar = 0 ".$dataMes;
         $nomeTabela = 'Notas já lançadas <span>| deste mês</span>';
         break;
 
@@ -24,7 +24,7 @@ switch ($_GET['status']) {
         break;
 
     default:
-        $queryNotas .= "WHERE ".$dataMes;
+        $queryNotas .= "WHERE CL.deletar = 0 ".$dataMes;
         $nomeTabela = 'Todas as notas  <span>| deste mês</span>';
         break;
 }

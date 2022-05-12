@@ -23,18 +23,17 @@ cad_status CS ON (CL.status_desc = CS.id) ";
 /*===================================*/
 
 $mesAnterior = '1'; //quantidade de meses anteriores
+$dataMes = " AND CL.date_create BETWEEN '".date('Y-m', strtotime('-'.$mesAnterior.' months', strtotime(date('Y-m-d'))))."-01' AND '".date('Y-m')."-31'";
 
-$dataMes = "AND CL.deletar = 0 AND CL.date_create BETWEEN '".date('Y-m', strtotime('-'.$mesAnterior.' months', strtotime(date('Y-m-d'))))."-01' AND '".date('Y-m')."-31'";
-
-$queryCountLancando = "SELECT count(CL.id_lancarnotas) as countLancando FROM cad_lancarnotas CL WHERE CL.status_desc = 1 ".$dataMes;
+$queryCountLancando = "SELECT count(CL.id_lancarnotas) as countLancando FROM cad_lancarnotas CL WHERE CL.status_desc = 1 AND CL.deletar = 0 ".$dataMes;
 $resultCountLancando = $connNOTAS->query($queryCountLancando);
 $countLancando = $resultCountLancando->fetch_assoc();
 
-$queryCountLancado = "SELECT count(CL.id_lancarnotas) as countLancado FROM cad_lancarnotas CL WHERE CL.status_desc = 3 ".$dataMes;
+$queryCountLancado = "SELECT count(CL.id_lancarnotas) as countLancado FROM cad_lancarnotas CL WHERE CL.status_desc = 3 AND CL.deletar = 0 ".$dataMes;
 $resultCountLancado = $connNOTAS->query($queryCountLancado);
 $countLancado = $resultCountLancado->fetch_assoc();
 
-$queryCountPendentes = "SELECT count(CL.id_lancarnotas) as countPendentes FROM cad_lancarnotas CL WHERE CL.status_desc = 2 ".$dataMes;
+$queryCountPendentes = "SELECT count(CL.id_lancarnotas) as countPendentes FROM cad_lancarnotas CL WHERE CL.status_desc = 2 AND CL.deletar = 0 ".$dataMes;
 $resultCountPendentes = $connNOTAS->query($queryCountPendentes);
 $countPendentes = $resultCountPendentes->fetch_assoc();
 

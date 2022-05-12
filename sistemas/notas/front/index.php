@@ -16,7 +16,7 @@ require_once('../inc/status.php');
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php?pg=1">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
       </ol>
     </nav>
   </div><!-- End Navegação -->
