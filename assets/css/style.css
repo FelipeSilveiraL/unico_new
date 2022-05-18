@@ -15,6 +15,10 @@ select.dataTable-selector {
   border-radius: 5px !important;
 }
 
+.table{
+  font-size: 12px;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
