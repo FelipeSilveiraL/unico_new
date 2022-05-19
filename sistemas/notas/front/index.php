@@ -100,10 +100,8 @@ require_once('../inc/status.php');
                             <td>' . $notas['valor_nota'] . '</td>
                             <td>' . $notas['emissao'] . '</td>
                             <td>' . $notas['vencimento'] . '</td>
-                            <td>' . $notas['numero_fluig'] . '</td>
-                            <td><span class="badge ';
-                  echo empty($value) ? "bg-danger" : $value;
-                  echo '">' . $notas['status'] . '</span></td>
+                            <td><a target="_blank" href="https://gruposervopa.fluig.com/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=' . $notas['numero_fluig'] . '">' . $notas['numero_fluig'] . '</a></td>
+                            <td><span class="badge '; echo empty($value) ? "bg-danger" : $value; echo '">' . $notas['status'] . '</span></td>
                             <td>
                               <a href="#" title="Editar" class="btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
                               <a href="#" title="Desativar" class="btn-danger btn-sm"><i class="bi bi-trash"></i></a>
