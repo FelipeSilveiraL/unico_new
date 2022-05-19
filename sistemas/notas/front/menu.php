@@ -12,7 +12,7 @@
         <li class="nav-heading">Notas</li>
 
         <li class="nav-item">
-            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="index.php?pg=1">
+            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="lancamento.php?pg=2">
                 <i class="bi bi-file-arrow-up"></i>
                 <span>Lançamento Manual</span>
             </a>
