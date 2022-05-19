@@ -13,7 +13,7 @@ require_once('menu.php');//menu lateral da pagina
     <h1>Nome da Pagina</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
         <li class="breadcrumb-item">Pagina Branco</li>
       </ol>
     </nav>

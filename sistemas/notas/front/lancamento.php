@@ -13,7 +13,7 @@ require_once('menu.php'); //menu lateral da pagina
     <h1>Lançamento Manual</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
         <li class="breadcrumb-item">Lançamento manual</li>
       </ol>
     </nav>
@@ -25,89 +25,122 @@ require_once('menu.php'); //menu lateral da pagina
 
   <section class="section">
     <div class="row">
-      <div class="col-lg-6">
+      <div class="col-lg-12">
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
+            <h5 class="card-title">Dados lançamento</h5>
 
             <!-- No Labels Form -->
-            <form class="row g-3">
-              <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Your Name">
+            <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+
+              <div class="form-floating mb-3 col-md-12">
+                <select class="form-select" id="floatingSelect" name="usuarioFluig">
+                  <option value="1">Felipe Lara</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Usuario para lançamento Fluig</label>
               </div>
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="Email">
+
+              <div class="form-floating mb-3 col-md-6">
+                <select class="form-select" id="floatingSelect" name="fornecedor">
+                  <option value="1">-----------------</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Fornecedor</label>
               </div>
-              <div class="col-md-6">
-                <input type="password" class="form-control" placeholder="Password">
+              <div class="form-floating mb-3 col-md-6">
+                <select class="form-select" id="floatingSelect" name="filial">
+                  <option value="1">-----------------</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Filial</label>
               </div>
               <div class="col-12">
-                <input type="text" class="form-control" placeholder="Address">
+                <input type="text" class="form-control" placeholder="Tipo de serviço" name="tipoServico">
               </div>
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="City">
+
+              <h5 class="card-title">Dados da nota fiscal</h5>
+
+              <!-- No Labels Form -->
+              <div class="col-md-9 mb-3">
+                <input type="text" class="form-control" placeholder="Número">
               </div>
-              <div class="col-md-4">
-                <select id="inputState" class="form-select">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
+              <div class="col-3 mb-3">
+                <input type="text" class="form-control" placeholder="Série">
               </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Zip">
+
+              <div class="col-md-4 mb-3">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">Emissão</span>
+                    <input type="date" class="form-control" name="emissao">
+                  </div>
+                </div>
               </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
+
+              <div class="col-md-4 mb-3">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">Vencimento</span>
+                    <input type="date" class="form-control" name="vencimento">
+                  </div>
+                </div>
               </div>
+
+              <div class="col-md-4 mb-3">
+                <div class="col-sm-12">
+                  <div class="input-group">
+                    <span class="input-group-text" id="basic-addon1">R$</span>
+                    <input type="text" class="custom4 form-control" name="valor" maxlength="12" onKeyUp="mascaraMoeda(this, event)" placeholder="000000.00">
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-12">
+                <div class="col-sm-10">
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" name="carimbar">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">Carimbar pelo Robô!</label>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="card-title">Anexar documentos</h5>
+
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-2 col-form-label">Nota fiscal</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="file" id="formFile" name="filenota">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-2 col-form-label">Boleto</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="file" id="formFile" name="fileboleto">
+                </div>
+              </div>
+              <div class="row mb-3">
+                <label for="inputNumber" class="col-sm-2 col-form-label">Outros anexos</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="file" id="formFile" name="fileoutros">
+                </div>
+              </div>
+              <div class="text-center py-5">
+                <hr>
+                <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
+                <button type="submit" class="btn btn-success">Enviar Lançamento</button>
+              </div>
+
             </form><!-- End No Labels Form -->
 
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
 
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">No Labels / Placeholders as labels Form</h5>
-
-            <!-- No Labels Form -->
-            <form class="row g-3">
-              <div class="col-md-12">
-                <input type="text" class="form-control" placeholder="Your Name">
-              </div>
-              <div class="col-md-6">
-                <input type="email" class="form-control" placeholder="Email">
-              </div>
-              <div class="col-md-6">
-                <input type="password" class="form-control" placeholder="Password">
-              </div>
-              <div class="col-12">
-                <input type="text" class="form-control" placeholder="Address">
-              </div>
-              <div class="col-md-6">
-                <input type="text" class="form-control" placeholder="City">
-              </div>
-              <div class="col-md-4">
-                <select id="inputState" class="form-select">
-                  <option selected>Choose...</option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="col-md-2">
-                <input type="text" class="form-control" placeholder="Zip">
-              </div>
-              <div class="text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <button type="reset" class="btn btn-secondary">Reset</button>
-              </div>
-            </form><!-- End No Labels Form -->
-
-          </div>
-        </div>
-      </div>
-    </div>
   </section>
 
 </main><!-- End #main -->
