@@ -44,40 +44,42 @@ require_once('menu.php'); //menu lateral da pagina
               </div>
 
               <div class="form-floating mb-3 col-md-6">
-                <select class="form-select" id="floatingSelect" name="fornecedor">
-                  <option value="1">-----------------</option>
+                <select class="form-select" id="floatingSelect" name="fornecedor" required>
+                  <option value="">-----------------</option>
                   <option value="2">Lucimara</option>
                   <option value="3">Suellem</option>
                 </select>
                 <label for="floatingSelect">Fornecedor</label>
               </div>
+
               <div class="form-floating mb-3 col-md-6">
-                <select class="form-select" id="floatingSelect" name="filial">
-                  <option value="1">-----------------</option>
+                <select class="form-select" id="floatingSelect" name="filial" required>
+                  <option value="">-----------------</option>
                   <option value="2">Lucimara</option>
                   <option value="3">Suellem</option>
                 </select>
                 <label for="floatingSelect">Filial</label>
               </div>
+
               <div class="col-12">
-                <input type="text" class="form-control" placeholder="Tipo de serviço" name="tipoServico">
+                <input type="text" class="form-control" placeholder="Tipo de serviço" name="tipoServico" required>
               </div>
 
               <h5 class="card-title">Dados da nota fiscal</h5>
 
               <!-- No Labels Form -->
               <div class="col-md-9 mb-3">
-                <input type="text" class="form-control" placeholder="Número">
+                <input type="text" class="form-control" placeholder="Número" name="numeroNota" required>
               </div>
               <div class="col-3 mb-3">
-                <input type="text" class="form-control" placeholder="Série">
+                <input type="text" class="form-control" placeholder="Série" name="serie" required>
               </div>
 
               <div class="col-md-4 mb-3">
                 <div class="col-sm-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">Emissão</span>
-                    <input type="date" class="form-control" name="emissao">
+                    <input type="date" class="form-control" name="emissao" required>
                   </div>
                 </div>
               </div>
@@ -86,7 +88,7 @@ require_once('menu.php'); //menu lateral da pagina
                 <div class="col-sm-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">Vencimento</span>
-                    <input type="date" class="form-control" name="vencimento">
+                    <input type="date" class="form-control" name="vencimento" required>
                   </div>
                 </div>
               </div>
@@ -95,7 +97,7 @@ require_once('menu.php'); //menu lateral da pagina
                 <div class="col-sm-12">
                   <div class="input-group">
                     <span class="input-group-text" id="basic-addon1">R$</span>
-                    <input type="text" class="custom4 form-control" name="valor" maxlength="12" onKeyUp="mascaraMoeda(this, event)" placeholder="000000.00">
+                    <input type="text" class="custom4 form-control" name="valor" maxlength="12" onKeyUp="mascaraMoeda(this, event)" placeholder="000000.00" required>
                   </div>
                 </div>
               </div>
@@ -129,10 +131,125 @@ require_once('menu.php'); //menu lateral da pagina
                   <input class="form-control" type="file" id="formFile" name="fileoutros">
                 </div>
               </div>
+
+              <h5 class="card-title">Dados do fornecedor</h5>
+
+
+              <div class="form-floating mb-3 col-md-4">
+                <select class="form-select" id="floatingSelect" name="tipodespesa" required>
+                  <option value="">-----------------</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Tipo de Despesa</label>
+              </div>
+
+              <div class="form-floating mb-3 col-md-4">
+                <select class="form-select" id="floatingSelect" name="fornecedor" required>
+                  <option value="">-----------------</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Periodicidade</label>
+              </div>
+
+              <div class="form-floating mb-3 col-md-4">
+                <select class="form-select" id="floatingSelect" name="periodicidade" required>
+                  <option value="">-----------------</option>
+                  <option value="2">Lucimara</option>
+                  <option value="3">Suellem</option>
+                </select>
+                <label for="floatingSelect">Tipo do Pagamento</label>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <input type="text" class="form-control" onkeypress="mask(this, mphone);" onblur="mask(this, mphone);" placeholder="Telefone" title="Caso seja nota de telefonia" name="telefone">
+              </div>
+
+              <div class="col-6">
+                <div class="form-floating">
+                  <textarea class="form-control" placeholder="Address" id="floatingTextarea" style="height: 100px;" name="observacao" required></textarea>
+                  <label for="floatingTextarea">Observação</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">Notas Fiscais Do Departamento De Auditoria?
+                <div class="col-sm-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="departamentoAuditoria" id="griAuditoria" value="1">
+                    <label class="form-check-label" for="griAuditoria">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="departamentoAuditoria" id="griAuditoria1" value="2" checked="">
+                    <label class="form-check-label" for="griAuditoria1">
+                      NÃO
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-md-6 mb-3">Notas Fiscais De Obras do Grupo Servopa?
+                <div class="col-sm-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="obrasGS" id="gridObrasGS" value="option1">
+                    <label class="form-check-label" for="gridObrasGS">
+                      SIM
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="obrasGS" id="gridObrasGS1" value="option2" checked="">
+                    <label class="form-check-label" for="gridObrasGS1">
+                      NÃO
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <h5 class="card-title">Rateio departamentos</h5>
+
+              <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h4 class="alert-heading">Nenhum valor disponivel!</h4>
+                <p>Nenhum valor de RATEIO está disponivel no momento, finalize o preenchimento do formulario para que possamos disponibilizar os valores.</p>
+                <hr>
+                <p class="mb-0">Caso você já tenha finalizado e mesmo assim não aparece nenhum RATEIO, verifique se já cadastrou o Rateio de Fornecedor caso contrario entre em contato com o administrador do sistema.</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Tabela centro de custo</h5>
+                  <!-- Bordered Table -->
+                  <table class="table table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Centro de Custo</th>
+                        <th scope="col">% Rateio</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1.1 Novos</td>
+                        <td>50</td>
+                        <td>R$ 1500,00</td>
+                      </tr>
+                      <tr>
+                        <td>1.2 Seminovos</td>
+                        <td>50</td>
+                        <td>R$ 1500,00</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+
               <div class="text-center py-5">
                 <hr>
                 <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
-                <button type="submit" class="btn btn-success">Enviar Lançamento</button>
+                <button type="submit" class="btn btn-success">Enviar Nota</button>
               </div>
 
             </form><!-- End No Labels Form -->
