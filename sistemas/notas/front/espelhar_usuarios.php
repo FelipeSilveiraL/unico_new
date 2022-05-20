@@ -1,20 +1,21 @@
 <?php
-  require_once('../../../config/query.php'); //Todas as pesquisas de banco
-  require_once('../config/query.php');//
-  require_once('administrador.php');//regra de perfis
-  require_once('head.php');//CSS e configurações HTML
-  require_once('header.php');//logo e login
-  require_once('menu.php');//menu lateral da pagina
+require_once('../../../config/query.php'); //Todas as pesquisas de banco
+require_once('../config/query.php');//
+require_once('administrador.php');//regra de perfis
+require_once('head.php');//CSS e configurações HTML
+require_once('header.php');//logo e login
+require_once('menu.php');//menu lateral da pagina
 ?>
 
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Nome da Pagina</h1>
+    <h1>Usuários</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
-        <li class="breadcrumb-item">Pagina Branco</li>
+        <li class="breadcrumb-item"><a href="configuracao.php?pg=<?= $_GET['pg'] ?>">Configurações</a></li>
+        <li class="breadcrumb-item">Usuários</li>
       </ol>
     </nav>
   </div><!-- End Navegação -->

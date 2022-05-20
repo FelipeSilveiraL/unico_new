@@ -1,7 +1,7 @@
 <?php
 require_once('../../../config/query.php'); //Todas as pesquisas de banco
 require_once('../config/query.php'); //
-/* require_once('administrador.php'); */ //regra de perfis
+require_once('administrador.php'); //regra de perfis
 require_once('head.php'); //CSS e configurações HTML
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
@@ -17,30 +17,27 @@ require_once('menu.php'); //menu lateral da pagina
         <li class="breadcrumb-item">Lançamento manual</li>
       </ol>
     </nav>
-  </div><!-- End Navegação -->  
-  <?php 
-  require_once('../../../inc/mensagens.php');//Alertas
+  </div><!-- End Navegação -->
+  <?php
+  require_once('../../../inc/mensagens.php'); //Alertas
   require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
   ?>
   <!-- Alertas -->
-
-
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
             <form class="row g-3" action="" method="post" enctype="multipart/form-data">
-
               <!--DADOS PARA O LANÇAMENTO -->
               <h5 class="card-title">Dados lançamento</h5>
               <div class="form-floating mb-3 col-md-12">
-                <select class="form-select" id="floatingSelect" name="usuarioFluig">
+                <select class="form-select" id="floatingSelect" name="usuarioBPM">
                   <option value="1">Felipe Lara</option>
                   <option value="2">Lucimara</option>
                   <option value="3">Suellem</option>
                 </select>
-                <label for="floatingSelect">Usuario para lançamento Fluig</label>
+                <label for="floatingSelect" class="capitalize">usuario para lançamento <?= $_SESSION['nome_bpm'] ?></label>
               </div>
 
               <div class="form-floating mb-3 col-md-6">

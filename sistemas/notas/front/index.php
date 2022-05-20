@@ -3,7 +3,6 @@ session_start();
 
 require_once('../../../config/query.php'); //Todas as pesquisas de banco
 require_once('../config/query.php'); //
-/* require_once('administrador.php'); */ //regra de perfis
 require_once('head.php'); //CSS e configurações HTML
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
@@ -79,15 +78,15 @@ require_once('../inc/status.php');
 
             <table class="table table-borderless datatable">
               <thead>
-                <tr>
-                  <th scope="col">Empresa&emsp;</th>
-                  <th scope="col">Fornecedor&emsp;</th>
-                  <th scope="col">Valor&emsp;</th>
-                  <th scope="col">Emissao</th>
-                  <th scope="col">Vencimento&emsp;</th>
+                <tr class="capitalize">
+                  <th scope="col">empresa&emsp;</th>
+                  <th scope="col">fornecedor&emsp;</th>
+                  <th scope="col">valor&emsp;</th>
+                  <th scope="col">emissao</th>
+                  <th scope="col">vencimento&emsp;</th>
                   <th scope="col"><?= $_SESSION['nome_bpm'] ?>&emsp;</th>
-                  <th scope="col">Status&emsp;</th>
-                  <th scope="col">Ação&emsp;</th>
+                  <th scope="col">status&emsp;</th>
+                  <th scope="col">ação&emsp;</th>
                 </tr>
               </thead>
               <tbody>
