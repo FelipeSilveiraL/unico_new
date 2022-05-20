@@ -1,8 +1,10 @@
+<?php require_once('../inc/paginacao.php');//pg ?>
+
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-            <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=1">
+            <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
             </a>
@@ -10,7 +12,7 @@
         <hr>
         <li class="nav-heading">Notas</li>
         <li class="nav-item">
-            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="lancamento.php?pg=2">
+            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="lancamento.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-file-arrow-up"></i>
                 <span>Lançamento Manual</span>
             </a>
@@ -56,7 +58,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="espelhar_usuarios.php?pg=4&tela=2" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
+                    <a href="espelhar_usuarios.php?pg=<?= $_GET['pg'] ?>&tela=2" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Usuários</span>
                     </a>
                 </li>
@@ -65,7 +67,7 @@
         <!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link  <?= $_GET['pg'] == 5 ?: "collapsed" ?>" href="ajuda.php?pg=2">
+            <a class="nav-link  <?= $_GET['pg'] == 5 ?: "collapsed" ?>" href="ajuda.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-question-circle"></i>
                 <span>Ajuda?</span>
             </a>

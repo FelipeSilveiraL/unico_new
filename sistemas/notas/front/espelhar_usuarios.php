@@ -1,7 +1,7 @@
 <?php
-require_once('../../../config/query.php'); //Todas as pesquisas de banco
-require_once('../config/query.php');//
 require_once('administrador.php');//regra de perfis
+require_once('../../../config/query.php'); //Todas as pesquisas de banco
+require_once('../config/query.php');
 require_once('head.php');//CSS e configurações HTML
 require_once('header.php');//logo e login
 require_once('menu.php');//menu lateral da pagina

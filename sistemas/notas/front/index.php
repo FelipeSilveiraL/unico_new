@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+require_once('administrador.php');//regra de perfis
 require_once('../../../config/query.php'); //Todas as pesquisas de banco
 require_once('../config/query.php'); //
 require_once('head.php'); //CSS e configurações HTML
@@ -15,7 +15,7 @@ require_once('../inc/status.php');
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Dashboard</a></li>
       </ol>
     </nav>
   </div><!-- End Navegação --> 
