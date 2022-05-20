@@ -17,23 +17,23 @@ require_once('menu.php'); //menu lateral da pagina
         <li class="breadcrumb-item">Lançamento manual</li>
       </ol>
     </nav>
-  </div><!-- End Navegação -->
-
-  <?php require_once('../../../inc/mensagens.php') ?>
+  </div><!-- End Navegação -->  
+  <?php 
+  require_once('../../../inc/mensagens.php');//Alertas
+  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
+  ?>
   <!-- Alertas -->
 
 
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
-
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Dados lançamento</h5>
-
-            <!-- No Labels Form -->
             <form class="row g-3" action="" method="post" enctype="multipart/form-data">
 
+              <!--DADOS PARA O LANÇAMENTO -->
+              <h5 class="card-title">Dados lançamento</h5>
               <div class="form-floating mb-3 col-md-12">
                 <select class="form-select" id="floatingSelect" name="usuarioFluig">
                   <option value="1">Felipe Lara</option>
@@ -65,9 +65,8 @@ require_once('menu.php'); //menu lateral da pagina
                 <input type="text" class="form-control" placeholder="Tipo de serviço" name="tipoServico" required>
               </div>
 
+              <!--DADOS DA NOTA FISCAL -->
               <h5 class="card-title">Dados da nota fiscal</h5>
-
-              <!-- No Labels Form -->
               <div class="col-md-9 mb-3">
                 <input type="text" class="form-control" placeholder="Número" name="numeroNota" required>
               </div>
@@ -134,7 +133,6 @@ require_once('menu.php'); //menu lateral da pagina
 
               <h5 class="card-title">Dados do fornecedor</h5>
 
-
               <div class="form-floating mb-3 col-md-4">
                 <select class="form-select" id="floatingSelect" name="tipodespesa" required>
                   <option value="">-----------------</option>
@@ -189,7 +187,6 @@ require_once('menu.php'); //menu lateral da pagina
                   </div>
                 </div>
               </div>
-
               <div class="col-md-6 mb-3">Notas Fiscais De Obras do Grupo Servopa?
                 <div class="col-sm-2">
                   <div class="form-check">
@@ -207,6 +204,7 @@ require_once('menu.php'); //menu lateral da pagina
                 </div>
               </div>
 
+              <!--DADOS DO RATEIO -->
               <h5 class="card-title">Rateio departamentos</h5>
 
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -220,7 +218,6 @@ require_once('menu.php'); //menu lateral da pagina
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Tabela centro de custo</h5>
-                  <!-- Bordered Table -->
                   <table class="table table-bordered">
                     <thead>
                       <tr>
@@ -242,24 +239,19 @@ require_once('menu.php'); //menu lateral da pagina
                       </tr>
                     </tbody>
                   </table>
-
                 </div>
               </div>
-
+              <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-center py-5">
                 <hr>
                 <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
                 <button type="submit" class="btn btn-success">Enviar Nota</button>
               </div>
-
-            </form><!-- End No Labels Form -->
-
-          </div>
-        </div>
-      </div>
-
-  </section>
-
+            </form><!-- FIM Form -->
+          </div><!-- FIM card-body -->
+        </div><!-- FIM card -->
+      </div><!-- FIM col-lg-12 -->
+  </section><!-- FIM section -->
 </main><!-- End #main -->
 
 <?php

@@ -19,9 +19,12 @@ require_once('../inc/status.php');
         <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
       </ol>
     </nav>
-  </div><!-- End Navegação -->
-
-  <?php require_once('../../../inc/mensagens.php') ?>
+  </div><!-- End Navegação --> 
+  
+  <?php 
+  require_once('../../../inc/mensagens.php');//Alertas
+  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
+  ?>
   <!-- Alertas -->
 
   <section>
@@ -32,7 +35,7 @@ require_once('../inc/status.php');
           <div class="alert alert-primary alert-dismissible fade show" role="alert">
             <h4 class="alert-heading">Lançando</h4>
             <hr>
-            <p class="mb-0">Quantidade: <?=$countLancando['countLancando']?></p>
+            <p class="mb-0">Quantidade: <?= $countLancando['countLancando'] ?></p>
           </div>
         </a>
       </div>
@@ -42,7 +45,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Lançadas</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countLancado['countLancado'] ?></p>
+            <p class="mb-0">Quantidade: <?= $countLancado['countLancado'] ?></p>
           </div>
         </a>
       </div>
@@ -52,7 +55,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Pendentes</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countPendentes['countPendentes']?></p>
+            <p class="mb-0">Quantidade: <?= $countPendentes['countPendentes'] ?></p>
           </div>
         </a>
       </div>
@@ -62,7 +65,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Erros</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countErros['countErros']?></p>
+            <p class="mb-0">Quantidade: <?= $countErros['countErros'] ?></p>
           </div>
         </a>
       </div>
@@ -82,7 +85,7 @@ require_once('../inc/status.php');
                   <th scope="col">Valor&emsp;</th>
                   <th scope="col">Emissao</th>
                   <th scope="col">Vencimento&emsp;</th>
-                  <th scope="col">Fluig&emsp;</th>
+                  <th scope="col"><?= $_SESSION['nome_bpm'] ?>&emsp;</th>
                   <th scope="col">Status&emsp;</th>
                   <th scope="col">Ação&emsp;</th>
                 </tr>
@@ -101,7 +104,9 @@ require_once('../inc/status.php');
                             <td>' . $notas['emissao'] . '</td>
                             <td>' . $notas['vencimento'] . '</td>
                             <td><a target="_blank" href="https://gruposervopa.fluig.com/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=' . $notas['numero_fluig'] . '">' . $notas['numero_fluig'] . '</a></td>
-                            <td><span class="badge '; echo empty($value) ? "bg-danger" : $value; echo '">' . $notas['status'] . '</span></td>
+                            <td><span class="badge ';
+                  echo empty($value) ? "bg-danger" : $value;
+                  echo '">' . $notas['status'] . '</span></td>
                             <td>
                               <a href="#" title="Editar" class="btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
                               <a href="#" title="Desativar" class="btn-danger btn-sm"><i class="bi bi-trash"></i></a>

@@ -5,6 +5,7 @@ require_once('../config/query.php');//
 require_once('head.php');//CSS e configurações HTML
 require_once('header.php');//logo e login
 require_once('menu.php');//menu lateral da pagina
+require_once('../inc/fluig.php');//validar se possui senha cadastrada
 ?>
 
 <main id="main" class="main">
@@ -19,7 +20,10 @@ require_once('menu.php');//menu lateral da pagina
     </nav>
   </div><!-- End Navegação -->
   
-  <?php require_once('../../../inc/mensagens.php') ?><!-- Alertas -->
+  <?php 
+  require_once('../../../inc/mensagens.php');//Alertas
+  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
+  ?>
 
   <!--################# COLE section AQUI #################-->
 
