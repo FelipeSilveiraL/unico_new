@@ -1,4 +1,9 @@
-<?php require_once('../inc/paginacao.php');//pg ?>
+<?php 
+require_once('../inc/paginacao.php');//pg 
+require_once('../inc/administrador.php'); //regra de perfis
+require_once('../../../config/query.php'); //Todas as pesquisas de banco
+require_once('../config/query.php');
+?>
 
 <aside id="sidebar" class="sidebar">
 
