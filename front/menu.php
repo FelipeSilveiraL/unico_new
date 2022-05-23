@@ -1,3 +1,5 @@
+<?php require_once('../inc/paginacao.php');?>
+
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -29,22 +31,22 @@
             </a>
             <ul id="charts-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="usuarios.php?pg=2&conf=1" <?= $_GET['conf'] == 1 ? "class='active'" : "" ?>>
+                    <a href="usuarios.php?pg=<?= $_GET['pg'] ?>&conf=1" <?= $_GET['conf'] == 1 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Lista Usuários</span>
                     </a>
                 </li>
                 <li>
-                    <a href="dropdowns.php?pg=2&conf=2" <?= $_GET['conf'] == 2 ? "class='active'" : "" ?>>
+                    <a href="dropdowns.php?pg=<?= $_GET['pg'] ?>&conf=2" <?= $_GET['conf'] == 2 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Menu suspenso</span>
                     </a>
                 </li>
                 <li>
-                    <a href="sistema.php?pg=2&conf=3" <?= $_GET['conf'] == 3 ? "class='active'" : "" ?>>
+                    <a href="sistema.php?pg=<?= $_GET['pg'] ?>&conf=3" <?= $_GET['conf'] == 3 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Sistemas</span>
                     </a>
                 </li>
                 <li>
-                    <a href="api.php?pg=2&conf=4" <?= $_GET['conf'] == 4 ? "class='active'" : "" ?>>
+                    <a href="api.php?pg=<?= $_GET['pg'] ?>&conf=4" <?= $_GET['conf'] == 4 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>API</span>
                     </a>
                 </li>
@@ -52,7 +54,7 @@
         </li><!-- End Charts Nav -->
 
         <li class="nav-item">
-            <a class="nav-link  <?= $_GET['pg'] == 3 ?: "collapsed" ?>" href="ajuda.php?pg=3">
+            <a class="nav-link  <?= $_GET['pg'] == 3 ?: "collapsed" ?>" href="ajuda.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-question-circle"></i>
                 <span>Ajuda</span>
             </a>
