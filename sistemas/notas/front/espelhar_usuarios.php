@@ -29,7 +29,10 @@ require_once('menu.php'); //menu lateral da pagina
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Espelhar usuários</h5>
-            <p>Nesta tela só é permitido fazer espelhamento dentre os usuários. Caso queira mudar outras informações como por exemplo; usuário, senha, etc... Basta clicar neste icone <a href="../../../front/usuarios.php?pg=2&conf=1" target="_blank" class="btn-info btn-sm"><i class="ri-user-settings-line"></i></a></p>
+            <h6>
+              <p>Nesta tela só é permitido fazer espelhamento dentre os usuários.</p>
+              <p> Caso seja necessario mudar outras informações como por exemplo; usuário, senha, etc... Basta clicar neste icone <a href="../../../front/usuarios.php?pg=2&conf=1" target="_blank" class="btn-info btn-sm"><i class="ri-user-settings-line"></i></a></p>
+            </h6>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -37,7 +40,7 @@ require_once('menu.php'); //menu lateral da pagina
                   <th scope="col">ID</th>
                   <th scope="col">Usuário</th>
                   <th scope="col">Espelhador por</th>
-                  <th scope="col">ID Usuarios</th>
+                  <th scope="col">ID Usuário</th>
                 </tr>
               </thead>
               <tbody>
@@ -62,10 +65,8 @@ require_once('menu.php'); //menu lateral da pagina
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
-
           </div>
         </div>
-
       </div>
     </div>
   </section>
