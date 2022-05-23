@@ -1,23 +1,22 @@
 <?php
 
-//telas
+/* ==== TELAS ====*/
 $tela = basename($_SERVER['PHP_SELF']);
 
-/* REGRAS */
+/* ==== REGRAS ====*/
 
 //MEUS SISTEMAS
-if($tela === "index.php"){$_GET['pg'] == 1 ?: header('location: ../front/index.php?pg=1');}
+if($tela == "index.php"){if($_GET['pg'] != '1'){echo '<script>window.location.href = "index.php?pg=1";</script>';}}
 //CONFIGURAÇÕES
-if($tela === "usuarios.php"){$_GET['pg'] == 2 ?: header('location: ../front/usuarios.php?pg=2');}
-if($tela === "usuariosEditar.php"){$_GET['pg'] == 2 ?: header('location: ../front/usuariosEditar.php?pg=2');}
-if($tela === "usuarioNovo.php"){$_GET['pg'] == 2 ?: header('location: ../front/usuarioNovo.php?pg=2');}
-if($tela === "dropdowns.php"){$_GET['pg'] == 2 ?: header('location: ../front/dropdowns.php?pg=2');}
-if($tela === "dropdownsAcao.php"){$_GET['pg'] == 2 ?: header('location: ../front/dropdownsAcao.php?pg=2');}
-if($tela === "sistema.php"){$_GET['pg'] == 2 ?: header('location: ../front/sistema.php?pg=2');}
-if($tela === "sistemaAlterar.php"){$_GET['pg'] == 2 ?: header('location: ../front/sistemaAlterar.php?pg=2');}
-if($tela === "sistemaAlterar.php"){$_GET['pg'] == 2 ?: header('location: ../front/sistemaAlterar.php?pg=2');}
-if($tela === "api.php"){$_GET['pg'] == 2 ?: header('location: ../front/api.php?pg=2');}
+if($tela == "usuarios.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "usuarios.php?pg=2";</script>';}}
+if($tela == "usuariosEditar.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "usuariosEditar.php?pg=2";</script>';}}
+if($tela == "usuarioNovo.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "usuarioNovo.php?pg=2";</script>';}}
+if($tela == "dropdowns.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "dropdowns.php?pg=2";</script>';}}
+if($tela == "dropdownsAcao.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "dropdownsAcao.php?pg=2";</script>';}}
+if($tela == "sistema.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "sistema.php?pg=2";</script>';}}
+if($tela == "sistemaAlterar.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "sistemaAlterar.php?pg=2";</script>';}}
+if($tela == "api.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "api.php?pg=2";</script>';}}
 //AJUDA
-if($tela === "ajuda.php"){$_GET['pg'] == 3 ?: header('location: ../front/ajuda.php?pg=3');}
+if($tela == "ajuda.php"){if($_GET['pg'] != '3'){echo '<script>window.location.href = "ajuda.php?pg=3";</script>';}}
 
 ?>

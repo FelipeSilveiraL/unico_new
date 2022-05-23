@@ -1,13 +1,9 @@
 <?php
-session_start();
-require_once('head.php'); //CSS e configurações HTML
+require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
-require_once('../inc/status.php');
 ?>
-
 <main id="main" class="main">
-
   <div class="pagetitle">
     <h1>Dashboard</h1>
     <nav>
@@ -18,8 +14,9 @@ require_once('../inc/status.php');
   </div><!-- End Navegação --> 
   
   <?php 
+  require_once('../inc/status.php');
   require_once('../../../inc/mensagens.php');//Alertas
-  //require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
+  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
   ?>
   <!-- Alertas -->
 
