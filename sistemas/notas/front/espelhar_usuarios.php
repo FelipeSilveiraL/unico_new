@@ -31,37 +31,34 @@ require_once('menu.php'); //menu lateral da pagina
             <h5 class="card-title">Espelhar usuários</h5>
             <h6>
               <p>Nesta tela só é permitido fazer espelhamento dentre os usuários.</p>
-              <p> Caso seja necessario mudar outras informações como por exemplo; usuário, senha, etc... Basta clicar neste icone <a href="../../../front/usuarios.php?pg=2&conf=1" target="_blank" class="btn-info btn-sm"><i class="ri-user-settings-line"></i></a></p>
+              <p> Caso seja necessario mudar outras informações como por exemplo; usuário, senha, etc... Basta clicar neste icone <a href="../../../front/usuarios.php?pg=2&conf=1" target="_blank" class="btn btn-info btn-sm"><i class="ri-user-settings-line"></i></a></p>
             </h6>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
                 <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Usuário</th>
-                  <th scope="col">Espelhador por</th>
-                  <th scope="col">ID Usuário</th>
+                  <th scope="col" class="capitalize">id</th>
+                  <th scope="col" class="capitalize">usuário</th>
+                  <th scope="col" class="capitalize">e-mail</th>
+                  <th scope="col" class="capitalize">cpf</th>
+                  <th scope="col" class="capitalize">ação</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Brandon Jacob</td>
-                  <td>Designer</td>
-                  <td>28</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Bridie Kessler</td>
-                  <td>Developer</td>
-                  <td>35</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Ashleigh Langosh</td>
-                  <td>Finance</td>
-                  <td>45</td>
-                </tr>
+                <?php
+                  $queryUsuarios .= " WHERE U.deletar = 0";//apenas usuarios ativos
+                  $resultadoUsuarios = $conn->query($queryUsuarios);
+                  while($usuarios = $resultadoUsuarios->fetch_assoc()){
+                    echo '<tr>
+                            <th scope="row">'.$usuarios['id_usuario'].'</th>
+                            <td>'.$usuarios['nome_usuario'].'</td>
+                            <td>'.$usuarios['email'].'</td>
+                            <td>'.$usuarios['cpf'].'</td>
+                            <td>
+                              <a href="#" title="Configurações" class="btn btn-primary btn-sm"><i class="ri-user-settings-line"></i></a>
+                            </td>
+                          </tr>';
+                  }?>
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
