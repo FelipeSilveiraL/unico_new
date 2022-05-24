@@ -17,7 +17,6 @@ require_once('menu.php'); //menu lateral da pagina
   </div><!-- End Navegação -->
   <?php
   require_once('../../../inc/mensagens.php'); //Alertas
-  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
   ?>
   <!-- Alertas -->
 

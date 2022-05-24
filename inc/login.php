@@ -39,6 +39,9 @@ if ($usuario['deletar'] == 1) {
             $_SESSION['alterar_senha_login'] = $usuario['alterar_senha_login'];            
             $_SESSION['deletar'] = $usuario['deletar'];
 
+            //OUTROS TIPOS DE SESSÃO
+            $_SESSION['nome_bpm'] = "fluig";
+
             header('Location: ../front/index.php?pg='.$_GET['pg'].'');
         }
     } else {

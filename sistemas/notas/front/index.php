@@ -1,27 +1,23 @@
 <?php
-session_start();
-
-require_once('../../../config/query.php'); //Todas as pesquisas de banco
-require_once('../config/query.php'); //
-/* require_once('administrador.php'); */ //regra de perfis
-require_once('head.php'); //CSS e configurações HTML
+require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login
 require_once('menu.php'); //menu lateral da pagina
-require_once('../inc/status.php');
 ?>
-
 <main id="main" class="main">
-
   <div class="pagetitle">
     <h1>Dashboard</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Dashboard</a></li>
       </ol>
     </nav>
-  </div><!-- End Navegação -->
-
-  <?php require_once('../../../inc/mensagens.php') ?>
+  </div><!-- End Navegação --> 
+  
+  <?php 
+  require_once('../inc/status.php');
+  require_once('../../../inc/mensagens.php');//Alertas
+  require_once('../inc/senhaBPM.php'); //validar se possui senha cadastrada 
+  ?>
   <!-- Alertas -->
 
   <section>
@@ -32,7 +28,7 @@ require_once('../inc/status.php');
           <div class="alert alert-primary alert-dismissible fade show" role="alert">
             <h4 class="alert-heading">Lançando</h4>
             <hr>
-            <p class="mb-0">Quantidade: <?=$countLancando['countLancando']?></p>
+            <p class="mb-0">Quantidade: <?= $countLancando['countLancando'] ?></p>
           </div>
         </a>
       </div>
@@ -42,7 +38,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Lançadas</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countLancado['countLancado'] ?></p>
+            <p class="mb-0">Quantidade: <?= $countLancado['countLancado'] ?></p>
           </div>
         </a>
       </div>
@@ -52,7 +48,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Pendentes</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countPendentes['countPendentes']?></p>
+            <p class="mb-0">Quantidade: <?= $countPendentes['countPendentes'] ?></p>
           </div>
         </a>
       </div>
@@ -62,7 +58,7 @@ require_once('../inc/status.php');
             <h4 class="alert-heading">Erros</h4>
 
             <hr>
-            <p class="mb-0">Quantidade: <?=$countErros['countErros']?></p>
+            <p class="mb-0">Quantidade: <?= $countErros['countErros'] ?></p>
           </div>
         </a>
       </div>
@@ -76,15 +72,15 @@ require_once('../inc/status.php');
 
             <table class="table table-borderless datatable">
               <thead>
-                <tr>
-                  <th scope="col">Empresa&emsp;</th>
-                  <th scope="col">Fornecedor&emsp;</th>
-                  <th scope="col">Valor&emsp;</th>
-                  <th scope="col">Emissao</th>
-                  <th scope="col">Vencimento&emsp;</th>
-                  <th scope="col">Fluig&emsp;</th>
-                  <th scope="col">Status&emsp;</th>
-                  <th scope="col">Ação&emsp;</th>
+                <tr class="capitalize">
+                  <th scope="col">empresa&emsp;</th>
+                  <th scope="col">fornecedor&emsp;</th>
+                  <th scope="col">valor&emsp;</th>
+                  <th scope="col">emissao</th>
+                  <th scope="col">vencimento&emsp;</th>
+                  <th scope="col"><?= $_SESSION['nome_bpm'] ?>&emsp;</th>
+                  <th scope="col">status&emsp;</th>
+                  <th scope="col">ação&emsp;</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,7 +97,9 @@ require_once('../inc/status.php');
                             <td>' . $notas['emissao'] . '</td>
                             <td>' . $notas['vencimento'] . '</td>
                             <td><a target="_blank" href="https://gruposervopa.fluig.com/portal/p/1/pageworkflowview?app_ecm_workflowview_detailsProcessInstanceID=' . $notas['numero_fluig'] . '">' . $notas['numero_fluig'] . '</a></td>
-                            <td><span class="badge '; echo empty($value) ? "bg-danger" : $value; echo '">' . $notas['status'] . '</span></td>
+                            <td><span class="badge ';
+                  echo empty($value) ? "bg-danger" : $value;
+                  echo '">' . $notas['status'] . '</span></td>
                             <td>
                               <a href="#" title="Editar" class="btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
                               <a href="#" title="Desativar" class="btn-danger btn-sm"><i class="bi bi-trash"></i></a>

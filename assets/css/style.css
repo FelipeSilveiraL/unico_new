@@ -19,6 +19,10 @@ select.dataTable-selector {
   font-size: 12px;
 }
 
+.capitalize{
+  text-transform: capitalize;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
   background: #f6f9ff;
