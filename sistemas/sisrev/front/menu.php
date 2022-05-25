@@ -5,13 +5,27 @@ require_once('../inc/administrador.php'); //regra de perfis
 
 <aside id="sidebar" class="sidebar">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
+    <ul class="sidebar-nav" id="sidebar-nav">        
         <li class="nav-item">
             <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-grid"></i>
-                <span>Módulos</span>
+                <span>Home</span>
             </a>
         </li><!-- End Dashboard Nav -->
+        <hr>
+        <li class="nav-heading">Módulos</li>
+        <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? 'block' : 'none' ?>">
+            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" data-bs-target="#info-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-cpu"></i><span>Informática</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="info-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=1" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Desativar Usuários</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
         <hr>
         <li class="nav-heading">Paginas</li>
         <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? 'block' : 'none' ?>">

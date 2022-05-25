@@ -1,16 +1,15 @@
 <?php
 
 /* ==== TELAS ====*/
-$pegatela = basename($_SERVER['PHP_SELF']);
-$tela = $pegatela;
+$tela = basename($_SERVER['PHP_SELF']);
 
 /* ==== REGRAS ====*/
 //index.php
 if($tela == "index.php"){if($_GET['pg'] != '1'){echo '<script>window.location.href = "index.php?pg=1";</script>';}}
-//lancamento.php
-if($tela == "lancamento.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "lancamento.php?pg=2";</script>';}}
-//espelhar_usuarios.php
-if($tela == "espelhar_usuarios.php"){if($_GET['pg'] != '4'){echo '<script>window.location.href = "espelhar_usuarios.php?pg=4&tela=2";</script>';}}
+//informatica.php
+if($tela == "informatica.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "informatica.php?pg=2";</script>';}}
+//desativar_usuario.php
+if($tela == "desativar_usuario.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "desativar_usuario.php?pg=2&tela=' . $_GET['tela'] . '";</script>';}}
 //configuracao.php
 if($tela == "configuracao.php"){if($_GET['pg'] != '4'){echo '<script>window.location.href = "configuracao.php?pg=4";</script>';}}
 //ajuda.php

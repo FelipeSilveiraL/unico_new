@@ -46,6 +46,10 @@ body {
 
 }
 
+.button-rigth-card-active{
+  margin-left: 56%;
+}
+
 a {
   color: #4154f1;
   text-decoration: none;
