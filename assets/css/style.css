@@ -22,6 +22,10 @@ select.dataTable-selector {
 .capitalize{
   text-transform: capitalize;
 }
+.button-rigth-espelho {
+  margin-left: 94%;
+  margin-top: -8%;
+}
 
 body {
   font-family: "Open Sans", sans-serif;
