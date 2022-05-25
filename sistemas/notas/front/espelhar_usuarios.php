@@ -46,7 +46,7 @@ require_once('menu.php'); //menu lateral da pagina
               </thead>
               <tbody>
                 <?php
-                  $queryUsuarios .= " WHERE U.deletar = 0";//apenas usuarios ativos
+                  $queryUsuarios .= " WHERE U.deletar = 0";
                   $resultadoUsuarios = $conn->query($queryUsuarios);
                   while($usuarios = $resultadoUsuarios->fetch_assoc()){
                     echo '<tr>

@@ -9,45 +9,9 @@ require_once('../inc/administrador.php'); //regra de perfis
         <li class="nav-item">
             <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-grid"></i>
-                <span>Dashboard</span>
+                <span>Módulos</span>
             </a>
         </li><!-- End Dashboard Nav -->
-        <hr>
-        <li class="nav-heading">Notas</li>
-        <li class="nav-item">
-            <a class="nav-link <?= $_GET['pg'] == 2 ?: "collapsed" ?>" href="lancamento.php?pg=<?= $_GET['pg'] ?>">
-                <i class="bi bi-file-arrow-up"></i>
-                <span>Lançamento Manual</span>
-            </a>
-        </li><!-- End Dashboard Nav -->
-        <li class="nav-item">
-
-            <a class="nav-link <?= $_GET['pg'] == 3 ?: "collapsed" ?>" data-bs-target="#cadastro-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-file-earmark-text"></i><span>Cadastros</span><i class="bi bi-chevron-down ms-auto"></i>
-            </a>
-            <ul id="cadastro-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="#" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Filial</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Fornecedor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" <?= $_GET['tela'] == 3 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Rateio Fornecedor</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" <?= $_GET['tela'] == 4 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Fornecedores catalogados</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
         <hr>
         <li class="nav-heading">Paginas</li>
         <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? 'block' : 'none' ?>">
