@@ -57,30 +57,41 @@ require_once('../inc/tabela_espelho.php');
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title">Novo espelhamento</h5>
+              <h5 class="modal-title capitalize">novo espelhamento</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p>Qual usuário deseja espelhar ?</p>
-              <form action="../inc/espelhar_usuarios.php?" method="post">
-                <select name="idpai" id="idpai">
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
+              <form action="../inc/espelhar_usuarios.php?pg=<?=$_GET['pg']?>&tela=<?=$_GET['tela']?>&idUsuario=<?= $_GET['idUsuario'] ?>&acao=1" method="post" id="espelharusuario">
+                <div class="form-floating mb-3">
+                  <select class="form-select" id="floatingSelect" name="idUsuarioadicionar" required>
+                    <option value="">-----------------</option>
+                    <?php
+                    $resultado = $conn->query($queryUsuariosEspe);
+                    while ($usuariosEspelhosRateio = $resultado->fetch_assoc()) {
+                      echo '<option value="' . $usuariosEspelhosRateio['id_usuario'] . '">' . $usuariosEspelhosRateio['nome_usuario'] . '</option>';
+                    }
+                    ?>
+                  </select>
+                  <label for="floatingSelect">Qual usuário deseja espelhar ?</label>
+                </div>
+                <h6><code>Nesta lista contem apenas usuários que possui algum rateio de fornecedor cadastrado.</code></h6>
               </form>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-primary" onclick="submit()">Incluir usuário</button>
             </div>
           </div>
         </div>
       </div><!-- End Basic Modal-->
-
     </div>
   </section>
 </main><!-- End #main -->
+<script>
+  function submit() {
+    document.getElementById("espelharusuario").submit();
+  }
+</script>
 
 <?php
 require_once('footer.php'); //Javascript e configurações afins
