@@ -7,4 +7,4 @@
     }else{
         header('location: front/index.php?pg=1');
     }
-?>
+?>a
