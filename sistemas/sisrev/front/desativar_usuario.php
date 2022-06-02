@@ -2,6 +2,7 @@
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
+require_once('../config/query.php'); //Dados do banco MYSQL
 ?>
 
 <main id="main" class="main">
@@ -29,8 +30,8 @@ require_once('menu.php'); //menu lateral da pagina
             <!-- General Form Elements -->
             <div class="header d-flex align-items-center header-scrolled">
               <div class="search-bar">
-                <form class="search-form d-flex align-items-center" method="POST" action="#">
-                  <input type="text" name="query" placeholder="Insira cpf" title="Enter search keyword" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+                <form class="search-form d-flex align-items-center" method="POST" action="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>&saida=1">
+                  <input type="text" name="cpf" placeholder="Insira cpf" title="Enter search keyword" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
                   <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                 </form>
               </div>
@@ -53,26 +54,23 @@ require_once('menu.php'); //menu lateral da pagina
                 <tr>
                   <th scope="col" class="capitalize">#</th>
                   <th scope="col" class="capitalize">Nome</th>
-                  <th scope="col" class="capitalize">Login</th>
+                  <th scope="col" class="capitalize">CPF</th>
+                  <th scope="col" class="capitalize">ATIVO</th>
                   <th scope="col" class="capitalize">Sistema</th>
-                  <th scope="col" class="capitalize">Situação</th>
                   <th scope="col" class="capitalize">Ação</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Brandon Jacob</td>
-                  <td>Designer</td>
-                  <td>28</td>
-                  <td>2016-05-25</td>
-                  <td>
-                    <a href="" title="Ativar" class="btn btn-success btn-sm"><i class="bi bi-check-square"></i></a>
-                    <a href="" title="Desativar" class="btn btn-danger btn-sm">
-                      <i class="bi bi-trash"></i>
-                    </a>
-                  </td>
-                </tr>
+                <?php
+                if ($_GET['saida'] != NULL) {
+                  require_once('../inc/tabelaDesativar.php');
+                  if (!empty($dados)) {
+                    echo $dados;
+                  } else {
+                    echo "<td colspan='6'>NENHUM DADO LOCALIZADO</td>";
+                  }
+                }
+                ?>
               </tbody>
             </table>
             <!-- End small tables -->
@@ -80,7 +78,7 @@ require_once('menu.php'); //menu lateral da pagina
         </div>
       </div>
     </div>
-    
+
   </section>
 
 

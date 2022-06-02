@@ -1,4 +1,5 @@
 <?php
+
 	require_once('../../../config/databases.php');
 		
 	// CRIANDO CONEXÃO DO NOTAS
@@ -8,4 +9,5 @@
 	if ($connNOTAS->connect_error) {
 		die("ERRO CONEXÂO SERVIDOR NOTAS: " . $connNOTAS->connect_error);
 	}
+	
 ?>

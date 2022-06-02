@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once('../../../config/query.php'); //SISTEMA UNICO
+require_once('../config/query.php'); //SISTEMA NOTAS
 
 if ($_SESSION['id_usuario'] == NULL) {
     header('Location: ../front/login.php?pg=' . $_GET['pg'] . '&msn=9'); //sessão nao iniciada!
@@ -11,8 +12,8 @@ if ($_SESSION['id_usuario'] == NULL) {
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="../index.php?pg=1" class="logo d-flex align-items-center">
-                <span class="d-none d-lg-block">Unico<img src="../img/fd_logo.png" alt="" srcset=""></span>
+            <a href="index.php?pg=1" class="logo d-flex align-items-center">
+                <span class="d-none d-lg-block">Robo<img src="../../../img/fd_logo.png" alt="" srcset=""></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -53,7 +54,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="ajuda.php?pg=3" <?= $_GET['pg'] == 3 ? "class='active'" : "" ?>>
+                            <a class="dropdown-item d-flex align-items-center" href="ajuda.php?pg=3">
                                 <i class="bi bi-question-circle"></i>
                                 <span>Ajuda ?</span>
                             </a>
@@ -63,7 +64,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="../inc/unset.php">
+                            <a class="dropdown-item d-flex align-items-center" href="../../../inc/unset.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sair</span>
                             </a>
@@ -85,7 +86,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                 </div>
                 <div class="modal-body">
                     <!-- Profile Edit Form -->
-                    <form action="../inc/editar_perfil.php?id_usuario=<?= $_SESSION['id_usuario'] ?>" method="post">
+                    <form action="../../../inc/editar_perfil.php?id_usuario=<?= $_SESSION['id_usuario'] ?>&id_sistema=1" method="post">
                         <h5 class="card-title">Principal</h5>
                         <div class="row mb-3">
                             <label for="nomeUsuario" class="col-md-4 col-lg-3 col-form-label">Nome</label>
@@ -119,7 +120,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                                     $resultEmpresa = $conn->query($queryEmpresa);
 
                                     while ($empresa = $resultEmpresa->fetch_assoc()) {
-                                        echo '<option value="' . $empresa['id'] . '">' . $empresa['nome'] . '</option>';
+                                        echo '<option value="' . $empresa['id_empresa'] . '">' . $empresa['empresa'] . '</option>';
                                     }
                                     ?>
 
@@ -138,7 +139,7 @@ if ($_SESSION['id_usuario'] == NULL) {
                                     $resultDepartamento = $conn->query($queryDepartamento);
 
                                     while ($departamento = $resultDepartamento->fetch_assoc()) {
-                                        echo '<option value="' . $departamento['id'] . '">' . $departamento['nome'] . '</option>';
+                                        echo '<option value="' . $departamento['id_depto'] . '">' . $departamento['nome'] . '</option>';
                                     }
                                     ?>
 

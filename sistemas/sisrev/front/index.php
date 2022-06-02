@@ -6,7 +6,7 @@ require_once('menu.php'); //menu lateral da pagina
 
 <main id="main" class="main">
 
-  <div class="pagetitle">
+<div class="pagetitle">
     <h1>Home</h1>
     <nav>
       <ol class="breadcrumb">
@@ -30,10 +30,18 @@ require_once('menu.php'); //menu lateral da pagina
           </div>
         </a>
       </div>
-    </div>    
+      <div class="col-lg-6"> 
+        <a href="empresas.php?pg=<?= $_GET['pg'] ?>" class="list-group-item list-group-item-action">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Empresas</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div> 
+      
   </section>
-
-  <!--################# section TERMINA AQUI #################-->
 
 </main><!-- End #main -->
 

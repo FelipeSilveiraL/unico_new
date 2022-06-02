@@ -1,6 +1,5 @@
 <?php
     require_once('../../../config/query.php');//SISTEMA UNICO
-    require_once('../config/query.php');//SISTEMA NOTAS
     
     if($_SESSION['id_usuario'] == NULL){
         header('Location: ../front/login.php?pg='.$_GET['pg'].'&msn=9');//sessão nao iniciada!
@@ -12,7 +11,7 @@
 
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php?pg=1" class="logo d-flex align-items-center">
-                <img src="../../../img/fd_logo_SISREV.png" alt="">
+                <span class="d-none d-lg-block">Insira Nome<img src="../../../img/fd_logo.png" alt="" srcset=""></span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -119,7 +118,7 @@
                                     $resultEmpresa = $conn->query($queryEmpresa);
 
                                     while ($empresa = $resultEmpresa->fetch_assoc()) {
-                                        echo '<option value="' . $empresa['id_empresa'] . '">' . $empresa['empresa'] . '</option>';
+                                        echo '<option value="' . $empresa['id'] . '">' . $empresa['nome'] . '</option>';
                                     }
                                     ?>
 
