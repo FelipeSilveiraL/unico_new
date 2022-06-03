@@ -1,4 +1,10 @@
 <?php
+
+if ($_GET['api'] == true) {
+
+header('Location: http://10.100.1.215/unico_api/sisrev/inc/desativar_usuario.php?sistema='.$_GET['sistema'].'&cpf='.$_GET['cpf'].'&acao='.$_GET['acao'].'&pg='.$_GET['pg'].'&tela='.$_GET['tela'].'');
+
+}
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina

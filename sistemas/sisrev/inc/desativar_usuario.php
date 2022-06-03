@@ -1,48 +1,26 @@
 <?php
 require_once('../config/query.php');
 
-switch ($acao) {    
+switch ($_GET['acao']) {    
     case '1'://ativar
-        switch ($sistema) {
-            case 'Apollo':
-                $cpf = $_GET['cpf'];
-                $ativo = 'S';//situação para ativação/desativação
-                
-
-
-
-
-
-
-
-                header('Location: http://10.100.1.215/');        
-                
-
-                
-                break;
-            
-            case 'Nbs':
-                $cpf = $_GET['cpf'];
-                $ativo = 'S';//situação para ativação/desativação
-                
+        switch ($_GET['sistema']) {
+            case 'Apollo':                
+                header('Location: http://10.100.1.215/unico_api/sisrev/desativar_usuario.php?sistema=Apollo&cpf='.$_GET['cpf'].'&ativo=S');
+                break;            
+            case 'Nbs':                
+                header('Location: http://10.100.1.215/unico_api/sisrev/desativar_usuario.php?sistema=Nbs&cpf='.$_GET['cpf'].'&ativo=S');                
                 break;
         }
         break;    
     case '2'://desativar
-        switch ($sistema) {
-            case 'Apollo':
-                $cpf = $_GET['cpf'];
-                $ativo = 'N';//situação para ativação/desativação
-                
+        switch ($_GET['sistema']) {
+            case 'Apollo':                
+                header('Location: http://10.100.1.215/unico_api/sisrev/desativar_usuario.php?sistema=Apollo&cpf='.$_GET['cpf'].'&ativo=N');
+                break;            
+            case 'Nbs':                
+                header('Location: http://10.100.1.215/unico_api/sisrev/desativar_usuario.php?sistema=Nbs&cpf='.$_GET['cpf'].'&ativo=N');                
                 break;
-            
-            case 'Nbs':
-                $cpf = $_GET['cpf'];
-                $ativo = 'N';//situação para ativação/desativação
-                
-                break;
-        }
-        
+        }        
         break;
 }
 

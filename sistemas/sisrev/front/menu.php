@@ -20,8 +20,11 @@ require_once('../inc/administrador.php'); //regra de perfis
             </a>
             <ul id="info-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=1" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
+                    <a href="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Desativar Usuários</span>
+                    </a>
+                    <a href="empresas.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Empresas</span>
                     </a>
                 </li>
             </ul>
