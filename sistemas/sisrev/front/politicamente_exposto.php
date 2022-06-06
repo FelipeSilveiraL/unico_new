@@ -20,15 +20,9 @@ require_once('menu.php'); //menu lateral da pagina
   <?php
   require_once('../../../inc/mensagens.php'); //Alertas
   ?>
-
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <i class="bi bi-exclamation-triangle me-1"></i>
-    Tipo de arquivos permitidos[.csv]
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
   <section class="section">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">Carregar arquivo</h5>
@@ -45,6 +39,25 @@ require_once('menu.php'); //menu lateral da pagina
           </div>
         </div>
       </div>
+      <div class="col-lg-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Log de execução - Ultima vez</h5>
+            <!-- List group with active and disabled items -->
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><code>Autor:</code> <?=$logPE['nome']?></li>
+              <li class="list-group-item"><code>Data:</code>  <?= date('d/m/Y H:i:s', strtotime($logPE['data'])) ?></li>
+              <li class="list-group-item"><code>Arquivo:</code>  <a href="../<?=substr($logPE['caminho'], 36)?>" target="_blank" rel="file CSV"><?=$logPE['nome_arquivo']?></a></li>
+            </ul><!-- End Clean list group -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <i class="bi bi-exclamation-triangle me-1"></i>
+      Tipo de arquivos permitidos[.csv]
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </section>
 
