@@ -13,7 +13,7 @@ require_once('menu.php'); //menu lateral da pagina
         <li class="breadcrumb-item"><a href="index.php?pg=1">Dashboard</a></li>
         <li class="breadcrumb-item"><a href="informatica.php?pg=2">Informática</a></li>
         <li class="breadcrumb-item"><a href="empresa.php?pg=2&tela=2">Empresa</a></li>
-        <li class="breadcrumb-item">EDITAR REGRA EMPRESA</li>
+        <li class="breadcrumb-item">Editar Regra Empresa</li>
       </ol>
     </nav>
   </div><!-- End Navegação -->
@@ -33,18 +33,23 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">General Form Elements</h5>
 
             <!-- General Form Elements -->
             <form>
-              <div class="row mb-3">
-                <label for="inputText" class="col-sm-2 col-form-label">Text</label>
+              <div class="row mb-3 mt-4">
+                <label for="inputText" class="col-sm-2 col-form-label ">EMPRESA</label>
                 <div class="col-lg-10">
-                  <input type="text" class="form-control">
+                  <select type="text" class="form-control">Apollo
+                    <option>Apollo</option>
+                    <option>----------</option>
+                    <option>APOLLO BNS</option>
+                    <option>BANCO HARLEY</option>
+                    <option>EMPRESA QUE NAO USA SISTEMA ERP</option>
+                    </select>
                 </div>
               </div>
               <div class="row mb-3">
-                <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                <label for="inputEmail" class="col-sm-2 col-form-label">SISTEMA</label>
                 <div class="col-sm-10">
                   <input type="email" class="form-control">
                 </div>
