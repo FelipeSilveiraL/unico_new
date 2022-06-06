@@ -21,7 +21,7 @@ require_once('menu.php'); //menu lateral da pagina
 
   <section class="section">
     <div class="row">
-      <div class="col-lg-6"> 
+      <div class="col-lg-4"> 
         <a href="informatica.php?pg=<?= $_GET['pg'] ?>" class="list-group-item list-group-item-action">
           <div class="card">
             <div class="card-body">

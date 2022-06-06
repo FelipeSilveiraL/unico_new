@@ -26,6 +26,9 @@ require_once('../inc/administrador.php'); //regra de perfis
                     <a href="empresas.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
                         <i class="bi bi-circle"></i><span>Empresas</span>
                     </a>
+                    <a href="politicamente_exposto.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" <?= $_GET['tela'] == 3 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Politicamente exposto</span>
+                    </a>
                 </li>
             </ul>
         </li>

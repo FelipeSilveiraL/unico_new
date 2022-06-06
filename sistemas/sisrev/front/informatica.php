@@ -22,7 +22,7 @@
 
   <section class="section">
     <div class="row">
-      <div class="col-lg-6"> 
+      <div class="col-lg-4"> 
         <a href="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" class="list-group-item list-group-item-action">
           <div class="card">
             <div class="card-body">
@@ -31,11 +31,20 @@
           </div>
         </a>
       </div>
-      <div class="col-lg-6"> 
-        <a href="empresas.php?pg=<?= $_GET['pg'] ?>&tela=2" class="list-group-item list-group-item-action">
+      <div class="col-lg-4"> 
+        <a href="empresas.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" class="list-group-item list-group-item-action">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Empresas</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4"> 
+        <a href="politicamente_exposto.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" class="list-group-item list-group-item-action">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Politicamente exposto</h5>
             </div>
           </div>
         </a>
