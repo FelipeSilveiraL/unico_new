@@ -7,18 +7,11 @@ curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
 $resultado = json_decode(curl_exec($ch));
 
-var_dump($resultado); 
+//var_dump($resultado); 
+
+foreach ($resultado->Users as $userSelbetti) {
+
+$aprovador .= '<option value="'.$userSelbetti->USERS.'">'.$userSelbetti->USERS.' / '.$userSelbetti->LOGIN.' </option>';
 
 
-
-/* foreach ($resultado->empresaSmart as $empSmart) {
-    $insert = "INSERT INTO cad_usuario_api (nome, cpf, ativo, sistema)
-        VALUES ('" . $empSmart->nome . "', 
-                '" . $empSmart->cpf . "', 
-                '" . $empSmart->ativo . "', 
-                '" . $empSmart->sistema . "');";
-    }
-
-} */
-
-?>
+}

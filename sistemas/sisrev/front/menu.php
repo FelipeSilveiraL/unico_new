@@ -41,12 +41,12 @@ require_once('../inc/administrador.php'); //regra de perfis
             <ul id="config-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
                     <a href="#" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span></span>
+                        <i class="bi bi-circle"></i><span>Menus suspensos</span>
                     </a>
                 </li>
                 <li>
                     <a href="espelhar_usuarios.php?pg=<?= $_GET['pg'] ?>&tela=2" <?= $_GET['tela'] == 2 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span></span>
+                        <i class="bi bi-circle"></i><span>Usuários</span>
                     </a>
                 </li>
             </ul>

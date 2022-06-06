@@ -37,6 +37,12 @@ $valueRevApollo = ($rowemp['REVENDA_APOLLO'] == 0) ? '' : $rowemp['REVENDA_APOLL
 
 $valueEmpNbs = ($rowemp['EMPRESA_NBS'] == 0) ? '' : $rowemp['EMPRESA_NBS'];
 
+if($rowemp->ID != null){
+
+}else{
+
+}
+
     $tabela .= '
                 <tr>
                     <td>'.$empSmart->ID.'</td>
@@ -45,11 +51,11 @@ $valueEmpNbs = ($rowemp['EMPRESA_NBS'] == 0) ? '' : $rowemp['EMPRESA_NBS'];
                     <td>'.$sistema.'</td>
                     <td>'.$consorcio.'</td>
                     <td>'.$situacao.'</td>
-                    <td><a href="editEmp.php?ID='.$empSmart->ID.'&pg=2&tela=3"><button type="button" class="btn btn-outline-warning btn-sm"  title="Editar"><i class="bi bi-pencil-fill"></i></button></a>
+                    <td><a href="editEmp.php?pg=2&tela=3&ID='.$empSmart->ID.'" title="Editar" class="btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
                         
-                        <button type="button" class="btn btn-outline-danger btn-sm"  title="Excluir"><i class="bi bi-trash-fill"></i></button>
+                        <a href="#" title="Desativar" class="btn-danger btn-sm"><i class="bi bi-trash"></i></a>
 
-                        <button type="button" class="btn btn-outline-info btn-sm" title="Vericar outras informações"><i class="bi bi-eye-fill"></i></button>
+                        <a href="#" title="Exibir mais informações" class="btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
                     </td>
                 </tr>';
 }

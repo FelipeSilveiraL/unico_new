@@ -28,7 +28,7 @@ require_once('menu.php'); //menu lateral da pagina
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <button type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-plus-square"></i></button>
+            <a href="novaRegraEmp.php" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-plus-square"></i></a>
 
             <button type="button" class="btn btn-success" style="float: right;" title="Exportar excel"><i class="ri-file-excel-2-fill"></i></button>
           </div>
