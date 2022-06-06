@@ -1,8 +1,9 @@
 <?php
+session_start();
 
 if ($_GET['api'] == true) {
 
-header('Location: http://10.100.1.215/unico_api/sisrev/inc/desativar_usuario.php?sistema='.$_GET['sistema'].'&cpf='.$_GET['cpf'].'&acao='.$_GET['acao'].'&pg='.$_GET['pg'].'&tela='.$_GET['tela'].'');
+header('Location: http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/desativar_usuario.php?sistema='.$_GET['sistema'].'&cpf='.$_GET['cpf'].'&acao='.$_GET['acao'].'&pg='.$_GET['pg'].'&tela='.$_GET['tela'].'');
 
 }
 require_once('head.php'); //CSS e configurações HTML e session start
@@ -12,7 +13,6 @@ require_once('../config/query.php'); //Dados do banco MYSQL
 ?>
 
 <main id="main" class="main">
-
   <div class="pagetitle">
     <h1>Desativar Usuários</h1>
     <nav>
@@ -27,6 +27,7 @@ require_once('../config/query.php'); //Dados do banco MYSQL
   <?php
   require_once('../../../inc/mensagens.php'); //Alertas
   ?>
+
   <section class="section">
     <div class="row">
       <div class="col-lg-12">
@@ -84,10 +85,7 @@ require_once('../config/query.php'); //Dados do banco MYSQL
         </div>
       </div>
     </div>
-
   </section>
-
-
 </main><!-- End #main -->
 
 <?php
