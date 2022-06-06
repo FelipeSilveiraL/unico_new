@@ -5,7 +5,7 @@ $queryDemitidos = "SELECT DISTINCT id, nome, cpf, ativo, sistema FROM cad_usuari
 
 
 // PE - Politicamente Exposto
-$droptablePE = "DROP TABLE politicamente_exposto";
+$droptablePE = "DROP TABLE sisrev_politicamente_exposto";
 
 $createtablePE = "CREATE TABLE `sisrev_politicamente_exposto` (
     `id` INT NOT NULL AUTO_INCREMENT,
