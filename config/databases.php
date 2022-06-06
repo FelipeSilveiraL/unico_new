@@ -1,28 +1,30 @@
 <?php
 
 	//CONFIG SERVIDOR
-	$ipservidor = "10.100.1.66";	
-	$porta = "3306";
-
-    //DATA BASE UNICO
+	$ipservidorUnico = "10.100.1.66";	
+	$portaUnico = "3306";
 	$userUnico = "unico";
 	$passUnico = "#CAvpnGSVP20";
 	$dbnameUnico = "unico";
 
 	//DATA BASE NOTAS
-	$userNOTAS = "dbnotas";
-	$passNOTAS = "#CAvpnGSVP20";
-	$dbnameNOTAS = "dbnotas";
+	$ipservidorNotas = "10.100.1.66";	
+	$portaNotas = "3306";
+	$userNotas = "dbnotas";
+	$passNotas = "#CAvpnGSVP20";
+	$dbnameNotas = "dbnotas";
 
-	// CRIANDO CONEXÃO DO UNICO
-	$conn = new mysqli($ipservidor, $userUnico, $passUnico, $dbnameUnico, $porta);
-
-	// Check connection
+	// ########### UNICO ###########
+	$conn = new mysqli($ipservidorUnico, $userUnico, $passUnico, $dbnameUnico, $portaUnico);
 	if ($conn->connect_error) {
 		die("ERRO CONEXÂO SERVIDOR UNICO: " . $conn->connect_error);
 	}
 
-	//DOS OUTROS SITEMAS ESTA NA PASTA "SISTEMA" E EM "CONFIG" DE CADA UM.
+	// ########### DBNOTAS ###########
+	$connNOTAS = new mysqli($ipservidorNotas, $userNotas, $passNotas, $dbnameNotas, $portaNotas);
+	if ($connNOTAS->connect_error) {
+		die("ERRO CONEXÂO SERVIDOR DBNOTAS: " . $connNOTAS->connect_error);
+	}
 	
 ?>
 

@@ -65,5 +65,12 @@ if (!empty($_GET['msn'])) {
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
             break;
+        case '10':
+            echo '
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span style="font-size: 12px"> Tipo de arquivo não permitido!</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            break;
     }
 }
