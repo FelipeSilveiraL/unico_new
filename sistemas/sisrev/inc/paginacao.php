@@ -9,7 +9,7 @@ if($tela == "index.php"){if($_GET['pg'] != '1'){echo '<script>window.location.hr
 //informatica.php
 if($tela == "informatica.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "informatica.php?pg=2";</script>';}}
 //desativar_usuario.php
-//if($tela == "desativar_usuario.php"){if($_GET['tela'] != '1' OR $_GET['pg'] != '2'){echo '<script>window.location.href = "desativar_usuario.php?pg=2&tela=1";</script>';}}
+if($tela == "desativar_usuario.php"){if($_GET['tela'] != '1' OR $_GET['pg'] != '2'){echo '<script>window.location.href = "desativar_usuario.php?pg=2&tela=1";</script>';}}
 //empresas.php
 if($tela == "empresas.php"){if($_GET['tela'] != '2' OR $_GET['pg'] != '2'){echo '<script>window.location.href = "empresas.php?pg=2&tela=2";</script>';}}
 //editEmp.php
