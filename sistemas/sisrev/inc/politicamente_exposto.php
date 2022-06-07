@@ -17,20 +17,54 @@ if ($_FILES['arquivo']["type"] === "text/csv") {
   if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 
     //SALVANDO LOG
-    $queryLOG = "INSERT INTO sisrev_arquivo_PE (caminho, nome_arquivo , data, id_usuario) VALUES ('" . $uploadfile . "','" . $_FILES['arquivo']['name'] . "', '" . date('Y-m-d H:i:s') . "', '" . $_SESSION['nome_usuario'] . "')";
+    $queryLOG = "INSERT INTO sisrev_arquivo_PE (caminho, nome_arquivo , data, id_usuario) VALUES ('" . $uploadfile . "','" . $_FILES['arquivo']['name'] . "', '" . date('Y-m-d H:i:s') . "', '" . $_SESSION['id_usuario'] . "')";
 
-    if (!$resultadoLOG = $connLOCALUnico->query($queryLOG)) {
+    if (!$resultadoLOG = $conn->query($queryLOG)) {
       header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=10&erro=1');
     } else {
 
       // 1 - Deletando a tabela com os dados antigos
-      $resultDropPE = $connLOCALUnico->query($droptablePE);
+      $resultDropPE = $conn->query($droptablePE);
       // 2 - Criando a tabela para receber os dados novos
-      $resultCreatPE = $connLOCALUnico->query($createtablePE);
+      $resultCreatPE = $conn->query($createtablePE);
       // 3 - Inserindos os dados novos
-      //$queryInsertPE = "LOAD DATA INFILE '".$uploadfile."' INTO TABLE sisrev_politicamente_exposto FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 ROWS";
-      //$resutInsertPE = $connLOCALUnico->query($queryInsertPE);
+      $object = fopen($uploadfile, 'r');
+      $i = 1;
+      while (($dados = fgetcsv($object, 1000, ";")) !== false) {
 
+        if ($i != 1) {
+          $insertPE = "INSERT INTO sisrev_politicamente_exposto
+          (
+          `CPF_PEP`,
+          `Nome_PEP`,
+          `Sigla_Funcao_PEP`,
+          `Descricao_Funcao_PEP`,
+          `Nivel_Funcao_PEP`,
+          `Nome_Orgao_PEP`,
+          `Dt_Inicio_Exercicio`,
+          `Dt_Fim_Exercicio`,
+          `Dt_Final_Carencia`,
+          `ATUALIZACAO`)
+          VALUES (
+          '" . utf8_encode($dados[0]) . "',
+          '" . utf8_encode($dados[1]) . "',
+          '" . utf8_encode($dados[2]) . "',
+          '" . utf8_encode($dados[3]) . "',
+          '" . utf8_encode($dados[4]) . "',
+          '" . utf8_encode($dados[5]) . "',
+          '" . utf8_encode($dados[6]) . "',
+          '" . utf8_encode($dados[7]) . "',
+          '" . utf8_encode($dados[8]) . "',
+          '" . utf8_encode($dados[9]) . "')";
+
+          if (!$resultInsertPE = $conn->query($insertPE)) {
+            header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=10&erro=4');
+            exit();
+          }
+        }
+        $i++;
+      }
+      header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&completo=true');
     }
   } else {
     header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=10&erro=2');

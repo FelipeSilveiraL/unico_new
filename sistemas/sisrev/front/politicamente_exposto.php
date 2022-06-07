@@ -29,9 +29,9 @@ require_once('menu.php'); //menu lateral da pagina
             <!-- General Form Elements -->
             <div class="header d-flex align-items-center header-scrolled">
               <div class="search-bar">
-                <form class="search-form d-flex align-items-center" method="post" action="../inc/politicamente_exposto.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" enctype="multipart/form-data">
+                <form class="search-form d-flex align-items-center" method="post" action="../inc/politicamente_exposto.php?pg=<? $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" enctype="multipart/form-data">
                   <input type="file" name="arquivo" placeholder="Insira Documento" required>
-                  <button type="submit" title="Enviar" class="btn btn-success"><i class="bi bi-send"></i></button>
+                  <button type="submit" title="Enviar" class="btn btn-success" onclick="teste()"><i class="bi bi-send"></i></button>
                 </form>
               </div>
             </div>
@@ -45,14 +45,28 @@ require_once('menu.php'); //menu lateral da pagina
             <h5 class="card-title">Log de execução - Ultima vez</h5>
             <!-- List group with active and disabled items -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><code>Autor:</code> <?=$logPE['nome']?></li>
-              <li class="list-group-item"><code>Data:</code>  <?= date('d/m/Y H:i:s', strtotime($logPE['data'])) ?></li>
-              <li class="list-group-item"><code>Arquivo:</code>  <a href="../<?=substr($logPE['caminho'], 36)?>" target="_blank" rel="file CSV"><?=$logPE['nome_arquivo']?></a></li>
+              <li class="list-group-item"><code>Autor:</code> <?= $logPE['nome'] ?></li>
+              <li class="list-group-item"><code>Data:</code> <?= empty($logPE['data']) ? ' ' : date('d/m/Y H:i:s', strtotime($logPE['data'])) ?></li>
+              <li class="list-group-item"><code>Arquivo:</code> <a href="../<?= substr($logPE['caminho'], 36) ?>" target="_blank" rel="file CSV"><?= $logPE['nome_arquivo'] ?></a></li>
             </ul><!-- End Clean list group -->
 
           </div>
         </div>
       </div>
+    </div>
+    <div class="col-lg-12" style="display: none" id="carregamento">
+
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Aguarde, estamos lendo o arquivo</h5>
+
+          <!-- Progress Bars with Striped Backgrounds-->
+          <div class="progress mt-3">
+            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
       <i class="bi bi-exclamation-triangle me-1"></i>
@@ -62,6 +76,18 @@ require_once('menu.php'); //menu lateral da pagina
   </section>
 
 </main><!-- End #main -->
+
+<script>
+
+  function teste(){
+    var display = document.getElementById("carregamento").style.display
+
+    if(display == 'none'){
+      document.getElementById("carregamento").style.display = "block";
+    }
+  }
+
+</script>
 
 <?php
 require_once('footer.php'); //Javascript e configurações afins
