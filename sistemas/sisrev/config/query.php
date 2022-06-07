@@ -22,13 +22,12 @@ $createtablePE = "CREATE TABLE `sisrev_politicamente_exposto` (
     PRIMARY KEY (`id`));";
 
 $queryLogPE = "SELECT 
-SAPE.caminho, SAPE.data, SAPE.nome_arquivo, U.nome
+SAPE.caminho, SAPE.data, SAPE.nome_arquivo, SAPE.nome_usuario
 FROM
 sisrev_arquivo_PE SAPE
-LEFT JOIN usuarios U ON (SAPE.id_usuario = U.id_usuario)
 ORDER BY SAPE.id DESC
-LIMIT 1;";
-$resultLogPE = $conn->query($queryLogPE);
+LIMIT 1";
+$resultLogPE = $connLOCALUnico->query($queryLogPE);
 $logPE = $resultLogPE->fetch_assoc();
 
 

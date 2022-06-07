@@ -17,19 +17,19 @@ if ($_FILES['arquivo']["type"] === "text/csv") {
   if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
 
     //SALVANDO LOG
-    $queryLOG = "INSERT INTO sisrev_arquivo_PE (caminho, nome_arquivo , data, id_usuario) VALUES ('" . $uploadfile . "','" . $_FILES['arquivo']['name'] . "', '" . date('Y-m-d H:i:s') . "', '" . $_SESSION['id_usuario'] . "')";
+    $queryLOG = "INSERT INTO sisrev_arquivo_PE (caminho, nome_arquivo , data, id_usuario) VALUES ('" . $uploadfile . "','" . $_FILES['arquivo']['name'] . "', '" . date('Y-m-d H:i:s') . "', '" . $_SESSION['nome_usuario'] . "')";
 
-    if (!$resultadoLOG = $conn->query($queryLOG)) {
+    if (!$resultadoLOG = $connLOCALUnico->query($queryLOG)) {
       header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=10&erro=1');
     } else {
 
       // 1 - Deletando a tabela com os dados antigos
-      $resultDropPE = $conn->query($droptablePE);
+      $resultDropPE = $connLOCALUnico->query($droptablePE);
       // 2 - Criando a tabela para receber os dados novos
-      $resultCreatPE = $conn->query($createtablePE);
+      $resultCreatPE = $connLOCALUnico->query($createtablePE);
       // 3 - Inserindos os dados novos
       //$queryInsertPE = "LOAD DATA INFILE '".$uploadfile."' INTO TABLE sisrev_politicamente_exposto FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 ROWS";
-      //$resutInsertPE = $conn->query($queryInsertPE);
+      //$resutInsertPE = $connLOCALUnico->query($queryInsertPE);
 
     }
   } else {
