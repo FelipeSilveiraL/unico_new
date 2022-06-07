@@ -28,7 +28,7 @@ if ($_FILES['arquivo']["type"] === "text/csv") {
       // 2 - Criando a tabela para receber os dados novos
       $resultCreatPE = $conn->query($createtablePE);
       // 3 - Inserindos os dados novos
-      $queryInsertPE = "LOAD DATA INFILE '".$uploadfile."' INTO TABLE sisrev_politicamente_exposto FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 ROWS";
+      //$queryInsertPE = "LOAD DATA INFILE '".$uploadfile."' INTO TABLE sisrev_politicamente_exposto FIELDS TERMINATED BY ';' LINES TERMINATED BY '\n' IGNORE 1 ROWS";
       //$resutInsertPE = $conn->query($queryInsertPE);
 
     }
