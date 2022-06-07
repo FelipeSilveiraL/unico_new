@@ -27,7 +27,7 @@ select.dataTable-selector {
   margin-top: -8%;
 }
 
-.progress .progress-bar .pe{
+.progress .progress-bar{
   animation: progress-animation 170s infinite;
 }
 

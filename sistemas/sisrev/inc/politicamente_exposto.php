@@ -64,7 +64,11 @@ if ($_FILES['arquivo']["type"] === "text/csv") {
         }
         $i++;
       }
-      header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&end=1&count='.$i.'');
+
+      //FINALIZADO
+      $_SESSION['count'] = $i;
+      header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '');
+
     }
   } else {
     header('location: ../front/politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=10&erro=2');
