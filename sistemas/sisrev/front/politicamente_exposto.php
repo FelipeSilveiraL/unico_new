@@ -34,7 +34,8 @@ require_once('menu.php'); //menu lateral da pagina
                   <button type="submit" title="Enviar" class="btn btn-success" onclick="teste()"><i class="bi bi-send"></i></button>
                 </form>
               </div>
-            </div>
+            </div>            
+            <h6><code>Tipo de arquivo permitido[.csv]</code></h6>
             <!-- End General Form Elements -->
           </div>
         </div>
@@ -62,31 +63,45 @@ require_once('menu.php'); //menu lateral da pagina
 
           <!-- Progress Bars with Striped Backgrounds-->
           <div class="progress mt-3">
-            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            <div class="progress-bar progress-bar-striped bg-success progress-bar-animated pe" id="barracarregamento" role="progressbar" style="width: 5%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
           </div>
         </div>
       </div>
 
-    </div>
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-      <i class="bi bi-exclamation-triangle me-1"></i>
-      Tipo de arquivos permitidos[.csv]
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
   </section>
 
 </main><!-- End #main -->
 
 <script>
-
-  function teste(){
+  function teste() {
     var display = document.getElementById("carregamento").style.display
 
-    if(display == 'none'){
+    if (display == 'none') {
       document.getElementById("carregamento").style.display = "block";
     }
-  }
 
+    var btnprocess = new object();
+
+    btnprocess.porcentagemAcresentado = 5
+
+
+    var porcentagem = document.getElementById("barracarregamento").style.width
+
+    if (porcentagem = 95) {
+
+      setTimeout(document.getElementById('carregamento', 25000))
+
+    } else {
+
+      setTimeout(document.getElementById('carregamento', 500))
+
+      document.getElementById("barracarregamento").style.width.btnprocess.porcentagemAcresentado
+
+      btnprocess.porcentagemAcresentado += 5
+    }
+
+  }
 </script>
 
 <?php

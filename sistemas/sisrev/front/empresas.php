@@ -48,8 +48,32 @@ require_once('menu.php'); //menu lateral da pagina
               </thead>
               <tbody>
                 <?php
-                require_once('../inc/apiRecebeSmart.php');
-                echo $tabela;
+                require_once('../config/queryBpmgp.php');
+                require_once('../../../config/databases.php');
+
+                
+                $conSucesso = $conn->query($queryTabela);
+                $row = $conSucesso->fetch_assoc();
+                while($row = $conSucesso->fetch_assoc()){
+                  echo '<tr>
+                  <td>'.$row["ID_EMPRESA"].'</td>
+                  <td>'.$row["NOME_EMPRESA"].'</td>
+                  <td>'.$row["UF_GESTAO"].'</td>
+                  <td>'.$row["SISTEMA"].'</td>
+                  <td>'.$row["CONSORCIO"].'</td>
+                  <td>'.$row["SITUACAO"].'</td>
+                  <td><a href="editEmp.php?pg=2&tela=3&ID='.$row["ID_EMPRESA"].'" title="Editar" class="btn-primary btn-sm"><i class="bi bi-pencil"></i></a>
+                            
+                            <a href="#" title="Desativar" class="btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+
+                            <a href="#" title="Exibir mais informações" class="btn-info btn-sm"><i class="bi bi-eye-fill"></i></a>
+                        </td>
+                 
+                  
+              </tr>';
+                }
+
+                
                 ?>
               </tbody>
             </table>

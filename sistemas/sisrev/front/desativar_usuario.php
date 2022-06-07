@@ -3,7 +3,7 @@ session_start();
 
 if ($_GET['api'] == true) {
 
-header('Location: http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/desativar_usuario.php?sistema='.$_GET['sistema'].'&cpf='.$_GET['cpf'].'&acao='.$_GET['acao'].'&pg='.$_GET['pg'].'&tela='.$_GET['tela'].'');
+header('Location: http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/desativar_usuario.php?sistema='.$_GET['sistema'].'&cpf='.$_GET['cpf'].'&acao='.$_GET['acao'].'&pg='.$_GET['pg'].'&tela='.$_GET['tela'].'&nome='.$_GET['nome'].'');
 
 }
 require_once('head.php'); //CSS e configurações HTML e session start
@@ -51,10 +51,7 @@ require_once('../config/query.php'); //Dados do banco MYSQL
       <div class="col-lg-12" style="display: <?= empty($_GET['saida']) ? 'none' : 'block'; ?>">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Listagem de sistemas do usuário
-              <a href="#" class="btn btn-sm btn-success button-rigth-card-active" title="Ativar em todos os sistemas"><i class="bi bi-check-square"></i></a>
-              <a href="#" class="btn btn-sm btn-danger button-rigth-card-demiss" title="Desativar em todos os sistemas"><i class="bi bi-trash"></i></a>
-            </h5>
+            <h5 class="card-title">Listagem de sistemas do usuário</h5>
             <!-- Small tables -->
             <table class="table table-sm">
               <thead>

@@ -15,11 +15,11 @@
 	$dbnameNotas = "dbnotas";
 
 	//SERVIDOR LOCAL(UNICO)
-	$ipservidorLocal = "localhost";
+	$ipservidorLocal = "localhost";	
+	$portaLocal = "3306";
 	$userLocal = "servopa";
 	$passLocal = "qtbvar03";
-	$dbnameLocal = "unico";	
-	$portaLocal = "3306";
+	$dbnameLocal = "unico";
 
 	// ########### UNICO ###########
 	$conn = new mysqli($ipservidorUnico, $userUnico, $passUnico, $dbnameUnico, $portaUnico);
