@@ -3,11 +3,11 @@ require_once('../../../config/databases.php');
 
 // Empresas tablea mysql
 
-$droptable = "DROP TABLE IF EXISTS `empresas_bpmgp`;";
+$droptable = "DROP TABLE IF EXISTS `sisrev_empresas_bpmgp`;";
 
 $sucess = $conn->query($droptable);
 
-$createTableEmp = "CREATE TABLE `empresas_bpmgp` (
+$createTableEmp = "CREATE TABLE `sisrev_empresas_bpmgp` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `NOME_EMPRESA` VARCHAR(80) NULL,
     `SISTEMA` VARCHAR(1) NULL,
@@ -39,7 +39,7 @@ $resultado = json_decode(curl_exec($ch));
 foreach ($resultado->empresaSmart as $empSmart) {
 
 
-    $querySmart = "INSERT INTO empresas_bpmgp 
+    $querySmart = "INSERT INTO sisrev_empresas_bpmgp 
                             (NOME_EMPRESA,SISTEMA,UF_GESTAO,CONSORCIO,APROVADOR_CAIXA,NUMERO_CAIXA,FILIAL_SENIOR,ID_EMPRESA,EMPRESA_SENIOR,
                             ORGANOGRAMA_SENIOR,EMPRESA_APOLLO,REVENDA_APOLLO,SITUACAO,EMPRESA_NBS)
    

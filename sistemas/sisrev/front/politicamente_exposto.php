@@ -13,6 +13,8 @@ if ($_SESSION['count'] != null) {
 //verificando se tem arquivo esperando ser finalizado!
 if($isnullpe['id'] != NULL AND $_GET['msn'] != 12 AND $_SESSION['count'] == null){
   echo '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12"</script>';
+}else{
+  var_dump($isnullpe);
 }
 
 ?>

@@ -1,6 +1,6 @@
 
   <?php
-  require_once("../config/queryBpmgp.php");
+  require_once("../config/query.php");
   require_once('../../../config/databases.php');  
 
 
@@ -12,23 +12,7 @@
 
   while ($edit = $resultado->fetch_assoc()) {
 
-    switch ($edit["SISTEMA"]) {
-      case "A":
-        $sistemaMysql = "APOLLO";
-        break;
-      case "N":
-        $sistemaMysql = "BANCO NBS";
-        break;
-      case "H":
-        $sistemaMysql = "BANCO HARLEY";
-        break;
-      case " ":
-        $sistemaMysql = "EMPRESA QUE NÃO USA SISTEMA ERP";
-        break;
-      case "0":
-        $sistemaMysql = "EMPRESA QUE NÃO USA SISTEMA ERP";
-        break;
-    }
+  
 
     $consorcio = ($edit["CONSORCIO"] == 'S') ? 'SIM' : 'NÃO';
 
@@ -55,9 +39,27 @@
               </div>
 
               <div class="form-floating mt-4 col-md-6">
-                <select class="form-select" onchange="camposObrigatorios()" id="sistema" name="sistema"  required>
-                <option value="' . $edit["SISTEMA"] . '" selected>' . $sistemaMysql . '</option>
-                  <option value="">-----------------</option>
+                <select class="form-select" onchange="camposObrigatorios()" id="sistema" name="sistema"  required>';
+                if(!empty($edit["SISTEMA"] )) {
+                  switch ($edit["SISTEMA"]) {
+                      case 'A':
+                          echo '<option value="A">APOLLO</option>';
+                          break;
+                      case 'N':
+                          echo '<option value="N">BANCO NBS</option>';
+                          break;
+                      case 'H':
+                          echo '<option value="H">BANCO HARLEY</option>';
+                          break;
+                      case '0':
+                          echo '<option value="0">EMPRESA QUE NÃO USA SISTEMA ERP</option>';
+                          break;
+                  }
+                  echo '<option value="">------------------</option>';
+              } else {
+                  echo '<option value="">------------------</option>';
+              }
+              echo '
                   <option value="A">APOLLO</option>
                   <option value="N">BANCO NBS</option>
                   <option value="H">BANCO HARLEY</option>  
@@ -66,9 +68,9 @@
                 <label for="sistema">SISTEMA:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6" id="empresa_apollo">
-                <input onkeypress="onlynumber()" value="' . $valueApollo . '" class="form-control"  name="empresa_apollo" maxlength="2" required>
-                <label for="empresa_apollo">EMPRESA APOLLO:<span style="color: red;">*</span></label>
+              <div class="form-floating mt-4 col-md-6" id="empresaApollo">
+                <input onkeypress="onlynumber()" value="' . $valueApollo . '" class="form-control"  name="empresaApollo" maxlength="2" required>
+                <label for="empresaApollo">EMPRESA APOLLO:<span style="color: red;">*</span></label>
               </div>
 
               <div class="form-floating mt-4 col-md-6" id="revendaApollo">
@@ -80,24 +82,24 @@
               <input value="' . $edit["ORGANOGRAMA_SENIOR"] . '" class="form-control"  name="orgsenior" maxlength="2" required>
                 <label for="orgsenior">ORGANOGRAMA SENIOR:<span style="color: red;">*</span></label>
               </div>
-
-              <div class="form-floating mt-4 col-md-6" >
-              <input onkeypress="onlynumber()" value="' . $edit["EMPRESA_NBS"] . '"  class="form-control" id="empresaNbs" name="empresaNbs" maxlength="2" required>
+              
+              <div class="form-floating mt-4 col-md-6" id="empresaNbs">
+              <input onkeypress="onlynumber()" value="' . $edit["EMPRESA_NBS"] . '"  class="form-control"  name="empnbs" id="empnbs" maxlength="2" required>
                 <label for="empresaNbs">Empresa NBS:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6">
-                <input onkeypress="onlynumber()" value="' . $edit["EMPRESA_SENIOR"] . '" class="form-control" id="empresasenior" name="empresasenior" maxlength="2" required>
+              <div class="form-floating mt-4 col-md-6" id="empresasenior">
+                <input onkeypress="onlynumber()" value="' . $edit["EMPRESA_SENIOR"] . '" class="form-control"  name="empresasenior" maxlength="2" required>
                 <label for="empresasenior">EMPRESA SENIOR:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6">
-              <input onkeypress="onlynumber()" value="' . $edit["FILIAL_SENIOR"] . '" class="form-control" id="filialsenior" name="filialsenior" maxlength="2" required>
+              <div class="form-floating mt-4 col-md-6" id="filialsenior">
+              <input onkeypress="onlynumber()" value="' . $edit["FILIAL_SENIOR"] . '" class="form-control"  name="filialsenior" maxlength="2" required>
                 <label for="filialsenior">FILIAL SENIOR:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6">
-                <select class="form-select" id="consorcio" name="consorcio" required>
+              <div class="form-floating mt-4 col-md-6" id="consorcio">
+                <select class="form-select"  name="consorcio" required>
                   <option value="' . $consorcio . '">' . $consorcio . '</option>
                   <option value="">-----------------</option>
                   <option value="2">SIM</option>
@@ -106,8 +108,8 @@
                 <label for="consorcio">CONSÓRCIO:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6">
-                <select class="form-select" id="floatingSelect" name="situacao" required>
+              <div class="form-floating mt-4 col-md-6" id="situacao">
+                <select class="form-select"  name="situacao" required>
                   <option value="' . $edit["SITUACAO"] . '">' . $situacao . '</option>
                   <option value="">-----------------</option>
                   <option value="A">ATIVO</option>
@@ -116,8 +118,8 @@
                 <label for="situacao">SITUAÇÃO:<span style="color: red;">*</span></label>
               </div>
 
-              <div class="form-floating mt-4 col-md-6">
-                <select class="form-select" id="estado" name="estado" required>
+              <div class="form-floating mt-4 col-md-6" id="estado">
+                <select class="form-select"  name="estado" required>
                 <option value="' . $edit['UF_GESTAO'] . '">' . $edit['UF_GESTAO'] . '</option>
                 <option value="">------------</option>
                     <option value="AC">AC</option>
@@ -151,13 +153,13 @@
                 </select>
                 <label for="estado">UF:<span style="color: red;">*</span></label>
               </div>
-              <div class="form-floating mt-4 col-md-6">
-              <input onkeypress="onlynumber()" value="' . $edit['NUMERO_CAIXA'] . '" class="form-control" id="numero_caixa" name="numero_caixa" maxlength="2" onblur="aprovador()" onkeypress="onlynumber()" required>
+              <div class="form-floating mt-4 col-md-6" id="numero_caixa">
+              <input onkeypress="onlynumber()" value="' . $edit['NUMERO_CAIXA'] . '" class="form-control"  name="numero_caixa" maxlength="2" onblur="aprovador()" onkeypress="onlynumber()" required>
               <label for="numero_caixa">NUMERO CAIXA:<span style="color: red;">*</span></label>
               </div>
               <div class="form-floating mt-4 col-md-6" style="display: ';
               echo empty($edit['NUMERO_CAIXA']) ? 'none' : 'block'; echo ';" id="liberarApro">
-              <select  class="form-select" id="floatingSelect" name="aproCaixa" id="aproCaixa"required>';
+              <select  class="form-select" id="aproCaixa" name="aproCaixa" id="aproCaixa" required>';
               if(empty($edit['APROVADOR_CAIXA'])){
                 echo '<option>------------------</option>';
               }else{
