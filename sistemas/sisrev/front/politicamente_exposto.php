@@ -11,6 +11,10 @@ if ($_SESSION['count'] != null) {
   $displayTwo = 'none';
 }
 //verificando se tem arquivo esperando ser finalizado!
+$queryIsNullPE = "SELECT * FROM unico.sisrev_politicamente_exposto WHERE atualizado = 0";
+$resultIsNullPE = $conn->query($queryIsNullPE);
+$isnullpe = $resultIsNullPE->fetch_assoc();
+
 if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == null) {
   echo '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12"</script>';
 } else {

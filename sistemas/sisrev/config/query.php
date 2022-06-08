@@ -14,7 +14,7 @@ $createtablePE = "CREATE TABLE `sisrev_politicamente_exposto` (
     `apollo` VARCHAR(10) NULL,
     `nbs` VARCHAR(255) NULL,
     `nbs_ribeirao` VARCHAR(10) NULL,
-    `atualizado` INT(10) NULL DEFAULT 0 COMMENT '0 = N√ÇO; 1 = SIM ENCONTREI; 2 = N√ÇO ENCONTREI',
+    `atualizado` INT(10) NULL DEFAULT 0 COMMENT '0 = N¬O; 1 = SIM, ENCONTREI; 2 = SIM, N¬O ENCONTREI',
     PRIMARY KEY (`id`))";
 
 $queryLogPE = "SELECT 
@@ -24,8 +24,8 @@ sisrev_arquivo_PE SAPE
 LEFT JOIN usuarios U ON (SAPE.id_usuario = U.id_usuario)
 ORDER BY SAPE.id DESC
 LIMIT 1;";
-//$resultLogPE = $conn->query($queryLogPE);
-//$logPE = $resultLogPE->fetch_assoc();
+$resultLogPE = $conn->query($queryLogPE);
+$logPE = $resultLogPE->fetch_assoc();
 
 
 $queryTabela = "SELECT * FROM `sisrev_empresas_bpmgp` where ID_EMPRESA NOT IN(302,208,261) ORDER BY id ASC;";
@@ -44,9 +44,7 @@ $editarTabela = "SELECT * FROM `sisrev_empresas_bpmgp` ";
 
 $queryModulos = "SELECT * FROM sisrev_modulos";
 
-$queryIsNullPE = "SELECT id FROM sisrev_politicamente_exposto WHERE apollo is null OR nbs is null OR nbs_ribeirao is null";
-//$resultIsNullPE = $conn->query($queryIsNullPE);
-//$isnullpe = $resultIsNullPE->fetch_assoc();
+$queryIsNullPE = "SELECT id FROM sisrev_politicamente_exposto WHERE ";
 
 //query chamar acessos r√°pidos Sisrev
 $queryAcessos = "SELECT * FROM sisrev_modulos";
