@@ -14,7 +14,7 @@ $createtablePE = "CREATE TABLE `sisrev_politicamente_exposto` (
     `apollo` VARCHAR(10) NULL,
     `nbs` VARCHAR(255) NULL,
     `nbs_ribeirao` VARCHAR(10) NULL,
-    `atualizado` INT(10) NULL DEFAULT 0 COMMENT '0 = NÂO; 1 = SIM, ENCONTREI; 2 = SIM, NÂO ENCONTREI',
+    `atualizado` INT(10) NULL DEFAULT 0 COMMENT '0 = Nï¿½O; 1 = SIM, ENCONTREI; 2 = SIM, Nï¿½O ENCONTREI',
     PRIMARY KEY (`id`))";
 
 $queryLogPE = "SELECT 

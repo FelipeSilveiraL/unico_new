@@ -2,25 +2,7 @@
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
-
-if ($_SESSION['count'] != null) {
-  $displayOne = 'none';
-  $displayTwo = 'block';
-} else {
-  $displayOne = 'block';
-  $displayTwo = 'none';
-}
-//verificando se tem arquivo esperando ser finalizado!
-$queryIsNullPE = "SELECT * FROM unico.sisrev_politicamente_exposto WHERE atualizado = 0";
-$resultIsNullPE = $conn->query($queryIsNullPE);
-$isnullpe = $resultIsNullPE->fetch_assoc();
-
-if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == null) {
-  echo '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12"</script>';
-} else {
-  var_dump($isnullpe);
-}
-
+require_once('../inc/regras_pe.php');
 ?>
 <main id="main" class="main">
 
@@ -40,6 +22,7 @@ if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == nul
   ?>
   <section class="section">
     <div class="row">
+
       <div class="col-lg-6" style="display: <?= $displayOne ?>">
         <div class="card">
           <div class="card-body">
@@ -58,6 +41,7 @@ if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == nul
           </div>
         </div>
       </div>
+
       <div class="col-lg-6" style="display: <?= $displayOne ?>">
         <div class="card">
           <div class="card-body">
@@ -90,6 +74,10 @@ if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == nul
                   <input class="form-check-input me-1" type="checkbox" name="nbs" value="1" aria-label="..." disabled>
                   NBS
                 </li>
+                <li class="list-group-item disabled">
+                  <input class="form-check-input me-1" type="checkbox" name="nbsR" value="1" aria-label="..." disabled>
+                  NBS Ribeirão
+                </li>
               </ul>
 
               <div class="modal-footer">
@@ -101,6 +89,36 @@ if ($isnullpe['id'] != NULL and $_GET['msn'] != 12 and $_SESSION['count'] == nul
         </div>
       </div>
 
+      <div class="col-lg-12" style="display: <?= $displayThree ?>">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Resultado da ultima importação</h5>
+            <!-- Table with hoverable rows -->
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col" class="capitalize">id</th>
+                  <th scope="col" class="capitalize">sistema</th>
+                  <th scope="col" class="capitalize">importados</th>
+                  <th scope="col" class="capitalize">encontrado</th>
+                  <th scope="col" class="capitalize">não encontrado</th>
+                  <th scope="col" class="capitalize">não alterados</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="font-size: 15px">
+                  <th scope="row">1</th>
+                  <td>APOLLO</td>
+                  <td><span class="badge bg-info">134131</span></td>
+                  <td><span class="badge bg-success">920</span></td>
+                  <td><span class="badge bg-warning">133233</span></td>
+                  <td><span class="badge bg-danger">133233</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
 
       <div class="col-lg-12" style="display: none" id="carregamento">
 
