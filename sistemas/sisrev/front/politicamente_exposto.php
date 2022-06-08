@@ -69,14 +69,14 @@ if ($_SESSION['count'] != null) {
             <h5 class="card-title">Leitura efetuada com sucesso</h5>
             <p>Foram encontrados <span class="badge bg-warning"><?= $_SESSION['count'] ?> </span> registros</p>
             <p>Para continuar, selecione abaixo os sistemas que deseja efetuar a carga!</p>
-            <form action="" method="post">
+            <form action="http://<?=$_SESSION['servidorOracle']?>/unico_api/sisrev/inc/politicamente_exposto.php" method="get">
               <ul class="list-group">
                 <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="apollo" aria-label="..." checked>
+                  <input class="form-check-input me-1" type="checkbox" name="apollo" value="1" aria-label="..." checked>
                   Apollo
                 </li>
-                <li class="list-group-item">
-                  <input class="form-check-input me-1" type="checkbox" value="nbs" aria-label="..." checked>
+                <li class="list-group-item disabled">
+                  <input class="form-check-input me-1" type="checkbox" name="nbs" value="1" aria-label="..." disabled>
                   NBS
                 </li>
               </ul>

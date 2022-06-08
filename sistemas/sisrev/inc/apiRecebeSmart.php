@@ -43,14 +43,14 @@ foreach ($resultado->empresaSmart as $empSmart) {
                             (NOME_EMPRESA,SISTEMA,UF_GESTAO,CONSORCIO,APROVADOR_CAIXA,NUMERO_CAIXA,FILIAL_SENIOR,ID_EMPRESA,EMPRESA_SENIOR,
                             ORGANOGRAMA_SENIOR,EMPRESA_APOLLO,REVENDA_APOLLO,SITUACAO,EMPRESA_NBS)
    
-    VALUES ('" . $empSmart->EMPRESA ."',
+    VALUES ('" . $empSmart->ID ."',
+            '" . $empSmart->EMPRESA ."',
             '" . $empSmart->SISTEMA . "',
             '" . $empSmart->UF . "' ,
             '" . $empSmart->CONSORCIO ."',
             '" . $empSmart->APROVADOR_CAIXA ."',
             '" . $empSmart->NUMERO_CAIXA ."',
             '" . $empSmart->FILIAL_SENIOR ."',
-            '" . $empSmart->ID ."',
             '" . $empSmart->EMPRESA_SENIOR ."',
             '" . $empSmart->ORGANOGRAMA_SENIOR ."',
             '" . $empSmart->EMPRESA_APOLLO ."',
@@ -66,7 +66,7 @@ foreach ($resultado->empresaSmart as $empSmart) {
     
 
 // switch para a tabela em baixo
-    switch ($empSmart->SISTEMA) {
+    switch ($row["SISTEMA"]) {
         case "A":
             $sistema = "APOLLO";
             break;
