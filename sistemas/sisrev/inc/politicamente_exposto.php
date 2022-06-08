@@ -5,7 +5,7 @@ require_once('../config/query.php');
 
 
 if ($_GET['confirma'] == 1) {
-  header("Location: http://" . $_SESSION['servidorOracle'] . "/unico_api/sisrev/inc/politicamente_exposto.php");
+  header("Location: http://" . $_SESSION['servidorOracle'] . "/unico_api/sisrev/inc/politicamente_exposto.php?pg=".$_GET['pg']."&tela=".$_GET['tela']."&confirma=1");
 } else {
   if ($_FILES['arquivo']["type"] === "text/csv") {
 
