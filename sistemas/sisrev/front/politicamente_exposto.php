@@ -11,7 +11,10 @@ if ($_SESSION['count'] != null) {
   $displayTwo = 'none';
 }
 //verificando se tem arquivo esperando ser finalizado!
-echo $isnullpe['id'] == NULL and $_GET['msn'] != 12 ?: '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12";</script>';
+if($isnullpe['id'] != NULL AND $_GET['msn'] != 12 AND $_SESSION['count'] == null){
+  echo '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12"</script>';
+}
+
 ?>
 <main id="main" class="main">
 
