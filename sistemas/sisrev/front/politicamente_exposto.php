@@ -10,9 +10,9 @@ if ($_SESSION['count'] != null) {
   $displayOne = 'block';
   $displayTwo = 'none';
 }
-
+//verificando se tem arquivo esperando ser finalizado!
+echo $isnullpe['id'] == NULL and $_GET['msn'] != 12 ?: '<script>window.location.href = "politicamente_exposto.php?pg=' . $_GET['pg'] . '&tela=' . $_GET['tela'] . '&msn=12";</script>';
 ?>
-
 <main id="main" class="main">
 
   <div class="pagetitle">
@@ -69,7 +69,7 @@ if ($_SESSION['count'] != null) {
             <h5 class="card-title">Leitura efetuada com sucesso</h5>
             <p>Foram encontrados <span class="badge bg-warning"><?= $_SESSION['count'] ?> </span> registros</p>
             <p>Para continuar, selecione abaixo os sistemas que deseja efetuar a carga!</p>
-            <form action="http://<?=$_SESSION['servidorOracle']?>/unico_api/sisrev/inc/politicamente_exposto.php" method="get">
+            <form action="http://<?= $_SESSION['servidorOracle'] ?>/unico_api/sisrev/inc/politicamente_exposto.php" method="get">
               <ul class="list-group">
                 <li class="list-group-item">
                   <input class="form-check-input me-1" type="checkbox" name="apollo" value="1" aria-label="..." checked>

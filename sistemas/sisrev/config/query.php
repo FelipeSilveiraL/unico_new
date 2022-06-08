@@ -11,14 +11,9 @@ $createtablePE = "CREATE TABLE `sisrev_politicamente_exposto` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `CPF_PEP` VARCHAR(11) NULL,
     `Nome_PEP` VARCHAR(255) NULL,
-    `Sigla_Funcao_PEP` VARCHAR(10) NULL,
-    `Descricao_Funcao_PEP` VARCHAR(255) NULL,
-    `Nivel_Funcao_PEP` VARCHAR(10) NULL,
-    `Nome_Orgao_PEP` VARCHAR(255) NULL,
-    `Dt_Inicio_Exercicio` VARCHAR(10) NULL,
-    `Dt_Fim_Exercicio` VARCHAR(10) NULL,
-    `Dt_Final_Carencia` VARCHAR(10) NULL,
-    `ATUALIZACAO` VARCHAR(10) NULL,
+    `apollo` VARCHAR(10) NULL,
+    `nbs` VARCHAR(255) NULL,
+    `nbs_ribeirao` VARCHAR(10) NULL,
     PRIMARY KEY (`id`));";
 
 $queryLogPE = "SELECT 
@@ -47,3 +42,7 @@ $valueEmpNbs = ($row["EMPRESA_NBS"] == 0) ? '' : $row["EMPRESA_NBS"];
 $editarTabela = "SELECT * FROM `sisrev_empresas_bpmgp` ";
 
 $queryModulos = "SELECT * FROM sisrev_modulos";
+
+$queryIsNullPE = "SELECT id FROM sisrev_politicamente_exposto WHERE apollo is null OR nbs is null OR nbs_ribeirao is null";
+$resultIsNullPE = $conn->query($queryIsNullPE);
+$isnullpe = $resultIsNullPE->fetch_assoc();
