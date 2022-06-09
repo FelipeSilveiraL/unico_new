@@ -205,3 +205,8 @@ if ($_SESSION['id_usuario'] == NULL) {
     </div><!-- End Basic Modal-->
 
     <!-- ======= Sidebar ======= -->
+    <script>
+        function newColor() {
+            document.getElementById("formColor").submit();
+        }
+    </script>
