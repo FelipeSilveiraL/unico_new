@@ -106,14 +106,7 @@ require_once('../inc/regras_pe.php');
                 </tr>
               </thead>
               <tbody>
-                <tr style="font-size: 15px">
-                  <th scope="row">1</th>
-                  <td>APOLLO</td>
-                  <td><span class="badge bg-info">134131</span></td>
-                  <td><span class="badge bg-success">920</span></td>
-                  <td><span class="badge bg-warning">133233</span></td>
-                  <td><span class="badge bg-danger">133233</span></td>
-                </tr>
+                <?= $tabelaRel ?>
               </tbody>
             </table>
           </div>
