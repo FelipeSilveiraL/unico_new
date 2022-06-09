@@ -1,7 +1,7 @@
 
   <?php
   require_once("../config/query.php");
-  require_once('../../../config/databases.php');  
+  require_once('../../../config/databases.php');
 
 
 
@@ -12,7 +12,7 @@
 
   while ($edit = $resultado->fetch_assoc()) {
 
-  
+
 
     $consorcio = ($edit["CONSORCIO"] == 'S') ? 'SIM' : 'NÃO';
 
@@ -23,12 +23,8 @@
     $valueRevApollo = ($edit["REVENDA_APOLLO"] == 0) ? '' : $edit["REVENDA_APOLLO"];
 
     $valueEmpNbs = ($edit["EMPRESA_NBS"] == 0) ? '' : $edit["EMPRESA_NBS"];
-
-    echo '<section class="section">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
+    $formulario .=
+     '
             <form class="row g-3" action="" method="post" enctype="multipart/form-data">
               <!--DADOS PARA O LANÇAMENTO -->
               <div class="form-floating mt-4 col-md-12">
@@ -40,26 +36,26 @@
 
               <div class="form-floating mt-4 col-md-6">
                 <select class="form-select" onchange="camposObrigatorios()" id="sistema" name="sistema"  required>';
-                if(!empty($edit["SISTEMA"] )) {
-                  switch ($edit["SISTEMA"]) {
-                      case 'A':
-                          echo '<option value="A">APOLLO</option>';
-                          break;
-                      case 'N':
-                          echo '<option value="N">BANCO NBS</option>';
-                          break;
-                      case 'H':
-                          echo '<option value="H">BANCO HARLEY</option>';
-                          break;
-                      case '0':
-                          echo '<option value="0">EMPRESA QUE NÃO USA SISTEMA ERP</option>';
-                          break;
-                  }
-                  echo '<option value="">------------------</option>';
-              } else {
-                  echo '<option value="">------------------</option>';
-              }
-              echo '
+    if (!empty($edit["SISTEMA"])) {
+      switch ($edit["SISTEMA"]) {
+        case 'A':
+          echo '<option value="A">APOLLO</option>';
+          break;
+        case 'N':
+          echo '<option value="N">BANCO NBS</option>';
+          break;
+        case 'H':
+          echo '<option value="H">BANCO HARLEY</option>';
+          break;
+        case '0':
+          echo '<option value="0">EMPRESA QUE NÃO USA SISTEMA ERP</option>';
+          break;
+      }
+      echo '<option value="">------------------</option>';
+    } else {
+      echo '<option value="">------------------</option>';
+    }
+    echo '
                   <option value="A">APOLLO</option>
                   <option value="N">BANCO NBS</option>
                   <option value="H">BANCO HARLEY</option>  
@@ -154,18 +150,19 @@
                 <label for="estado">UF:<span style="color: red;">*</span></label>
               </div>
               <div class="form-floating mt-4 col-md-6" id="numero_caixa">
-              <input onkeypress="onlynumber()" value="' . $edit['NUMERO_CAIXA'] . '" class="form-control"  name="numero_caixa" maxlength="2" onblur="aprovador()" onkeypress="onlynumber()" required>
+              <input value="' . $edit['NUMERO_CAIXA'] . '" class="form-control"  name="numero_caixa" maxlength="2" onblur="aprovador()" onkeypress="onlynumber()" required>
               <label for="numero_caixa">NUMERO CAIXA:<span style="color: red;">*</span></label>
               </div>
               <div class="form-floating mt-4 col-md-6" style="display: ';
-              echo empty($edit['NUMERO_CAIXA']) ? 'none' : 'block'; echo ';" id="liberarApro">
+    echo empty($edit['NUMERO_CAIXA']) ? 'none' : 'block';
+    echo ';" id="liberarApro">
               <select  class="form-select" id="aproCaixa" name="aproCaixa" id="aproCaixa" required>';
-              if(empty($edit['APROVADOR_CAIXA'])){
-                echo '<option>------------------</option>';
-              }else{
-                echo '<option value="' . $edit['APROVADOR_CAIXA'] . '" selected>' . $edit['APROVADOR_CAIXA'] . '</option>
+    if (empty($edit['APROVADOR_CAIXA'])) {
+      echo '<option>------------------</option>';
+    } else {
+      echo '<option value="' . $edit['APROVADOR_CAIXA'] . '" selected>' . $edit['APROVADOR_CAIXA'] . '</option>
                 <option value="">-----------------</option>';
-              }
+    }
     require_once('../inc/apiRecebeSelbetti.php');
     echo $aprovador;
     echo '</select>
@@ -176,53 +173,22 @@
     <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
     <button type="submit" class="btn btn-success">Salvar</button>
   </div>
-  <script>
-                function aprovador(){
-                    var tela = document.getElementById("liberarApro").style.display;
-
-                    if (tela == "none") {
-                        document.getElementById("liberarApro").style.display = "block";
-                        document.getElementById("aproCaixa").required = true;
-                    } else {
-                        document.getElementById("liberarApro").style.display = "none";
-                        document.getElementById("aproCaixa").required = false;
-                    }
-                }
-            </script>
-
-  <script>
-                function camposObrigatorios() {
-                    var value = document.getElementById("sistema").value
-
-                    if(value == "A") {                    
-                        document.getElementById("empresaNbs").style.display = "none";
-                        document.getElementById("empnbs").value = "";                     
-                        document.getElementById("empresaApollo").style.display = "block";
-                        document.getElementById("revendaApollo").style.display = "block";  
-                        
-                    }else{
-                        document.getElementById("empresaNbs").style.display = "block";
-                        document.getElementById("empresaApollo").style.display = "none";
-                        document.getElementById("revendaApollo").style.display = "none";
-                        document.getElementById("empApollo").value = ""; 
-                        document.getElementById("revApollo").value = "";              
-                    }
-                }                
-            </script>
-  </form><!-- FIM Form -->
+  
+  </form>
   </div><!-- FIM card-body -->
-  </div><!-- FIM card -->
-  </div><!-- FIM col-lg-12 -->
+        </div><!-- FIM card -->
+      </div><!-- FIM col-lg-12 -->
+    </div>
   </section>
-  </main>
+</main>
 
 
-<!--################# COLE section AQUI #################-->
-<!-- End #main -->
 
-';
-}
-?>
-<?php
-require_once('footer.php'); //Javascript e configurações afins
-?>
+  ';
+  }
+  
+  ?>
+
+
+
+
