@@ -1,5 +1,6 @@
 <?php
 require_once('../inc/paginacao.php');
+
 if(empty($_GET['id_sistema'])){
     $where =  ' WHERE id_usuario = '.$_SESSION['id_usuario'].' AND id_sistema IS NULL';
 }else{
