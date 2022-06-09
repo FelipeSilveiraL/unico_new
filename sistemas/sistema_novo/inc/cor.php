@@ -1,17 +1,9 @@
 <?php
 session_start();
-require_once('../config/query.php');
-
-if (empty($_GET['sistema'])) {
-    $sistema = 'id_sistema IS NULL ';
-    $valorSistema = "NULL";
-} else {
-    $sistema = 'id_sistema = ' . $_GET['sistema'];
-    $valorSistema = $_GET['sistema'];
-}
+require_once('../../../config/query.php');
 
 
-$queryVerificar = "SELECT * FROM usuarios_sistema_color WHERE id_usuario = " . $_SESSION['id_usuario'] . " AND " . $sistema;
+$queryVerificar = "SELECT * FROM usuarios_sistema_color WHERE id_usuario = " . $_SESSION['id_usuario'] . " AND id_sistema = " . $_SESSION['id_sistema'];
 $resultVerificar = $conn->query($queryVerificar );
 
 if ($vericiar = $resultVerificar->fetch_assoc()) {
@@ -19,7 +11,7 @@ if ($vericiar = $resultVerificar->fetch_assoc()) {
     $insertColor = "UPDATE usuarios_sistema_color
     SET
     color = '" . $_GET['ArcoIris'] . "'
-    WHERE id_usuario = '" . $_SESSION['id_usuario'] . "' AND ".$sistema;
+    WHERE id_usuario = '" . $_SESSION['id_usuario'] . "' AND id_sistema = " . $_SESSION['id_sistema'];
 
 } else {
 
