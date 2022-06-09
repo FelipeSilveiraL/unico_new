@@ -190,12 +190,7 @@ require_once('menu.php'); //menu lateral da pagina
     }
   }
 </script>
-<script>
-  function exibeDiv() {
-    var div = document.getElementById("back");
-    div.style.display = "block";
-  }
-</script>
+
 
 <?php
 require_once('footer.php'); //Javascript e configurações afins
