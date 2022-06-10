@@ -11,12 +11,11 @@ require_once('menu.php'); //menu lateral da pagina
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item">
-          <a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a>
-        </li>
+          <a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
+        <li class="breadcrumb-item">Configurações</li>
         <li class="breadcrumb-item">
-          <a href="localizar_modulos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>">Acessos rapidos</a>
-        </li>
-        <li class="breadcrumb-item">Informações</li>
+          <a href="localizar_modulos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>">Acessos rapidos</a></li>
+        <li class="breadcrumb-item">Adicionar acesso rápido</li>
       </ol>
     </nav>
   </div><!-- End Navegação -->

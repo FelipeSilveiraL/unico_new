@@ -6,6 +6,7 @@ if(empty($_GET['id_sistema'])){
 }else{
     $where =  ' WHERE id_usuario = '.$_SESSION['id_usuario'].' AND id_sistema = '.$_GET['id_sistema'];
 }
+
 $querySistemaCores .=  $where;
 $resultado = $conn->query($querySistemaCores);
 $coressistema = $resultado->fetch_assoc();

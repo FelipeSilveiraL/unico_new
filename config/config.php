@@ -1,4 +1,5 @@
 <?php
+    
     //OUTROS TIPOS DE SESSÃO
     $_SESSION['nome_bpm'] = "Fluig";
     //IPS SERVIDOR

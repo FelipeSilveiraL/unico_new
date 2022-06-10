@@ -21,7 +21,7 @@ if ($vericiar = $resultVerificar->fetch_assoc()) {
     color)
     VALUES
     (" . $_SESSION['id_usuario'] . ",
-    " . $valorSistema . ",
+    " . $_SESSION['id_sistema'] . ",
     '" . $_GET['ArcoIris'] . "')";
 }
 

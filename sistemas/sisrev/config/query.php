@@ -32,6 +32,8 @@ $queryTabela = "SELECT * FROM `sisrev_empresas_bpmgp` where ID_EMPRESA NOT IN(30
 
 $editarTabela = "SELECT * FROM `sisrev_empresas_bpmgp` ";
 
+$relatorioExcel = "SELECT * FROM `sisrev_empresas_bpmgp` where ID_EMPRESA NOT IN(302,208,261) ";
+
 $queryModulos = "SELECT * FROM sisrev_modulos";
 
 $queryIsNullPE = "SELECT id FROM sisrev_politicamente_exposto WHERE ";

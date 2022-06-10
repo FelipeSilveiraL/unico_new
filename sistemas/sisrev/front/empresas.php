@@ -2,6 +2,7 @@
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
+require_once('../inc/apiRecebeTabela.php');
 ?>
 
 <main id="main" class="main">
@@ -30,7 +31,7 @@ require_once('menu.php'); //menu lateral da pagina
           <div class="card-header">
             <a href="novaRegraEmp.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-plus-square"></i></a>
 
-            <a href="" type="button" class="btn btn-success" style="float: right;" title="Exportar excel"><i class="ri-file-excel-2-fill"></i></A>
+            <a href="../bd/relatorioExcel.php" type="button" class="btn btn-success" style="float: right;" title="Exportar excel"><i class="ri-file-excel-2-fill"></i></A>
           </div>
           <div class="card-body">
             <!-- Table with stripped rows -->

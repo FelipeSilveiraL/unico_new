@@ -21,22 +21,10 @@ require_once('menu.php'); //menu lateral da pagina
   <?php
   require_once('../../../inc/mensagens.php');
   ?>
-  <section class="section">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-          <form class="row g-3" action="" method="post" enctype="multipart/form-data">
             <?php
               require '../inc/editemp.php';
             ?>
-            </form>
-          </div>
-        </div><!-- FIM card -->
-      </div><!-- FIM col-lg-12 -->
-    </div>
-  </section>
-</main>
+            
 
             <?php
             require_once('footer.php'); //Javascript e configurações afins
