@@ -81,7 +81,7 @@ require_once('../inc/regras_pe.php');
               </ul>
 
               <div class="modal-footer">
-                <button class="btn btn-secondary" id="refresh">Cancelar</button>
+                <a href="javascript:" onclick="atualizar()" class="btn btn-secondary">Cancelar</a>
                 <button type="submit" class="btn btn-primary">Efetuar Carga</button>
               </div>
             </form>
@@ -132,11 +132,10 @@ require_once('../inc/regras_pe.php');
 </main><!-- End #main -->
 
 <script>
-  var btn = document.querySelector("#refresh");
-  btn.addEventListener("click", function() {
-
-    location.reload();
-  });
+  
+  function atualizar(){
+    document.location.reload(true);
+  }
 
   function teste() {
     var value = document.getElementById("arquivo").value;
