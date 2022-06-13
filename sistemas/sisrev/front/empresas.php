@@ -29,7 +29,7 @@ require_once('../inc/apiRecebeTabela.php');
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <a href="novaRegraEmp.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-plus-square"></i></a>
+            <a href="novaRegraEmp.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-file-plus"></i></a>
 
             <a href="../bd/relatorioExcel.php" type="button" class="btn btn-success" style="float: right;" title="Exportar excel"><i class="ri-file-excel-2-fill"></i></A>
           </div>
@@ -48,11 +48,75 @@ require_once('../inc/apiRecebeTabela.php');
                 </tr>
               </thead>
               <tbody>
-                <?php 
+                <?php
                 require_once('../inc/inserindoTabela.php');
                 ?>
               </tbody>
             </table>
+            <div class="modal fade" id="idempresa1" tabindex="-1" aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">'.$row["NOME_EMPRESA"].'</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col" class="capitalize">#</th>
+                          <th scope="col" class="capitalize">Name</th>
+                          <th scope="col" class="capitalize">Position</th>
+                          <th scope="col" class="capitalize">Age</th>
+                          <th scope="col" class="capitalize">Start Date</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Brandon Jacob</td>
+                          <td>Designer</td>
+                          <td>28</td>
+                          <td>2016-05-25</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Bridie Kessler</td>
+                          <td>Developer</td>
+                          <td>35</td>
+                          <td>2014-12-05</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Ashleigh Langosh</td>
+                          <td>Finance</td>
+                          <td>45</td>
+                          <td>2011-08-12</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">4</th>
+                          <td>Angus Grady</td>
+                          <td>HR</td>
+                          <td>34</td>
+                          <td>2012-06-11</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">5</th>
+                          <td>Raheem Lehner</td>
+                          <td>Dynamic Division Officer</td>
+                          <td>47</td>
+                          <td>2011-04-19</td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
