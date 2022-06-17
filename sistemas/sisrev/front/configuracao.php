@@ -23,31 +23,26 @@ require_once('menu.php'); //menu lateral da pagina
   <section>
     <div class="row">
       <section class="section">
-
         <div class="row">
-
           <div class="col-lg-6 py-2">
-            <a href="#" class="list-group-item list-group-item-action">
+            <a href="telas_funcoes.php?pg=4&tela=1" class="list-group-item list-group-item-action">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Menus suspensos</h5>
-
+                  <h5 class="card-title">Cadastro de telas e funções</h5>
                 </div>
               </div>
             </a>
           </div>
           <div class="col-lg-6 py-2">
-            <a href="espelhar_usuarios.php?pg=4&tela=2" class="list-group-item list-group-item-action">
+            <a href="usuarios.php?pg=4&tela=3" class="list-group-item list-group-item-action">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Usuários</h5>
-
                 </div>
               </div>
             </a>
           </div>
       </section>
-
     </div>
   </section>
 

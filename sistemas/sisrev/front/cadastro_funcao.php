@@ -7,12 +7,13 @@ require_once('menu.php'); //menu lateral da pagina
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Cadastro de Função</h1>
+    <h1>Cadastro de Funções</h1>
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
         <li class="breadcrumb-item">Configurações</li>
-        <li class="breadcrumb-item">Cadastro</li>
+        <li class="breadcrumb-item">Usuários</li>
+        <li class="breadcrumb-item">Funções</li>
       </ol>
     </nav>
   </div><!-- End Navegação -->
@@ -29,7 +30,7 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Cadastro de funções por usuário</h5>
+            <h5 class="card-title">Edição de usuários</h5>
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -53,47 +54,11 @@ require_once('menu.php'); //menu lateral da pagina
                       <td>' . $usuarios['nome'] . '</td>
                       <td>' . $usuarios['usuario'] . '</td>
                       <td> 
-                        <a href="#" title="Editar Funções" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#basicModal'.$usuarios['id_usuario'].'">
+                        <a href="editar_usuario.php?pg='.$_GET['pg'].'&tela='.$_GET['tela'].'" title="Editar Usuário" class="btn btn-primary btn-sm">
                           <i class="bi bi-pencil"></i>
                         </a>
                       </td>
-                    </tr>
-
-                    <!-- Inicio do Modal de editar Função -->
-                    <div class="modal fade" id="basicModal'.$usuarios['id_usuario'].'" tabindex="-1">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title">Atribuir / Editar Funções</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="card">
-                            <div class="card-body">
-                              <h5 class="card-title">Selecione o Função que deseja atribuir:</h5>                  
-                              <!-- List group With Checkboxes and radios -->
-                              <ul class="list-group">'; 
-                                //query trazendo todas as funções
-                                $resultadoFuncoes = $conn->query($queryFuncoes);
-                                while ($ResultFuncoes = $resultadoFuncoes->fetch_assoc()) {                                                                                                    
-                                  echo'
-                                  <li class="list-group-item">
-                                    <input class="form-check-input me-1" type="checkbox" value="'.$ResultFuncoes['id'].'" aria-label="...">
-                                    '.$ResultFuncoes['tela'].'
-                                  </li>';
-                                }                                
-                                echo' 
-                              </ul>
-                              <!-- End List Checkboxes and radios -->                  
-                            </div>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                            <a href="#" class="btn btn-success">Salvar</a>
-                          </div>                          
-                        </div>
-                      </div>
-                    </div>
-                    <!-- Fim do Modal-->';
+                    </tr>';
                   }
                 ?>
               </tbody>

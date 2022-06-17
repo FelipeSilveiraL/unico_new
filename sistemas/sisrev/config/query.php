@@ -28,11 +28,11 @@ $resultLogPE = $conn->query($queryLogPE);
 $logPE = $resultLogPE->fetch_assoc();
 
 
-$queryTabela = "SELECT * FROM `sisrev_empresas_bpmgp` where ID_EMPRESA NOT IN(302,208,261) ORDER BY id ASC;";
+$queryTabela = "SELECT * FROM sisrev_empresas_bpmgp where ID_EMPRESA NOT IN(302,208,261) ORDER BY id ASC;";
 
-$editarTabela = "SELECT * FROM `sisrev_empresas_bpmgp` ";
+$editarTabela = "SELECT * FROM sisrev_empresas_bpmgp ";
 
-$relatorioExcel = "SELECT * FROM `sisrev_empresas_bpmgp` where ID_EMPRESA NOT IN(302,208,261) ";
+$relatorioExcel = "SELECT * FROM sisrev_empresas_bpmgp where ID_EMPRESA NOT IN(302,208,261) ";
 
 $deletar = "SELECT NOME_EMPRESA,SISTEMA,EMPRESA_NBS,CONSORCIO,EMPRESA_APOLLO,REVENDA_APOLLO,ORGANOGRAMA_SENIOR,EMPRESA_SENIOR,FILIAL_SENIOR FROM sisrev_empresas_bpmgp ";   
 
@@ -60,11 +60,11 @@ $queryUsers = "SELECT * FROM usuarios";
 $queryFuncoes = "SELECT * FROM sisrev_funcao";
 
 //query para chamar os usuários por função
-$queryUserFuncao = "SELECT 
-                        SF.id, SF.id_usuario, SF.id_funcao
+$queryFuncaoModulos = "SELECT 
+                        SF.id_funcao, SM.nome, SF.descricao, SF.id_modulos
                     FROM
-                        sisrev_usuario_funcao SF
+                        sisrev_funcao SF
                     LEFT JOIN
-                        usuarios U ON SF.id_usuario = U.id_usuario";
+                        sisrev_modulos SM ON SF.id_modulos = SM.id";
 
 ?>

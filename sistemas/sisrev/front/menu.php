@@ -1,16 +1,20 @@
-<?php 
-require_once('../inc/paginacao.php');//pg 
+<?php
+require_once('../inc/paginacao.php'); //pg 
 require_once('../inc/administrador.php'); //regra de perfis
 
-$querySistemaCores .=  ' WHERE id_usuario = '.$_SESSION['id_usuario'].' AND id_sistema = '.$_SESSION['id_sistema'];
+$querySistemaCores .=  ' WHERE id_usuario = ' . $_SESSION['id_usuario'] . ' AND id_sistema = ' . $_SESSION['id_sistema'];
 $resultado = $conn->query($querySistemaCores);
-if(!$coressistema = $resultado->fetch_assoc()){ $color = "#fff";}else{ $color = $coressistema['color'];}
+if (!$coressistema = $resultado->fetch_assoc()) {
+    $color = "#fff";
+} else {
+    $color = $coressistema['color'];
+}
 
 ?>
 
 <aside id="sidebar" class="sidebar" style="background-image: linear-gradient(to bottom, #fff 73%, <?= $color ?> 100%);">
 
-    <ul class="sidebar-nav" id="sidebar-nav">        
+    <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
             <a class="nav-link <?= $_GET['pg'] == 1 ?: "collapsed" ?>" href="index.php?pg=<?= $_GET['pg'] ?>">
                 <i class="bi bi-grid"></i>
@@ -37,23 +41,36 @@ if(!$coressistema = $resultado->fetch_assoc()){ $color = "#fff";}else{ $color = 
                 </li>
             </ul>
         </li>
-        <hr>
-        <li class="nav-heading">Paginas</li>
         <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? 'block' : 'none' ?>">
-            <a class="nav-link <?= $_GET['pg'] == 6 ?: "collapsed" ?>" data-bs-target="#config-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-gear"></i><span>Configurações</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link <?= $_GET['pg'] == 3 ?: "collapsed" ?>" data-bs-target="#adm-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-person-square"></i><span>Administração</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="config-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+            <ul id="adm-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="localizar_modulos.php?pg=<?= $_GET['pg'] ?>&tela=4" <?= $_GET['tela'] == 4 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Acesso Rápido Módulos</span>
-                    </a>
-                    <a href="cadastro_funcao.php?pg=<?= $_GET['pg'] ?>&tela=4" <?= $_GET['tela'] == 5 ? "class='active'" : "" ?>>
-                        <i class="bi bi-circle"></i><span>Cadastro de Funções</span>
+                    <a href="processos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Processos Fabrica</span>
                     </a>
                 </li>
             </ul>
         </li>
+        <hr>
+        <li class="nav-heading">Paginas</li>
+        <li class="nav-item" style="display: <?= $_SESSION['administrador'] == 1 ? 'block' : 'none' ?>">
+            <a class="nav-link <?= $_GET['pg'] == 4 ?: "collapsed" ?>" data-bs-target="#config-nav" data-bs-toggle="collapse" href="#">
+                <i class="bi bi-gear"></i><span>Configurações</span><i class="bi bi-chevron-down ms-auto"></i>
+            </a>
+            <ul id="config-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+                <li>
+                    <a href="telas_funcoes.php?pg=<?= $_GET['pg'] ?>&tela=1" <?= $_GET['tela'] == 1 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Cadastro telas e funções</span>
+                    </a>
+                    <a href="usuarios.php?pg=<?= $_GET['pg'] ?>&tela=3" <?= $_GET['tela'] == 3 ? "class='active'" : "" ?>>
+                        <i class="bi bi-circle"></i><span>Usuários</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+
         <!-- End Charts Nav -->
 
         <li class="nav-item">
