@@ -27,11 +27,10 @@ require_once('menu.php');
 
   <section class="section">
     <div class="row">
-      <div class="col-lg-12">       
-
+      <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Tabelas usuários              
+            <h5 class="card-title">Tabelas usuários
               <a href="usuarioNovo.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>" class="btn btn-success button-rigth-card"><i class="bi bi-person-plus-fill"></i></a>
             </h5>
             <hr />
@@ -82,12 +81,12 @@ require_once('menu.php');
               </tbody>
             </table>
             <!-- End Table with stripped rows -->
-
           </div>
         </div>
       </div>
     </div>
   </section>
+
 
 </main><!-- End #main -->
 <?php
