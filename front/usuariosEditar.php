@@ -1,12 +1,9 @@
 <?php
 session_start();
-
 require_once('../config/databases.php');
 require_once('../config/query.php');
 require_once('administrador.php');
 require_once('head.php');
-require_once('header.php');
-require_once('menu.php');
 
 $queryUsuarios .= "WHERE U.id_usuario = " . $_GET['id_usuario'];
 $resultUsuario = $conn->query($queryUsuarios);
@@ -14,7 +11,7 @@ $resultUsuario = $conn->query($queryUsuarios);
 $usuario = $resultUsuario->fetch_assoc();
 ?>
 
-<main id="main" class="main">
+<main id="main" class="main" style="margin-top: -19px;">
 
   <div class="pagetitle">
     <h1>Editando Usuários</h1>
@@ -62,8 +59,8 @@ $usuario = $resultUsuario->fetch_assoc();
 
 
               <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Empresa:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-3 col-form-label" style="margin-right: 72px;">Empresa:</label>
+                <div class="col-sm-8">
                   <select class="form-select" name="empresa">
                     <option value="<?= $usuario['id_empresa'] ?>" selected=""><?= $usuario['empresa'] ?></option>
                     <option>--------</option>
@@ -80,8 +77,8 @@ $usuario = $resultUsuario->fetch_assoc();
 
 
               <div class="row mb-3">
-                <label class="col-sm-3 col-form-label">Departamento:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-3 col-form-label" style="margin-right: 72px;">Departamento:</label>
+                <div class="col-sm-8">
                   <select class="form-select" name="departamento">
                     <option value="<?= $usuario['id_depto'] ?>" selected=""><?= $usuario['departamento'] ?></option>
                     <option>--------</option>
