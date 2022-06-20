@@ -6,18 +6,6 @@ require_once('administrador.php'); //regra de perfis
 
 <main id="main" class="main" style="margin-top: -19px;">
 
-  <div class="pagetitle">
-    <h1>Lista Usuários</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
-        <li class="breadcrumb-item">Configurações</li>
-        <li class="breadcrumb-item active">Usuários</li>
-      </ol>
-    </nav>
-  </div><!-- End Navegação -->
-
-
   <?php require_once('../inc/mensagens.php') ?>
   <!-- Alertas -->
 

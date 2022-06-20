@@ -13,18 +13,6 @@ $usuario = $resultUsuario->fetch_assoc();
 
 <main id="main" class="main" style="margin-top: -19px;">
 
-  <div class="pagetitle">
-    <h1>Editando Usuários</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="../index.php?pg=1">Home</a></li>
-        <li class="breadcrumb-item">Configurações</li>
-        <li class="breadcrumb-item"><a href="usuarios.php?pg=<?= $_GET['pg'] ?>&conf=<?= $_GET['conf'] ?>&id_usuario=<?= $usuario['id_usuario'] ?>">Usuários</a></li>
-        <li class="breadcrumb-item active">Editando usuário</li>
-      </ol>
-    </nav>
-  </div><!-- End Page Title -->
-
   <?php require_once('../inc/mensagens.php') ?><!-- Alertas -->
 
   <section class="section">
