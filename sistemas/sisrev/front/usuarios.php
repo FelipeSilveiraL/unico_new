@@ -23,9 +23,56 @@ require_once('menu.php'); //menu lateral da pagina
 
   <!--################# COLE section AQUI #################-->
 
-  <!-- Table with stripped rows -->
-  <iframe src="userTeste.php" width="100%" height="300" style="border:1px solid black;"></iframe>
-  <!-- End Table with stripped rows -->
+  <section class="section">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Edição de usuários</h5>
+            <!-- Table with stripped rows -->
+            <table class="table datatable">
+              <thead>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Usuário</th>
+                  <th scope="col">Ação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php
+                //chamando usuários
+                $queryUsers .= " WHERE deletar = 0 ORDER BY NOME ASC";
+                $resultado = $conn->query($queryUsers);
+
+                while ($usuarios = $resultado->fetch_assoc()) {
+                  echo '
+                    <tr>
+                      <th scope="row">' . $usuarios['id_usuario'] . '</th>
+                      <td>' . $usuarios['nome'] . '</td>
+                      <td>' . $usuarios['usuario'] . '</td>
+                      <td> 
+                        <a href="editar_usuario.php?pg='.$_GET['pg'].'&tela='.$_GET['tela'].'" title="Editar Usuário" class="btn btn-primary btn-sm">
+                          <i class="bi bi-pencil"></i>
+                        </a>
+                        <a href="#" title="Permissões" class="btn btn-warning btn-sm">
+                          <i class="bx bxs-lock-open"></i>
+                      </a>
+                      </td>
+                    </tr>';
+                  }
+                ?>
+              </tbody>
+            </table>
+            <!-- End Table with stripped rows -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!--################# section TERMINA AQUI #################-->
 

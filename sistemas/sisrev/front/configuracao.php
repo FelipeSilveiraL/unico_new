@@ -25,7 +25,7 @@ require_once('menu.php'); //menu lateral da pagina
       <section class="section">
         <div class="row">
           <div class="col-lg-6 py-2">
-            <a href="telas_funcoes.php?pg=4&tela=1" class="list-group-item list-group-item-action">
+            <a href="telas_funcoes.php?pg=<?=$_GET['pg']?>&tela=<?=$_GET['tela']?>" class="list-group-item list-group-item-action">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Cadastro de telas e funções</h5>
@@ -34,7 +34,7 @@ require_once('menu.php'); //menu lateral da pagina
             </a>
           </div>
           <div class="col-lg-6 py-2">
-            <a href="usuarios.php?pg=4&tela=3" class="list-group-item list-group-item-action">
+            <a href="usuarios.php?pg=<?=$_GET['pg']?>&tela=<?=$_GET['tela']?>" class="list-group-item list-group-item-action">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-title">Usuários</h5>
