@@ -147,7 +147,7 @@ $usuario = $resultUsuario->fetch_assoc();
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Voltar</button>
+                <a href="iframeUsuarios.php" class="btn btn-secondary">Voltar</a>
                 <button type="submit" class="btn btn-primary">Salvar</button>
               </div>
             </form>
