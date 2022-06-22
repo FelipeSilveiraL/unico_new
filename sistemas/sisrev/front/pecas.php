@@ -7,10 +7,10 @@ require_once('menu.php'); //menu lateral da pagina
 <main id="main" class="main">
 
   <div class="pagetitle">
-    <h1>Nome da Pagina</h1>
+    <h1>Peças</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
+        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
         <li class="breadcrumb-item">peças</li>
       </ol>
     </nav>
@@ -20,12 +20,19 @@ require_once('menu.php'); //menu lateral da pagina
   require_once('../../../inc/mensagens.php'); //Alertas
   ?>
 
-  <!--################# COLE section AQUI #################-->
-
-  <h6>Inicio da section!</h6>
-
-  <!--################# section TERMINA AQUI #################-->
-
+  <section class="section">
+    <div class="row">
+      <div class="col-sm-3">
+        <a href="atualizarPreco.php" class="list-group-item list-group-item-action">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Atualizar Preço Peças</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 </main><!-- End #main -->
 
 <?php
