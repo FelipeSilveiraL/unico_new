@@ -96,26 +96,36 @@ require_once('menu.php'); //menu lateral da pagina
                                                 //aplicando query de funções no banco
                                                 $queryFuncoes = "SELECT * FROM sisrev_funcao WHERE id_modulos = ".$rowTelas['id']."";
                                                 $resultFuncao = $conn->query($queryFuncoes);
-
+                                                 
                                                 //Inicio do While das funções
-                                                while ($rowFuncoes = $resultFuncao->fetch_assoc()) {
+                                                while ($rowFuncoes = $resultFuncao->fetch_assoc()) { 
 
                                                   //Buscando as funções por usuário
-                                                  $queryUserFuncao = "SELECT * FROM sisrev_usuario_funcao WHERE id_usuario = '".$usuarios['id_usuario']."' AND id_funcao = '".$rowFuncoes['id_funcao']."'";
-                                                  $resultUserFuncao = $conn->query($queryUserFuncao);
-                                                  $rowFuncaoUsuario = $resultUserFuncao->fetch_assoc(); 
-                                                  
-                                                  $checked = $rowFuncaoUsuario['id'] != NULL ? 'checked' : '';
+                                                $queryUserFuncao = "SELECT * FROM sisrev_usuario_funcao WHERE id_usuario = '".$usuarios['id_usuario']."' AND id_funcao = '".$rowFuncoes['id_funcao']."'";
+                                                $resultUserFuncao = $conn->query($queryUserFuncao);
+                                                $rowFuncaoUsuario = $resultUserFuncao->fetch_assoc();
+                                                
+                                                $checked = $rowFuncaoUsuario['id'] != NULL ? 'checked' : '';
 
-                                                  echo'
-                                                  <ul class="list-group">
-                                                    <li class="list-group-item">
-                                                      <input class="form-check-input me-1" name="funcao[]" type="checkbox" value="'.$rowFuncoes['id'].'" aria-label="" ' .$checked. '>
-                                                        '.$rowFuncoes['nome'].' - '.$rowFuncoes['descricao'].'
-                                                    </li>
-                                                  </ul>';
+                                                  if ($rowFuncoes['id_funcao'] != NULL) {
+                                                    echo'
+                                                    <ul class="list-group">
+                                                      <li class="list-group-item">
+                                                        <input class="form-check-input me-1" name="funcao[]" type="checkbox" value="'.$rowFuncoes['id'].'" aria-label="" ' .$checked. '>
+                                                          '.$rowFuncoes['nome'].' - '.$rowFuncoes['descricao'].'
+                                                      </li>
+                                                    </ul>';
+                                                  } else {
+                                                    echo'
+                                                    <ul class="list-group">
+                                                      <li class="list-group-item">
+                                                        <input class="form-check-input me-1" type="text" disabled>
+                                                          Não há funções cadastradas para esta tela.
+                                                      </li>
+                                                    </ul>';
+                                                  }
+
                                                 } echo'
-
                                               </div>
                                             </div>
                                           </div>
