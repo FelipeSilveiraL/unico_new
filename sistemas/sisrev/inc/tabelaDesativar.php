@@ -16,9 +16,6 @@ Essa tabela esta sendo administrada no seguinte caminho
 $queryDemitidos .= " WHERE cpf = ".str_replace(".", "", $ajuste)."";
 $resultado = $conn->query($queryDemitidos);
 
-echo $queryDemitidos;
-exit;
-
 while ($rowResultado = $resultado->fetch_assoc()) {
 
     if ($rowResultado['ativo'] == 'S') {
