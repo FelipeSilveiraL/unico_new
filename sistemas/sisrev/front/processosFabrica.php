@@ -33,8 +33,10 @@ require_once('menu.php'); //menu lateral da pagina
             <br>
             <h5 class="card-title" style="text-align: left;">LISTA ARQUIVOS FABRICA</h5>
             <?php
+            $msn = $_GET['msn'];
             $data1 = $_POST['dataPesquisa']; // recebe data
             $data2 = $_GET['dataArquivo'];
+            
             if($data1){
               $selecionada = implode('/', array_reverse(explode('-', $data1)));//transformar data em pt-BR
               $data = implode('', array_reverse(explode('-', $data1))); //transformar a data para a verificação da pasta
@@ -42,9 +44,8 @@ require_once('menu.php'); //menu lateral da pagina
               $selecionada = implode('/', array_reverse(explode('-', $data2))); //transformar data em pt-BR
               $data = implode('', array_reverse(explode('-', $data2))); //transformar a data para a verificação da pasta
             }
-
+          
             $Dir = "../documentos/CAR/" . $data . "";
-
 
             $fileName = substr($data, 0,4);
 
@@ -59,6 +60,8 @@ require_once('menu.php'); //menu lateral da pagina
             $l0s = "$Dir/l0s$fileName.txt";
             $pmu = "$Dir/pmu$fileName.txt";
             $sjp = "$Dir/sjp$fileName.txt";
+
+          
 
             ?>
             <div class="col-lg-12" style="display: none" id="carregamento">
@@ -79,22 +82,22 @@ require_once('menu.php'); //menu lateral da pagina
                 <!-- Default Tabs -->
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item" role="presentation">
-                    <button class="nav-link <?= empty($data)? 'active' : '' ?>" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="<?= empty($data)? 'true' : 'false' ?>">Selecionar Data</button>
+                    <button class="nav-link <?= empty($msn)? 'active' : '' ?>" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="<?= empty($data)? 'true' : 'false' ?>">Selecionar Data</button>
                   </li>
                   <li class="nav-item " role="presentation">
-                    <button class="nav-link <?= empty($data)? '' : 'active' ?>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="<?= empty($data)? 'false' : 'true' ?>">Carregar arquivo</button>
+                    <button class="nav-link <?= empty($msn)? '' : 'active' ?>" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="<?= empty($data)? 'false' : 'true' ?>">Carregar arquivo</button>
                   </li>
                 </ul>
                 <div class="tab-content pt-2" id="myTabContent">
-                  <div class="tab-pane fade <?= empty($data)? 'active show' : '' ?>" id="home" role="tabpanel" aria-labelledby="home-tab">
+                  <div class="tab-pane fade <?= empty($msn)? 'active show' : '' ?>" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <div class="header d-flex align-items-center header-scrolled">
                       <form method="POST" action="<?= $PHP_SELF ?>" class="search-form d-flex align-items-center">
-                        <input type="date" style="width:40%;" class="form-control col-lg-12" id="dataPesquisa" name="dataPesquisa">&emsp;&emsp;&emsp;
+                        <input type="date" style="width:40%;" class="form-control col-lg-12" id="dataPesquisa" name="dataPesquisa">
                         <button class="btn btn-sucess btn-sm" type="submit"><i class="bi bi-search"></i></button>
                       </form>
                     </div>
                   </div>
-                  <div class="tab-pane fade <?= empty($data)? '' : 'active show' ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                  <div class="tab-pane fade <?= empty($msn)? '' : 'active show' ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="header d-flex align-items-center header-scrolled">
                       <form class="search-form d-flex align-items-center" method="POST" action='../inc/processosUpload.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>' enctype="multipart/form-data">
                         <input type="file" name="arquivo[]" placeholder="Insira Documento" id="arquivo" style="width: 400px;" multiple="multiple">
@@ -242,12 +245,12 @@ require_once('menu.php'); //menu lateral da pagina
                     <input type="text" class="form-control" placeholder="luc" style="padding: 0rem 0rem;" value="<?= (file_exists($luc)) ? $status = "luc" . $fileName . ".txt" : $status = ''; ?>">
                   </div>
                 </div>
-                <div class="py-5" style="float: right;">
-                  <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/unico/sistemas/sisrev/front/processos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>"><button type="button" class="btn btn-primary">Voltar</button></a>
-                  <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
-                </div>
+                
               </div>
             </form>
+            <div class="py-5" style="float: left;">
+                  <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/unico/sistemas/sisrev/front/processos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                </div>
             <!-- Vertical Form -->
           </div>
         </div>

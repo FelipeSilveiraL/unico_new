@@ -40,10 +40,6 @@ require_once('menu.php'); //menu lateral da pagina
             </ul>
             <div class="tab-content pt-2" id="myTabContent">
               <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-
-
-
                 <div class="row py-2 mb-3">
                   <div class="col-lg-10">
                     <div class="card">
@@ -119,12 +115,53 @@ require_once('menu.php'); //menu lateral da pagina
                     </div><!-- FIM card -->
                   </div><!-- FIM col-lg-12 -->
                 </div>
-
-
-
               </div>
               <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                Nesciunt totam et. Consequuntur magnam aliquid eos nulla dolor iure eos quia. Accusantium distinctio omnis et atque fugiat. Itaque doloremque aliquid sint quasi quia distinctio similique. Voluptate nihil recusandae mollitia dolores. Ut laboriosam voluptatum dicta.
+                <div class="row py-2 mb-3">
+                  <div class="col-lg-10">
+                    <div class="card">
+                      <div class="card-body">
+
+                        <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+                          <!--DADOS PARA O LANÇAMENTO -->
+                          <h5 class="card-title">Atualizar preço peças</h5>
+
+                          <div class="col-sm-8">
+                            <div class="input-group mb-3">
+                              <span class="input-group-text" id="basic-addon1">Data histórico a retornar</span>
+                              <input type="date" class="form-control" aria-label="dateHistorico" aria-describedby="basic-addon1">
+                            </div>
+                          </div>
+
+                          <h5 class="card-title">Como devemos continuar!</h5>
+
+                          <fieldset class="row mb-3">
+                            <div class="col-sm-10">
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option1" checked>
+                                <label class="form-check-label" for="gridRadios3">
+                                  Atualizar e Gerar Relatório
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option2">
+                                <label class="form-check-label" for="gridRadios4">
+                                  Apenas Gerar Relatório
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+                          <!-- BOTÃO DO FORMULARIOS -->
+                          <div class="text-left  mb-3">
+                            <hr>
+                            <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
+                            <button type="submit" class="btn btn-success">Continuar</button>
+                          </div>
+                        </form><!-- FIM Form -->
+                      </div><!-- FIM card-body -->
+                    </div><!-- FIM card -->
+                  </div><!-- FIM col-lg-12 -->
+                </div>
               </div>
             </div><!-- End Default Tabs -->
 
