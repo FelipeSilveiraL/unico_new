@@ -1,9 +1,10 @@
 <?php
 require_once('../../../config/databases.php');
 
-$droptable = "DROP TABLE IF EXISTS sisrev_empresas_bpmgp;";
+$droptable = "DROP TABLE IF EXISTS sisrev_empresas_bpmgp";
 
 $sucess = $conn->query($droptable);
+
 
 // Empresas tablea mysql
 
@@ -23,10 +24,9 @@ $createTableEmp = "CREATE TABLE `sisrev_empresas_bpmgp` (
     `NUMERO_CAIXA` VARCHAR(5) NULL,
     `APROVADOR_CAIXA` VARCHAR(100) NULL,
     `UF_GESTAO` VARCHAR(2) NULL,
-    PRIMARY KEY (`id`));";
+    PRIMARY KEY (`id`))";
 
 $execCreate = $conn->query($createTableEmp);
-
 
 $url = "http://10.100.1.215/smartshare/inc/smartApi.php";
 $ch = curl_init($url);
