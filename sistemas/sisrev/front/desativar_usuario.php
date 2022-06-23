@@ -37,7 +37,7 @@ require_once('../config/query.php'); //Dados do banco MYSQL
             <!-- General Form Elements -->
             <div class="header d-flex align-items-center header-scrolled">
               <div class="search-bar">
-                <form class="search-form d-flex align-items-center" method="POST" action="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>&saida=1">
+                <form class="search-form d-flex align-items-center" method="POST" action="desativar_usuario.php?pg=<?= $_GET['pg'] ?>&saida=1">
                   <input type="text" name="cpf" placeholder="Insira cpf" title="Enter search keyword" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
                   <button type="submit" title="Search"><i class="bi bi-search"></i></button>
                 </form>
@@ -67,12 +67,15 @@ require_once('../config/query.php'); //Dados do banco MYSQL
               <tbody>
                 <?php
                 if ($_GET['saida'] != NULL) {
+
                   require_once('../inc/tabelaDesativar.php');
+
                   if (!empty($dados)) {
                     echo $dados;
                   } else {
                     echo "<td colspan='6'>NENHUM DADO LOCALIZADO</td>";
                   }
+                  
                 }
                 ?>
               </tbody>
