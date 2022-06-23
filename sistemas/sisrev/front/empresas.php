@@ -15,8 +15,8 @@ require_once('../inc/apiRecebeTabela.php');
     <h1>Empresas</h1>
     <nav>
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-        <li class="breadcrumb-item"><a href="informatica.php">Informática</a></li>
+        <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
+        <li class="breadcrumb-item"><a href="informatica.php?pg=<?= $_GET['pg'] ?>">Informática</a></li>
         <li class="breadcrumb-item">Empresas</li>
       </ol>
     </nav>
@@ -33,7 +33,7 @@ require_once('../inc/apiRecebeTabela.php');
       <div class="col-lg-12">
         <div class="card">
           <div class="card-header">
-            <a href="novaRegraEmp.php?pg=<?= $_GET['pg'] ?>" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-file-plus"></i></a>
+            <a href="novaRegraEmp.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>" type="button" class="btn btn-success" style="float: right; margin-left: 8px;" title="Nova regra empresa"><i class="bx bxs-file-plus"></i></a>
 
             <a href="../bd/relatorioExcel.php" type="button" class="btn btn-success" style="float: right;" title="Exportar excel"><i class="ri-file-excel-2-fill"></i></A>
           </div>
@@ -63,6 +63,9 @@ require_once('../inc/apiRecebeTabela.php');
       </div>
     </div>
   </section>
+
+  <!--################# section TERMINA AQUI #################-->
+
 </main><!-- End #main -->
 
 <?php

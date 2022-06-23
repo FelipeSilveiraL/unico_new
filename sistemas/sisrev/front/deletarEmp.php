@@ -49,7 +49,7 @@ require_once('../inc/deletaremp.php');
       </table>
       <!-- End Table with stripped rows -->
       <div class="text-center py-2">
-        <a href="../front/empresas.php?pg=<?= $_GET['pg'] ?>" class="btn btn-primary">Voltar</a>
+        <a href="http://10.100.1.214/unico/sistemas/sisrev/front/empresas.php?pg=<?= $_GET['pg'] ?>" class="btn btn-primary">Voltar</a>
         <input type="hidden" name="deletar" value="1">
         <button type="submit" data-bs-toggle="modal" data-bs-target="#verticalycentered" class="btn btn-danger">Deletar</button>
       </div>
@@ -76,7 +76,7 @@ require_once('../inc/deletaremp.php');
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <a href="http://10.100.1.216/smartshare/bd/deletarEmp.php?id=<?= $ID_EMPRESA ?>" class="btn btn-danger">Deletar</a>
+        <a href="http://10.100.1.215/smartshare/bd/deletarEmp.php?id=<?= $ID_EMPRESA ?>" class="btn btn-danger">Deletar</a>
       </div>
     </div>
   </div>

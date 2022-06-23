@@ -28,7 +28,14 @@ require_once('menu.php'); //menu lateral da pagina
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Edição de usuários para o Sisrev</h5>
+            <h5 class="card-title">Lista usuários</h5>
+            Nesta tela só é possivel tratar permissões dos usuários para o Sistema Sisrev.
+            <h6>
+            Caso seja necessario mudar outras informações como por exemplo; usuário, senha, etc... Basta clicar neste icone
+              <a href="../../../front/usuarios.php?=$_GET['pg']?>&tela=<?=$_GET['tela']?>" class="btn btn-success button-rigth-espelho" title="Editar usuários">
+                <i class="bx bxs-user-detail"></i>
+              </a>
+          </h6>  
             <!-- Table with stripped rows -->
             <table class="table datatable">
               <thead>
@@ -52,10 +59,7 @@ require_once('menu.php'); //menu lateral da pagina
                       <th scope="row">' . $usuarios['id_usuario'] . '</th>
                       <td>' . $usuarios['nome'] . '</td>
                       <td>' . $usuarios['usuario'] . '</td>
-                      <td> 
-                        <a href="usuarioSisrev.php?pg='.$_GET['pg'].'tela='.$_GET['tela'].'" title="Editar Usuário" class="btn btn-primary btn-sm">
-                          <i class="bi bi-pencil"></i>
-                        </a>
+                      <td>
                         <button type="button" title="Permissões" class="btn btn-warning btn-sm" data-bs-toggle="modal" data-bs-target="#editarModal'.$usuarios['id_usuario'].'">
                           <i class="bx bxs-lock-open"></i>
                         </button>
