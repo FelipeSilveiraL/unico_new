@@ -134,12 +134,6 @@ require_once('menu.php'); //menu lateral da pagina
                                               </div>                                              
                                             </div>
 
-
-
-
-
-
-
                                             <ul class="list-group">
                                               <li class="list-group-item">
                                                 <input class="form-check-input me-1" type="checkbox" name="funcao[]" value="'.$rowFuncoes['id_funcao'].'" '.$checked.'>

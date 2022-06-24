@@ -7,7 +7,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet; //classe responsável pela manipulaç�
 
 $extXLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
-if ($_POST['empresa'] == 1 || $_POST['empresa'] == 2) {
+if ($_POST['empresa'] == 55 || $_POST['empresa'] == 56) {//triumph = 55; ducati = 56
     //diretórios
     $triumph = "/var/www/html/unico/sistemas/sisrev/documentos/AP/triumph/";
     $ducati = "/var/www/html/unico/sistemas/sisrev/documentos/AP/ducati/";
@@ -62,6 +62,11 @@ if ($_POST['empresa'] == 1 || $_POST['empresa'] == 2) {
         } else {
             header('location: ../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&msn=10&erro=2'); //não foi possivel salvar o arquivo
         }
+
+        //finalizado
+        header('location: ../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&acao=1'); //não foi possivel salvar o arquivo
+        $_SESSION['finalizadoAP'] = 1;
+
     } else {
         header('location: ../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&msn=10&erro=3'); //extensão do arquivo é invalida
     }

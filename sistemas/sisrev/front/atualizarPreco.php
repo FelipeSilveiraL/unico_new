@@ -2,6 +2,36 @@
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
+
+if ($_GET['acao'] == 1) {
+
+
+  //count
+  $queryCount = "SELECT COUNT(id) AS quantidade FROM sisrev_atualizacao_preco";
+  $resultCount = $conn->query($queryCount);
+  $count = $resultCount->fetch_assoc();
+
+  $displayAtualizaOne = 'none';
+  $displayAtualizaTwo = 'block';
+
+  /* if ($_SESSION['finalizadoAP'] == 1) {
+
+    $displayAtualizaOne = 'none';
+    $displayAtualizaTwo = 'block';
+    unset($_SESSION['finalizadoAP']);
+
+
+  } else {
+
+    $displayAtualizaOne = 'block';
+    $displayAtualizaTwo = 'none';
+
+  } */
+} else {
+
+  $displayAtualizaOne = 'block';
+  $displayAtualizaTwo = 'none';
+}
 ?>
 
 <main id="main" class="main">
@@ -21,7 +51,7 @@ require_once('menu.php'); //menu lateral da pagina
   require_once('../../../inc/mensagens.php'); //Alertas
   ?>
 
-  <section class="section">
+  <section class="section" style="display: <?= $displayAtualizaOne ?>;">
     <div class="row">
       <div class="col-lg-12">
 
@@ -52,8 +82,8 @@ require_once('menu.php'); //menu lateral da pagina
                           <div class="form-floating mb-3 col-md-5">
                             <select class="form-select" id="floatingSelect" name="empresa" required>
                               <option value="">-------------</option>
-                              <option value="1">Ducati</option>
-                              <option value="2">Triumph</option>
+                              <option value="56">Ducati</option>
+                              <option value="55">Triumph</option>
                             </select>
                             <label for="floatingSelect" class="capitalize">Selecione empresa</label>
                           </div>
@@ -82,36 +112,11 @@ require_once('menu.php'); //menu lateral da pagina
                             </div>
                           </div>
 
-                          <h5 class="card-title">Como devemos continuar!</h5>
-
-                          <fieldset class="row mb-3">
-                            <div class="col-sm-10">
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios1" value="1" checked>
-                                <label class="form-check-label" for="gridRadios1" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá atualizar os preços porém não irá gerar o relátorio">
-                                  Atualizar
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios2" value="2">
-                                <label class="form-check-label" for="gridRadios2" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá gerar o relatório porém não irá atualizar os preços!">
-                                  Gerar Relatório
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios3" value="3">
-                                <label class="form-check-label" for="gridRadios3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá gerar o relatório e támbem atualizar os preços!">
-                                  Atualizar e Gerar Relatório
-                                </label>
-                              </div>
-                            </div>
-                          </fieldset>
-
                           <!-- BOTÃO DO FORMULARIOS -->
                           <div class="text-left  mb-3">
                             <hr>
                             <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
-                            <button type="submit" class="btn btn-success">Continuar</button>
+                            <button type="submit" class="btn btn-success">Ler lista de peças</button>
                           </div>
                         </form><!-- FIM Form -->
                       </div><!-- FIM card-body -->
@@ -169,6 +174,59 @@ require_once('menu.php'); //menu lateral da pagina
                 </div>
               </div>
             </div><!-- End Default Tabs -->
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="display: <?= $displayAtualizaTwo ?>;">
+    <div class="row">
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Peças encontradas</h5>
+            <p>No arquivo foram encontradas <code><?= $count['quantidade']?></code> peças.</p>
+            <p>Agora se você deseja continuar para a atualização basta clicar em <code>"PROSSEGUIR"</code>, caso contrario pode imprir esse relatório</p>
+
+            <!-- Table with stripped rows -->
+            <form action="" method="post" class="row g-3">
+              <table class="table datatable">
+                <thead>
+                  <tr>
+                    <th scope="col" class="capitalize">codigo item</th>
+                    <th scope="col" class="capitalize">descrição</th>
+                    <th scope="col" class="capitalize">valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM sisrev_atualizacao_preco";
+                  $resultListaPreco = $conn->query($queryListaPreco);
+                  
+                  while($listaPreco = $resultListaPreco->fetch_assoc()){
+                      echo '<tr>
+                              <td>'.$listaPreco['item'].'</td>
+                              <td>'.$listaPreco['descricao'].'</td>
+                              <td>R$ '.$listaPreco['valor'].'</td>
+                          </tr>';
+                  }
+                  ?>
+                </tbody>
+              </table>
+
+
+              <!-- BOTÃO DO FORMULARIOS -->
+              <div class="text-left  mb-3">
+                <hr>
+                <button type="reset" class="btn btn-info">Imprimir relatório</button>
+                <button type="submit" class="btn btn-success">Prosseguir</button>
+              </div>
+            </form>
+            <!-- End Table with stripped rows -->
 
           </div>
         </div>
