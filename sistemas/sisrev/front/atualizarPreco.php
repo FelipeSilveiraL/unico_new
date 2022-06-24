@@ -32,23 +32,25 @@ require_once('menu.php'); //menu lateral da pagina
             <!-- Default Tabs -->
             <ul class="nav nav-tabs" id="myTab" role="tablist">
               <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="triumphDucati" aria-selected="true">Triumph / Ducati</button>
+                <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#trduc" type="button" role="tab" aria-controls="triumphDucati" aria-selected="true">Triumph / Ducati</button>
               </li>
               <li class="nav-item" role="presentation">
-                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="honda" aria-selected="false">Honda</button>
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#honda" type="button" role="tab" aria-controls="honda" aria-selected="false">Honda</button>
               </li>
             </ul>
             <div class="tab-content pt-2" id="myTabContent">
-              <div class="tab-pane fade active show" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+              <!--triumph / ducati-->
+              <div class="tab-pane fade active show" id="trduc" role="tabpanel" aria-labelledby="home-tab">
                 <div class="row py-2 mb-3">
                   <div class="col-lg-10">
                     <div class="card">
                       <div class="card-body">
-                        <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+                        <form class="row g-3" action="../inc/atualizarPreco.php?pg=<?= $_GET['pg'] ?>" method="post" enctype="multipart/form-data">
                           <!--DADOS PARA O LANÇAMENTO -->
                           <h5 class="card-title">Atualizar preço peças</h5>
                           <div class="form-floating mb-3 col-md-5">
-                            <select class="form-select" id="floatingSelect" name="usuarioBPM">
+                            <select class="form-select" id="floatingSelect" name="empresa" required>
                               <option value="">-------------</option>
                               <option value="1">Ducati</option>
                               <option value="2">Triumph</option>
@@ -57,7 +59,7 @@ require_once('menu.php'); //menu lateral da pagina
                           </div>
 
                           <div class="form-floating mb-3 col-md-5">
-                            <select class="form-select" id="floatingSelect" name="usuarioBPM">
+                            <select class="form-select" id="floatingSelect" name="forcarPreco" required>
                               <option value="">-------------</option>
                               <option value="1">SIM</option>
                               <option value="2">NÂO</option>
@@ -75,13 +77,8 @@ require_once('menu.php'); //menu lateral da pagina
 
                           <div class="row mb-3">
                             <div class="col-sm-10">
-                              <input class="form-control" type="file" id="formFile" name="filenota">
-                              <div id="ques" style="margin-left: 554px;margin-top: -33px;margin-bottom: 11px;">
-                                <a href="javascrpt:" data-bs-toggle="modal" data-bs-target="#questArquivo">
-                                  <i class="bi bi-question-circle"></i>
-                                </a>
-                              </div>
-                              <code>Tipo de arquivo permitido[.csv]</code>
+                              <input class="form-control" type="file" id="formFile" name="arquivo" required>
+                              <code>Tipo de arquivo permitido[.xlsx]</code>
                             </div>
                           </div>
 
@@ -90,15 +87,21 @@ require_once('menu.php'); //menu lateral da pagina
                           <fieldset class="row mb-3">
                             <div class="col-sm-10">
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios1">
-                                  Atualizar e Gerar Relatório
+                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios1" value="1" checked>
+                                <label class="form-check-label" for="gridRadios1" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá atualizar os preços porém não irá gerar o relátorio">
+                                  Atualizar
                                 </label>
                               </div>
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                                <label class="form-check-label" for="gridRadios2">
-                                  Apenas Gerar Relatório
+                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios2" value="2">
+                                <label class="form-check-label" for="gridRadios2" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá gerar o relatório porém não irá atualizar os preços!">
+                                  Gerar Relatório
+                                </label>
+                              </div>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="operacao" id="gridRadios3" value="3">
+                                <label class="form-check-label" for="gridRadios3" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Irá gerar o relatório e támbem atualizar os preços!">
+                                  Atualizar e Gerar Relatório
                                 </label>
                               </div>
                             </div>
@@ -116,7 +119,9 @@ require_once('menu.php'); //menu lateral da pagina
                   </div><!-- FIM col-lg-12 -->
                 </div>
               </div>
-              <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+              <!--HONDA-->
+              <div class="tab-pane fade" id="honda" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="row py-2 mb-3">
                   <div class="col-lg-10">
                     <div class="card">
@@ -191,30 +196,6 @@ require_once('menu.php'); //menu lateral da pagina
     </div>
   </div>
 </div><!-- End Large Modal-->
-
-<div class="modal fade" id="questArquivo" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Informações sobre o arquivo!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p><i class="bi bi-pin-angle"></i> O formato do arquivo deverá ser <code>" CVS "</code> com separador por <code>" ; "</code>.</p>
-        <p><i class="bi bi-pin-angle"></i> Layout:</p>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Codigo item</li>
-          <li class="list-group-item">Descrição</li>
-          <li class="list-group-item">preço item</li>
-        </ul><!-- End Clean list group -->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-info" data-bs-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div><!-- End Large Modal-->
-
 <?php
 require_once('footer.php'); //Javascript e configurações afins
 ?>
