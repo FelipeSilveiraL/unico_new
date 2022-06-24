@@ -7,26 +7,13 @@ if ($_GET['acao'] == 1) {
 
 
   //count
-  $queryCount = "SELECT COUNT(id) AS quantidade FROM sisrev_atualizacao_preco";
+  $queryCount = "SELECT COUNT(id) AS quantidade FROM sisrev_atualizacao_preco_triumph";
   $resultCount = $conn->query($queryCount);
   $count = $resultCount->fetch_assoc();
 
   $displayAtualizaOne = 'none';
   $displayAtualizaTwo = 'block';
 
-  /* if ($_SESSION['finalizadoAP'] == 1) {
-
-    $displayAtualizaOne = 'none';
-    $displayAtualizaTwo = 'block';
-    unset($_SESSION['finalizadoAP']);
-
-
-  } else {
-
-    $displayAtualizaOne = 'block';
-    $displayAtualizaTwo = 'none';
-
-  } */
 } else {
 
   $displayAtualizaOne = 'block';
@@ -188,7 +175,7 @@ if ($_GET['acao'] == 1) {
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Peças encontradas</h5>
+            <h5 class="card-title">Peças encontradas - TRIUMPH</h5>
             <p>No arquivo foram encontradas <code><?= $count['quantidade']?></code> peças.</p>
             <p>Agora se você deseja continuar para a atualização basta clicar em <code>"PROSSEGUIR"</code>, caso contrario pode imprir esse relatório</p>
 
@@ -204,7 +191,7 @@ if ($_GET['acao'] == 1) {
                 </thead>
                 <tbody>
                   <?php
-                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM sisrev_atualizacao_preco";
+                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM sisrev_atualizacao_preco_triumph";
                   $resultListaPreco = $conn->query($queryListaPreco);
                   
                   while($listaPreco = $resultListaPreco->fetch_assoc()){
@@ -222,7 +209,7 @@ if ($_GET['acao'] == 1) {
               <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-left  mb-3">
                 <hr>
-                <button type="reset" class="btn btn-info">Imprimir relatório</button>
+                <a href="../inc/pdfTabelaPrecos.php?pg=<?=$_GET['pg']?>&pdf=1" class="btn btn-info">Imprimir relatório</a>
                 <button type="submit" class="btn btn-success">Prosseguir</button>
               </div>
             </form>
