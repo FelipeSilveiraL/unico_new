@@ -6,6 +6,12 @@ require_once('menu.php'); //menu lateral da pagina
 
 <main id="main" class="main">
 
+<style>
+.div-table{ display:table; width: auto; border: 1px solid #e0e1e1; border-radius: 5px;}
+.div-table-row{display:table-row;width: auto;/*se quiser pode colocar auto neste também*/}
+.div-table-col{display:table-cell;padding: 8px; font-size: 13px;}
+</style>
+
   <div class="pagetitle">
     <h1>Usuários</h1>
     <nav>
@@ -117,6 +123,23 @@ require_once('menu.php'); //menu lateral da pagina
                                             $rowFuncaoUsuario = $resultUserFuncao->fetch_assoc();                                             
                                             $checked = $rowFuncaoUsuario['id_funcao'] != NULL ? 'checked' : '';
                                             echo'
+
+
+
+                                            <div class="div-table">
+                                              <div class="div-table-row">
+                                                  <input class="form-check-input me-1" type="checkbox" name="funcao[]" value="'.$rowFuncoes['id_funcao'].'" '.$checked.' style="margin-top: 39px;margin-left: 9px;">
+                                                  <div class="div-table-col font-1"><b>Nome</b><hr>'.$rowFuncoes['nome'].'</div>
+                                                  <div class="div-table-col font-1"><b>Descrição</b><hr>'.$rowFuncoes['descricao'].'</div>
+                                              </div>                                              
+                                            </div>
+
+
+
+
+
+
+
                                             <ul class="list-group">
                                               <li class="list-group-item">
                                                 <input class="form-check-input me-1" type="checkbox" name="funcao[]" value="'.$rowFuncoes['id_funcao'].'" '.$checked.'>
