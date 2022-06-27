@@ -12,7 +12,7 @@ require_once('menu.php'); //menu lateral da pagina
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
         <li class="breadcrumb-item"><a href="administracao.php?pg=<?= $_GET['pg'] ?>">Administração</a></li>
-        <li class="breadcrumb-item"><a href="processos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $GET['tela'] ?>">Processos fabrica VW</a></li>
+        <li class="breadcrumb-item"><a href="processos.php?pg=<?= $_GET['pg'] ?>">Processos fabrica VW</a></li>
         <li class="breadcrumb-item">Carga arquivos da fábrica</li>
       </ol>
     </nav>
@@ -99,11 +99,11 @@ require_once('menu.php'); //menu lateral da pagina
                   </div>
                   <div class="tab-pane fade <?= empty($msn)? '' : 'active show' ?>" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="header d-flex align-items-center header-scrolled">
-                      <form class="search-form d-flex align-items-center" method="POST" action='../inc/processosUpload.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>' enctype="multipart/form-data">
+                      <form class="search-form d-flex align-items-center" method="POST" action='../inc/processosUpload.php?pg=<?= $_GET['pg'] ?>' enctype="multipart/form-data">
                         <input type="file" name="arquivo[]" placeholder="Insira Documento" id="arquivo" style="width: 400px;" multiple="multiple">
                         <button type="submit" title="Enviar" class="btn btn-success" onclick="teste()"><i class="bi bi-send"></i></button>
                       </form>
-                      <code style="float:right;margin-right:30px;">Carregar arquivo obrigatório: .txt</code>
+                      <code style="float:right;margin-right:30px;">Tipo de arquivo permitido[.txt]</code>
                     </div>
                   </div>
                 </div><!-- End Default Tabs -->
@@ -249,7 +249,7 @@ require_once('menu.php'); //menu lateral da pagina
               </div>
             </form>
             <div class="py-5" style="float: left;">
-                  <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/unico/sistemas/sisrev/front/processos.php?pg=<?= $_GET['pg'] ?>&tela=<?= $_GET['tela'] ?>"><button type="button" class="btn btn-primary">Voltar</button></a>
+                  <a href="http://<?= $_SERVER['SERVER_ADDR'] ?>/unico/sistemas/sisrev/front/processos.php?pg=<?= $_GET['pg'] ?>"><button type="button" class="btn btn-primary">Voltar</button></a>
                 </div>
             <!-- Vertical Form -->
           </div>

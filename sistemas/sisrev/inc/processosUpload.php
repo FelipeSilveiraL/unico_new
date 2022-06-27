@@ -82,17 +82,25 @@ for($i = 0;$i < $total;){
           $resultado = $conn->query($inserirDb);
             
         if($resultado){
-          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&dataArquivo=".$data."&msn=11");
+          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&dataArquivo=".$data."&msn=11");
         }else{
-          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=10&erro=1");
+          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=10&erro=1");
         }
       }else{
-        header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=10&erro=2");
+        header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=10&erro=2");
       }
      }else{ 
+
+      //cria a pasta se nao existir
       $criaPasta = mkdir($uploaddir,0777);
+
+      //se mudar a permissao do arquivo
      if(chmod($uploaddir,0777)){
-      $uploadfile = $uploaddir . basename($nome);
+
+      //mostra onde será salvo o arquivo
+      $uploadfile = $uploaddir . basename($_FILES['arquivo']['name'][$i]);
+
+      //se o arquivo foi movido pra pasta criada
       if (move_uploaded_file($tempFile, $uploadfile)) {
         $diretorioArquivo = array(file('../documentos/CAR/'.$dataBr.'/'.$_FILES['arquivo']['name'][$i].''));
 
@@ -145,19 +153,23 @@ for($i = 0;$i < $total;){
         }
         $inserirDb = "INSERT INTO sisrev_arquivo_car (nome_arquivo,caminho,data) VALUES ('".$nome."','".$uploadfile."','".$data."');";
         $resultado = $conn->query($inserirDb);
+     //confere se foi inserido no banco de dados   
         if($resultado){
-          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=11");
+          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&dataArquivo=".$data."&msn=11");
+          
         }else{
-          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=10&erro=1");
+          header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=10&erro=1");
         }
       }else{
-        header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=10&erro=2");
+        header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=10&erro=2");
       }
-    }else{header("Refresh: 0 ; url=processosUpload.php");}
+    }else{
+      header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=13");
     }
+   }
 
   }else{
-    header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . '&tela=' . $_GET['tela'] . "&msn=10&erro=3");
+    header("location: ../front/processosFabrica.php?pg=" . $_GET['pg'] . "&msn=10&erro=3");
   }
    $i++;
-  }
+}
