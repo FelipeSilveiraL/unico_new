@@ -15,11 +15,7 @@ switch ($_POST['empresa']) {
 
         if ($_FILES['arquivo']["type"] === $extXLSX) {
             //SUBINDO O ARQUIVO NO SERVIDOR
-            $nome = date('dmYhi') . $_FILES['arquivo']['name'];
-
-            $uploaddir = $_POST['empresa'] == 2 ? $triumph : $ducati;
-            $uploadfile = $uploaddir . basename($nome);
-
+            $uploadfile  = $triumph . date('dmYhi') . $_FILES['arquivo']['name'];
 
             if (move_uploaded_file($_FILES['arquivo']['tmp_name'], $uploadfile)) {
                 //log da carga
@@ -27,7 +23,7 @@ switch ($_POST['empresa']) {
                 $result = $conn->query($insertLog);
 
                 //limpar banco para receber as informações
-                $truncate = "TRUNCATE `sisrev_atualizacao_preco_triumph`";
+                $truncate = "TRUNCATE sisrev_atualizacao_preco_triumph";
                 $resultTruncate = $conn->query($truncate);
 
                 //carrega os arquivos vindo da planilha
@@ -42,8 +38,8 @@ switch ($_POST['empresa']) {
                     $cellInterator->setIterateOnlyExistingCells(false);
 
 
-                    $query = "INSERT INTO `sisrev_atualizacao_preco_triumph`
-                        (`item`,`descricao`,`grupo`,`fiscal`,`rrp`,`total_invoice`,`uf`)
+                    $query = "INSERT INTO sisrev_atualizacao_preco_triumph
+                        (item,descricao,grupo,fiscal,rrp,total_invoice,uf)
                         VALUES (";
 
                     //Linha
