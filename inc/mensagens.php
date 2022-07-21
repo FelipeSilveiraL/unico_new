@@ -84,6 +84,9 @@ if (!empty($_GET['msn'])) {
                 case '4':
                     echo '<p class="mb-0"><i class="bi bi-pin"></i> Não foi possivel carregar o arquivo por completo - Contate o TI!</p>';
                     break;
+                case '5':
+                    echo '<p class="mb-0"><i class="bi bi-pin"></i> Campo(s) vazio(s)!</p>';
+                    break;
             }
             echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>';
@@ -115,6 +118,13 @@ if (!empty($_GET['msn'])) {
                 echo '
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <span style="font-size: 12px">Deletado com sucesso!</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>';
+            break;
+            case '15':
+                echo '
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <span style="font-size: 12px">Por favor carregue um arquivo antes de realizar a carga!</span>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>';
             break;

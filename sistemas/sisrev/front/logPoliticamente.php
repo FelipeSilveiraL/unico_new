@@ -11,8 +11,8 @@ require_once('menu.php'); //menu lateral da pagina
     <nav>
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?pg=<?= $_GET['pg'] ?>">Home</a></li>
-        <li class="breadcrumb-item">Informática</li>
-        <li class="breadcrumb-item">Politicamente Exposto</li>
+        <li class="breadcrumb-item"><a href="informatica.php?pg=<?= $_GET['pg'] ?>">Informática</a></li>
+        <li class="breadcrumb-item"><a href="politicamente_exposto.php?pg=<?= $_GET['pg'] ?>">Politicamente Exposto</a></li>
         <li class="breadcrumb-item">Registros</li>
       </ol>
     </nav>
@@ -42,13 +42,28 @@ require_once('menu.php'); //menu lateral da pagina
               </thead>
               <tbody>
                 <?php
-                  echo'
-                  <tr>
-                      <th>1</th>
-                      <td>Viado</td>
-                      <td>Casa do cacete</td>
-                      <td>Ontem</td>
-                    </tr>';
+                  //chamando todas os logs de execução da tabela
+                  $selectSisrevArquivo = "SELECT 
+                                          SE.id,
+                                          SE.caminho,
+                                          SE.nome_arquivo,
+                                          SE.data,
+                                          SE.id_usuario,
+                                          U.nome
+                                      FROM
+                                          sisrev_arquivo_PE SE
+                                              LEFT JOIN
+                                          usuarios U ON SE.id_usuario = U.id_usuario";
+                  $resultSisrevArquivo = $conn->query($selectSisrevArquivo);
+                  while ($rowArquivo = $resultSisrevArquivo->fetch_assoc()) {
+                    echo'
+                    <tr>
+                      <th>'.$rowArquivo['id'].'</th>
+                      <td>'.$rowArquivo['nome'].'</td>
+                      <td><a href="../'. substr($rowArquivo['caminho'], 36).'" target="_blank" rel="file CSV">'.$rowArquivo['nome_arquivo'].'</a></td>
+                      <td>'.date('d/m/Y H:i:s', strtotime($rowArquivo['data'])).'</td>
+                    </tr>';                    
+                  }                  
                 ?>
               </tbody>
             </table>

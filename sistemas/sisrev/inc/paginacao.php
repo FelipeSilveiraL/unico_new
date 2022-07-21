@@ -25,6 +25,8 @@ if($tela == "pesquisa.php"){if($_GET['pg'] != '1'){echo '<script>window.location
 if($tela == "empresas.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "empresas.php?pg=2";</script>';}}
 //editEmp.php
 if($tela == "editEmp.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "editEmp.php?pg=2";</script>';}}
+//editEmp.php
+if($tela == "empRev.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "empRev.php?pg=2";</script>';}}
 //desativar_usuario.php
 if($tela == "desativar_usuario.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "desativar_usuario.php?pg=2";</script>';}}
 //politicamente_exposto.php
@@ -41,3 +43,5 @@ if($tela == "cadastro_funcao.php"){if($_GET['pg'] != '4'){echo'<script>window.lo
 if($tela == "usuarios.php"){if($_GET['pg'] != '4'){echo '<script>window.location.href = "usuarios.php?pg=4";</script>';}}
 //atualizarPreco
 if($tela == "atualizarPreco.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "atualizarPreco.php?pg=2";</script>';}}
+//atualizarPreco
+if($tela == "etiquetaLaser.php"){if($_GET['pg'] != '2'){echo '<script>window.location.href = "etiquetaLaser.php?pg=2";</script>';}}

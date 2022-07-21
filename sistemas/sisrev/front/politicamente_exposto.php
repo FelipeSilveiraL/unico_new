@@ -45,11 +45,9 @@ require_once('../inc/regras_pe.php');
       <div class="col-lg-6" style="display: <?= $displayOne ?>">
         <div class="card">
           <div class="card-body">
-            <button type="button" title="Logs Anteriores" class="btn btn-success btn-sm" style="margin-top: 5px;margin-left: 401px;">
-              <a href="logPoliticamente.php">
-                <i class="bx bxs-report"></i>
-              </a>              
-            </button>
+            <a href="logPoliticamente.php?pg=<?=$_GET['pg']?>" title="Logs Anteriores" class="btn btn-info btn-sm" style="margin-top: 5px;margin-left: 401px;">
+              <i class="bx bxs-report"></i>              
+            </a>
             <h5 class="card-title" style="margin-top: -30px;">Log de execução - Ultima vez</h5>
             
             
