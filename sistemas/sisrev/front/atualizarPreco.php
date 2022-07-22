@@ -48,9 +48,15 @@ switch ($_GET['empresa']) {
 
   <section class="section" style="display: <?= $displayAtualizaOne ?>;">
     <div class="row">
-      <div class="col-lg-12">
+      <div class="col-lg-12 col-xxl-4 col-md-6">
+        <div class="card info-card revenue-card">
 
-        <div class="card">
+          <div class="filter" style="margin-top: 10px;margin-left: 96%;">
+            <a class="icon" href="logAtualizacaoPecas.php" title="Logs anteriores">
+              <i class="bi bi-file-earmark-bar-graph"></i>
+            </a>
+          </div>
+
           <div class="card-body">
             <h5 class="card-title">Escolha Empresa</h5>
 
@@ -197,7 +203,7 @@ switch ($_GET['empresa']) {
     </div>
   </section>
 
-  <section class="section" style="display: <?= $displayAtualizaTwo ?>;">
+  <section class="section" style="display: <?= $displayAtualizaTwo ?>;">;;
     <div class="row">
       <div class="col-lg-12">
 
