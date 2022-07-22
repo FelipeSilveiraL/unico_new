@@ -70,7 +70,7 @@ switch ($_GET['empresa']) {
                   <div class="col-lg-10">
                     <div class="card">
                       <div class="card-body">
-                        <form class="row g-3" action="../inc/atualizarPreco.php?pg=<?= $_GET['pg'] ?>" method="post" enctype="multipart/form-data">
+                        <form class="row g-3" id="formularioAtualizarPreco" action="../inc/atualizarPreco.php?pg=<?= $_GET['pg'] ?>" method="post" enctype="multipart/form-data">
                           <!--DADOS PARA O LANÇAMENTO -->
                           <h5 class="card-title">Atualizar preço peças</h5>
 
@@ -113,7 +113,7 @@ switch ($_GET['empresa']) {
                           <div class="row mb-6">
                             <div class="col-sm-10">
                               <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck1" name="relatorio" value="1">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1" name="relatorio" value="1" onclick="rel()">
                                 <label class="form-check-label" for="gridCheck1">
                                   Gerar apenas relatório.
                                   <div id="ques" style="margin-left: 180px;margin-top: -23px;">
@@ -130,7 +130,7 @@ switch ($_GET['empresa']) {
                           <div class="text-left  mb-3">
                             <hr>
                             <button type="reset" class="btn btn-secondary">Limpar Formulario</button>
-                            <button type="submit" class="btn btn-success">Ler lista de peças</button>
+                            <input type="button" class="btn btn-success" id="submitInput" value="Atualizar peças" onclick="sub()">
                           </div>
                         </form><!-- FIM Form -->
                       </div><!-- FIM card-body -->
@@ -286,8 +286,23 @@ switch ($_GET['empresa']) {
     </div>
   </div>
 </div><!-- End Large Modal-->
+<script>
+  function rel() {
 
+    var check = document.getElementById("gridCheck1").checked;
 
+    if (check == true) {
+      document.getElementById("submitInput").value = "Gerar relatório";
+    } else {
+      document.getElementById("submitInput").value = "Atualizar peças";
+    }
+
+  }
+
+  function sub() {
+    document.getElementById("formularioAtualizarPreco").submit();
+  }
+</script>
 <?php
 require_once('footer.php'); //Javascript e configurações afins
 ?>

@@ -8,6 +8,8 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet; //classe responsável pela manipulaç�
 
 $extXLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
 
+!empty($_POST['empresa']) ?: header("location: ../front/atualizarPreco.php?pg=2");
+
 switch ($_POST['empresa']) {
     case '55':
 
