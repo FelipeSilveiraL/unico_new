@@ -2,6 +2,7 @@
 require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
+require_once('../inc/pdfTabelaPrecos.php');
 
 if ($_GET['acao'] == 1) {
 
@@ -237,7 +238,7 @@ switch ($_GET['empresa']) {
               <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-left  mb-3">
                 <hr>
-                <a href="../inc/pdfTabelaPrecos.php?pg=<?= $_GET['pg'] ?>&pdf=1&empresa=<?= $_GET['empresa'] ?>" class="btn btn-info">Imprimir relatório</a>
+                <a href="../documentos/AP/relatorio.xlsx" class="btn btn-info" download>Imprimir relatório</a>
               </div>
             </form>
             <!-- End Table with stripped rows -->
