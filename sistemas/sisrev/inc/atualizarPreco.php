@@ -138,9 +138,9 @@ switch ($_POST['empresa']) {
 
     case '10':
         if($_POST['relatorio'] == 1){
-            echo '<script>window.location.href = "http://' . $_SESSION['servidorOracle'] . '/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&relatorio=1&acao=1";</script>';
+            echo '<script>window.location.href = "http://' . $_SESSION['servidorOracle'] . '/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&relatorio=1&acao=1&data='.$_POST['dataHistorico'].'";</script>';
         }else{
-            echo '<script>window.location.href = "http://' . $_SESSION['servidorOracle'] . '/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&acao=1";</script>';
+            echo '<script>window.location.href = "http://' . $_SESSION['servidorOracle'] . '/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&acao=1&data='.$_POST['dataHistorico'].'";</script>';
         }
         break;
 } //fim switch

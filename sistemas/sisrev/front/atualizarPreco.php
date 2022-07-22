@@ -160,7 +160,7 @@ switch ($_GET['empresa']) {
                           <div class="col-sm-8">
                             <div class="input-group mb-3">
                               <span class="input-group-text" id="basic-addon1">Data histórico a retornar</span>
-                              <input type="date" class="form-control" aria-label="dateHistorico" aria-describedby="basic-addon1">
+                              <input type="date" class="form-control" name="dataHistorico" aria-describedby="basic-addon1">
                               <input type="text" name="empresa" id="empresaHonda" value="10" style="display: none;">
                             </div>
                           </div>
