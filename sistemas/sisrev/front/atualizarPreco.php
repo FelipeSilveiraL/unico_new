@@ -5,19 +5,26 @@ require_once('menu.php'); //menu lateral da pagina
 
 if ($_GET['acao'] == 1) {
 
-
-  //count
-  $queryCount = "SELECT COUNT(id) AS quantidade FROM sisrev_atualizacao_preco_triumph";
-  $resultCount = $conn->query($queryCount);
-  $count = $resultCount->fetch_assoc();
-
   $displayAtualizaOne = 'none';
   $displayAtualizaTwo = 'block';
-
 } else {
 
   $displayAtualizaOne = 'block';
   $displayAtualizaTwo = 'none';
+}
+
+switch ($_GET['empresa']) {
+  case '55':
+    $tabela = 'sisrev_atualizacao_preco_triumph';
+    $nomeEmpresa = 'Triumph';
+    break;
+  case '56':
+    $tabela = 'sisrev_atualizacao_preco_ducati';
+    $nomeEmpresa = 'Ducati';
+    break;
+  default:
+    $tabela = 'sisrev_atualizacao_preco_triumph';
+    $nomeEmpresa = 'Triumph';
 }
 ?>
 
@@ -66,6 +73,7 @@ if ($_GET['acao'] == 1) {
                         <form class="row g-3" action="../inc/atualizarPreco.php?pg=<?= $_GET['pg'] ?>" method="post" enctype="multipart/form-data">
                           <!--DADOS PARA O LANÇAMENTO -->
                           <h5 class="card-title">Atualizar preço peças</h5>
+
                           <div class="form-floating mb-3 col-md-5">
                             <select class="form-select" id="floatingSelect" name="empresa" required>
                               <option value="">-------------</option>
@@ -96,6 +104,25 @@ if ($_GET['acao'] == 1) {
                             <div class="col-sm-10">
                               <input class="form-control" type="file" id="formFile" name="arquivo" required>
                               <code>Tipo de arquivo permitido[.xlsx]</code>
+                            </div>
+                          </div>
+
+
+                          <h5 class="card-title">Outras informações</h5>
+
+                          <div class="row mb-6">
+                            <div class="col-sm-10">
+                              <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck1" name="relatorio" value="1">
+                                <label class="form-check-label" for="gridCheck1">
+                                  Gerar apenas relatório.
+                                  <div id="ques" style="margin-left: 180px;margin-top: -23px;">
+                                    <a href="javascrpt:" data-bs-toggle="modal" data-bs-target="#questRelatorio">
+                                      <i class="bi bi-question-circle"></i>
+                                    </a>
+                                  </div>
+                                </label>
+                              </div>
                             </div>
                           </div>
 
@@ -143,7 +170,7 @@ if ($_GET['acao'] == 1) {
                               <div class="form-check">
                                 <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option2">
                                 <label class="form-check-label" for="gridRadios4">
-                                  Apenas Gerar Relatório
+                                  Gerar Relatório
                                 </label>
                               </div>
                             </div>
@@ -175,9 +202,7 @@ if ($_GET['acao'] == 1) {
 
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Peças encontradas - TRIUMPH</h5>
-            <p>No arquivo foram encontradas <code><?= $count['quantidade']?></code> peças.</p>
-            <p>Agora se você deseja continuar para a atualização basta clicar em <code>"PROSSEGUIR"</code>, caso contrario pode imprir esse relatório</p>
+            <h5 class="card-title">Lista de peças - <?= $nomeEmpresa ?></h5>
 
             <!-- Table with stripped rows -->
             <form action="" method="post" class="row g-3">
@@ -187,18 +212,21 @@ if ($_GET['acao'] == 1) {
                     <th scope="col" class="capitalize">codigo item</th>
                     <th scope="col" class="capitalize">descrição</th>
                     <th scope="col" class="capitalize">valor</th>
+                    <th scope="col" class="capitalize">status</th>
                   </tr>
                 </thead>
                 <tbody>
                   <?php
-                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM sisrev_atualizacao_preco_triumph";
+
+                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM " . $tabela;
                   $resultListaPreco = $conn->query($queryListaPreco);
-                  
-                  while($listaPreco = $resultListaPreco->fetch_assoc()){
-                      echo '<tr>
-                              <td>'.$listaPreco['item'].'</td>
-                              <td>'.$listaPreco['descricao'].'</td>
-                              <td>R$ '.$listaPreco['valor'].'</td>
+
+                  while ($listaPreco = $resultListaPreco->fetch_assoc()) {
+                    echo '<tr>
+                              <td>' . $listaPreco['item'] . '</td>
+                              <td>' . $listaPreco['descricao'] . '</td>
+                              <td>R$ ' . $listaPreco['valor'] . '</td>
+                              <td>' . $listaPreco['status'] . '</td>
                           </tr>';
                   }
                   ?>
@@ -209,8 +237,7 @@ if ($_GET['acao'] == 1) {
               <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-left  mb-3">
                 <hr>
-                <a href="../inc/pdfTabelaPrecos.php?pg=<?=$_GET['pg']?>&pdf=1" class="btn btn-info">Imprimir relatório</a>
-                <button type="submit" class="btn btn-success">Prosseguir</button>
+                <a href="../inc/pdfTabelaPrecos.php?pg=<?= $_GET['pg'] ?>&pdf=1" class="btn btn-info">Imprimir relatório</a>
               </div>
             </form>
             <!-- End Table with stripped rows -->
@@ -241,6 +268,26 @@ if ($_GET['acao'] == 1) {
     </div>
   </div>
 </div><!-- End Large Modal-->
+
+<div class="modal fade" id="questRelatorio" tabindex="-1">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Emitir apenas relatório - O QUE QUER DIZER ?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p><i class="bi bi-pin-angle"></i> Irá apenas gerar uma lista contendo dados do arquivo, porém </p>
+        <p><code>NÃO IRÁ ATUALIZAR NENHUM DADO NO APOLLO</code></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-info" data-bs-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div><!-- End Large Modal-->
+
+
 <?php
 require_once('footer.php'); //Javascript e configurações afins
 ?>

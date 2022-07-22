@@ -2,6 +2,7 @@
 session_start();
 require '../../../vendor/autoload.php'; //autoload da biblioteca
 require_once('../config/query.php');
+require_once('../../../config/config.php');
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet; //classe responsável pela manipulação da planilha
 
@@ -59,9 +60,13 @@ switch ($_POST['empresa']) {
                 header('location: ../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&msn=10&erro=2'); //não foi possivel salvar o arquivo
             }
 
-            //finalizado ele sera enviado para o apollo e salvar os itens na tabela sisrev_atualizacao_preco
-            echo '<script>window.location.href = "http://10.100.1.215/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&emp=' . $_POST['empresa'] . '&forcar=' . $_POST['forcarPreco'] . '&acao=1";</script>';
-        
+            //finalizado ele sera enviado para o apollo
+            if($_POST['relatorio'] == 1){
+                echo '<script>window.location.href = "../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&acao=1";</script>';
+            }else{
+                echo '<script>window.location.href = "http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&emp=' . $_POST['empresa'] . '&forcar=' . $_POST['forcarPreco'] . '&acao=1";</script>';
+            }
+            
         } else {
             header('location: ../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&msn=10&erro=3'); //extensão do arquivo é invalida
         }
