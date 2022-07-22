@@ -218,7 +218,7 @@ switch ($_GET['empresa']) {
                 <tbody>
                   <?php
 
-                  $queryListaPreco = "SELECT item, descricao, rrp as valor FROM " . $tabela;
+                  $queryListaPreco = "SELECT item, descricao, rrp as valor, status_item FROM " . $tabela;
                   $resultListaPreco = $conn->query($queryListaPreco);
 
                   while ($listaPreco = $resultListaPreco->fetch_assoc()) {
