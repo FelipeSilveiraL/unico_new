@@ -64,7 +64,7 @@ switch ($_POST['empresa']) {
             if($_POST['relatorio'] == 1){
                 echo '<script>window.location.href = "../front/atualizarPreco.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&acao=1";</script>';
             }else{
-                echo '<script>window.location.href = "http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&emp=' . $_POST['empresa'] . '&forcar=' . $_POST['forcarPreco'] . '&acao=1";</script>';
+                echo '<script>window.location.href = "http://'.$_SESSION['servidorOracle'].'/unico_api/sisrev/inc/atualizacaoPecas.php?pg=' . $_GET['pg'] . '&empresa=' . $_POST['empresa'] . '&forcar=' . $_POST['forcarPreco'] . '&acao=1";</script>';
             }
             
         } else {
