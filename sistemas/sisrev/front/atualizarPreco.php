@@ -237,7 +237,7 @@ switch ($_GET['empresa']) {
               <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-left  mb-3">
                 <hr>
-                <a href="../inc/pdfTabelaPrecos.php?pg=<?= $_GET['pg'] ?>&pdf=1" class="btn btn-info">Imprimir relatório</a>
+                <a href="../inc/pdfTabelaPrecos.php?pg=<?= $_GET['pg'] ?>&pdf=1&empresa=<?= $_GET['empresa'] ?>" class="btn btn-info">Imprimir relatório</a>
               </div>
             </form>
             <!-- End Table with stripped rows -->
