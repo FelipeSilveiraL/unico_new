@@ -226,7 +226,7 @@ switch ($_GET['empresa']) {
                               <td>' . $listaPreco['item'] . '</td>
                               <td>' . $listaPreco['descricao'] . '</td>
                               <td>R$ ' . $listaPreco['valor'] . '</td>
-                              <td>' . $listaPreco['status'] . '</td>
+                              <td>' . $listaPreco['status_item'] . '</td>
                           </tr>';
                   }
                   ?>
