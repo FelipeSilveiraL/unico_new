@@ -238,7 +238,7 @@ switch ($_GET['empresa']) {
               <!-- BOTÃO DO FORMULARIOS -->
               <div class="text-left  mb-3">
                 <hr>
-                <a href="../documentos/AP/relatorio.xlsx" class="btn btn-info" download>Imprimir relatório</a>
+                <a href="../documentos/AP/relatorio.xlsx" class="btn btn-info" download>Exportar relatório</a>
               </div>
             </form>
             <!-- End Table with stripped rows -->
