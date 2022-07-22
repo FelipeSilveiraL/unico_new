@@ -153,7 +153,7 @@ switch ($_GET['empresa']) {
                     <div class="card">
                       <div class="card-body">
 
-                        <form class="row g-3" action="" method="post" enctype="multipart/form-data">
+                        <form class="row g-3" action="../inc/atualizarPreco.php?pg=<?= $_GET['pg'] ?>" method="post" enctype="multipart/form-data">
                           <!--DADOS PARA O LANÇAMENTO -->
                           <h5 class="card-title">Atualizar preço peças</h5>
 
@@ -161,27 +161,27 @@ switch ($_GET['empresa']) {
                             <div class="input-group mb-3">
                               <span class="input-group-text" id="basic-addon1">Data histórico a retornar</span>
                               <input type="date" class="form-control" aria-label="dateHistorico" aria-describedby="basic-addon1">
+                              <input type="text" name="empresa" id="empresaHonda" value="10" style="display: none;">
                             </div>
                           </div>
 
-                          <h5 class="card-title">Como devemos continuar!</h5>
+                          <h5 class="card-title">Outras informações</h5>
 
-                          <fieldset class="row mb-3">
+                          <div class="row mb-6">
                             <div class="col-sm-10">
                               <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option1" checked>
-                                <label class="form-check-label" for="gridRadios3">
-                                  Atualizar e Gerar Relatório
-                                </label>
-                              </div>
-                              <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option2">
-                                <label class="form-check-label" for="gridRadios4">
-                                  Gerar Relatório
+                                <input class="form-check-input" type="checkbox" id="gridCheck2" name="relatorio" value="1">
+                                <label class="form-check-label" for="gridCheck2">
+                                  Gerar apenas relatório.
+                                  <div id="ques" style="margin-left: 180px;margin-top: -23px;">
+                                    <a href="javascrpt:" data-bs-toggle="modal" data-bs-target="#questRelatorio">
+                                      <i class="bi bi-question-circle"></i>
+                                    </a>
+                                  </div>
                                 </label>
                               </div>
                             </div>
-                          </fieldset>
+                          </div>
                           <!-- BOTÃO DO FORMULARIOS -->
                           <div class="text-left  mb-3">
                             <hr>
