@@ -3,30 +3,7 @@ require_once('head.php'); //CSS e configurações HTML e session start
 require_once('header.php'); //logo e login e banco de dados
 require_once('menu.php'); //menu lateral da pagina
 require_once('../inc/pdfTabelaPrecos.php');
-
-if ($_GET['acao'] == 1) {
-
-  $displayAtualizaOne = 'none';
-  $displayAtualizaTwo = 'block';
-} else {
-
-  $displayAtualizaOne = 'block';
-  $displayAtualizaTwo = 'none';
-}
-
-switch ($_GET['empresa']) {
-  case '55':
-    $tabela = 'sisrev_atualizacao_preco_triumph';
-    $nomeEmpresa = 'Triumph';
-    break;
-  case '56':
-    $tabela = 'sisrev_atualizacao_preco_ducati';
-    $nomeEmpresa = 'Ducati';
-    break;
-  default:
-    $tabela = 'sisrev_atualizacao_preco_triumph';
-    $nomeEmpresa = 'Triumph';
-}
+require_once('../inc/tabelaAtualizarPreco.php');
 ?>
 
 <main id="main" class="main">
@@ -213,31 +190,8 @@ switch ($_GET['empresa']) {
 
             <!-- Table with stripped rows -->
             <form action="" method="post" class="row g-3">
-              <table class="table datatable">
-                <thead>
-                  <tr>
-                    <th scope="col" class="capitalize">codigo item</th>
-                    <th scope="col" class="capitalize">descrição</th>
-                    <th scope="col" class="capitalize">valor</th>
-                    <th scope="col" class="capitalize">status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php
-
-                  $queryListaPreco = "SELECT item, descricao, rrp as valor, status_item FROM " . $tabela;
-                  $resultListaPreco = $conn->query($queryListaPreco);
-
-                  while ($listaPreco = $resultListaPreco->fetch_assoc()) {
-                    echo '<tr>
-                              <td>' . $listaPreco['item'] . '</td>
-                              <td>' . $listaPreco['descricao'] . '</td>
-                              <td>R$ ' . $listaPreco['valor'] . '</td>
-                              <td>' . $listaPreco['status_item'] . '</td>
-                          </tr>';
-                  }
-                  ?>
-                </tbody>
+              <table class="table datatable">                               
+                  <?= $tabela ?>
               </table>
 
 
